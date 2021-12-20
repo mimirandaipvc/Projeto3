@@ -4,6 +4,7 @@ const config = require('config');
 const consign = require('consign');
 const pg = require('pg')
 const client = require('../api/data/database.js')
+const cors = require('cors');
 
 module.exports = () => {
 	const app = express();
@@ -25,6 +26,9 @@ module.exports = () => {
 
 	// MIDDLEWARES
 	app.use(bodyParser.json());
+	app.use(cors({
+		origin: '*'
+	}));
 
 	consign({ cwd: 'api' })
 		// .include('./controllers/passport.js')

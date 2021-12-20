@@ -11,12 +11,11 @@ module.exports = app => {
 		.get(controller.obterEmpresario)
 
 	app.route('/api/v1/Politico')
-		.all(app.controllers.passport.authenticate())
+
 		.get(controller.obterListaPolitico)
 		.post(controller.criarPolitico)
 
 	app.route('/api/v1/Politico/:idpessoasingular')
-		.all(app.controllers.passport.authenticate())
 		.get(controller.obterPolitico)
 
 	app.route('/api/v1/PessoaColetiva')
