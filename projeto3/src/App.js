@@ -2,6 +2,8 @@ import './App.css';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HomeAdmin from './Paginas/HomeAdmin'
 import ConsultarPoliticos from './Paginas/ConsultarPoliticos'
+import RelacoesPoliticos from './Paginas/RelacoesPoliticos'
+
 
 function App() {
   return (
@@ -12,6 +14,9 @@ function App() {
 			</Routes>
 			<Routes>
 				<Route path="/ConsultarPoliticos" element={<ConsultarPoliticos />} />
+			</Routes>
+			<Routes>
+				  <Route path="/RelacoesPoliticos" element={<RelacoesPoliticos />} />
 			</Routes>
 		  </BrowserRouter>
 	  </div>

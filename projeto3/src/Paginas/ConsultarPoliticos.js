@@ -6,12 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 import './HomeAdmin.css'
-import imagem1 from "../Imagens/1.jpg";
-import imagem2 from "../Imagens/2.jpg";
-import imagem3 from "../Imagens/3.jpg";
-import imagem4 from "../Imagens/4.jpg";
-import imagem5 from "../Imagens/5.jpg";
-import imagem6 from "../Imagens/6.jpg";
+
 
 
 
@@ -23,6 +18,7 @@ class ConsultarPoliticos extends Component {
 
 	componentDidMount() {
 		fetch('http://192.168.1.78:8080/api/v1/Politico/2')
+		// fetch('http://192.168.1.78:8080/api/v1/RelacaoPS/2')
 			.then(res => res.json())
 			.then(res => {
 				this.setState({
@@ -31,37 +27,6 @@ class ConsultarPoliticos extends Component {
 			});
 	}
 
-
-	// const [data, setData] = useState([]);
-	// const [filtered, setFiltered] = useState([]);
-	// const [result, setResult] = useState("");
-
-	// const [user, setUser] = useState();
-
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 	axios.get('http://192.168.1.78:8080/api/v1/Politico/2')
-	// 		.then((response) => setUser(response.data))
-	// 		.catch((err) => {
-	// 			console.error("ops! ocorreu um erro" + err);
-	// 		});
-	// 	};
-	// 	fetchData();
-	// }, []);
-
-
-
-
-	// // function getDetalhesProduto() {
-	// // 	return axios.get('http://192.168.1.78:8080/api/v1/Politico/2')
-	// // 		.then(function (response) {
-	// // 			setData(response.data)
-	// // 		})
-
-	// // }
-	// // useEffect(() => {
-	// // 	getDetalhesProduto();
-	// // }, [])
 	render() {
 		return (
 			<div>
