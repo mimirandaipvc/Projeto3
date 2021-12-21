@@ -16,17 +16,24 @@ module.exports = app => {
 
 	controller.obterRelacaoPS = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM relacaops where idrelacaops = idrelacaops`, (err, result) => {
-			if (!err) {
-				res.send(result.rows);
-			}
-		})
+		client.query(`SELECT * FROM relacaops where idrelacaops = $1`,
+			[
+				req.params.idrelacaops,
+			],
+			(err, result) => {
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
 		//client.end
 	}
 
 	controller.obterListaRelacaoPSEvento = (req, res) => {
 		//client.connect()
-		client.query(`SELECT idpessoasingular, idevento, data FROM relacaops where idevento = idevento`, (err, result) => {
+		client.query(`SELECT idpessoasingular, idevento, data FROM relacaops where idevento = $1`,
+			[
+				req.params.idevento,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -36,11 +43,14 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPSingular = (req, res) => {
 		//client.connect()
-		client.query(`SELECT idpessoasingular, idevento, data FROM relacaops where idpessoasingular = idpessoasingular`, (err, result) => {
-			if (!err) {
-				res.send(result.rows);
-			}
-		})
+		client.query(`SELECT * FROM relacaops where idpessoasingular = $1`,
+			[
+				req.params.idpessoasingular,
+			], (err, result) => {
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
 		//client.end
 	}
 
@@ -56,7 +66,10 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPCEvento = (req, res) => {
 		//client.connect()
-		client.query(`SELECT idpessoacoletiva, idevento, data FROM idpessoacoletiva where idevento = idevento`, (err, result) => {
+		client.query(`SELECT idpessoacoletiva, idevento, data FROM idpessoacoletiva where idevento = $1`,
+			[
+				req.params.idevento,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -66,7 +79,10 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPColetiva = (req, res) => {
 		//client.connect()
-		client.query(`SELECT idpessoacoletiva, idevento, data FROM idpessoacoletiva where idpessoacoletiva = idpessoacoletiva`, (err, result) => {
+		client.query(`SELECT idpessoacoletiva, idevento, data FROM idpessoacoletiva where idpessoacoletiva = $1`,
+			[
+				req.params.idpessoacoletiva,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -76,7 +92,10 @@ module.exports = app => {
 
 	controller.obterRelacaoPC = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM relacaopc where idrelacaopc = idrelacaopc`, (err, result) => {
+		client.query(`SELECT * FROM relacaopc where idrelacaopc = $1`,
+			[
+				req.params.idrelacaopc,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -96,7 +115,10 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPessoasSCPSingular = (req, res) => {
 		//client.connect()
-		client.query(`SELECT idpessoasingular, idpessoacoletiva, cargo FROM relacoespessoassc where idpessoasingular = idpessoasingular`, (err, result) => {
+		client.query(`SELECT idpessoasingular, idpessoacoletiva, cargo FROM relacoespessoassc where idpessoasingular = $1`,
+			[
+				req.params.idpessoasingular,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -106,7 +128,10 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPessoasSCPColetiva = (req, res) => {
 		//client.connect()
-		client.query(`SELECT idpessoasingular, idpessoacoletiva, cargo FROM relacoespessoassc where idpessoacoletiva = idpessoacoletiva`, (err, result) => {
+		client.query(`SELECT idpessoasingular, idpessoacoletiva, cargo FROM relacoespessoassc where idpessoacoletiva = $1`,
+			[
+				req.params.idpessoacoletiva,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -116,7 +141,10 @@ module.exports = app => {
 
 	controller.obterRelacaoPessoasSC = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM relacoespessoassc where idrelacoespessoassc = idrelacoespessoassc`, (err, result) => {
+		client.query(`SELECT * FROM relacoespessoassc where idrelacoespessoassc = $1`,
+			[
+				req.params.idrelacoespessoassc,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}

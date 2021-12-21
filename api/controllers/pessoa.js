@@ -16,7 +16,10 @@ module.exports = app => {
 
 	controller.obterPolitico = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM pessoasingular where idtipopessoasingular = 1 and idpessoasingular = idpessoasingular`, (err, result) => {
+		client.query(`SELECT * FROM pessoasingular where idtipopessoasingular = 1 and idpessoasingular = $1`,
+			[
+				req.params.idpessoasingular,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -36,7 +39,10 @@ module.exports = app => {
 
 	controller.obterEmpresario = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM pessoasingular where idtipopessoasingular = 2 and idpessoasingular = idpessoasingular`, (err, result) => {
+		client.query(`SELECT * FROM pessoasingular where idtipopessoasingular = 2 and idpessoasingular = = $1`,
+			[
+				req.params.idpessoasingular,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -98,7 +104,10 @@ module.exports = app => {
 
 	controller.obterPessoaColetiva = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM pessoacoletiva where idpessoacoletiva = idpessoacoletiva`, (err, result) => {
+		client.query(`SELECT * FROM pessoacoletiva where idpessoacoletiva = $1`,
+			[
+				req.params.idpessoacoletiva,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -137,7 +146,10 @@ module.exports = app => {
 
 	controller.obterEvento = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM evento where idevento = idevento`, (err, result) => {
+		client.query(`SELECT * FROM evento where idevento= $1`,
+			[
+				req.params.idevento,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}

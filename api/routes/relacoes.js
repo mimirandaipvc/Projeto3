@@ -6,16 +6,15 @@ module.exports = app => {
 		.get(controller.obterListaRelacaoPS)
 		.post(controller.criarRelacaoPS)
 
-	app.route('/api/v1/RelacaoPS/:idrelacaops')
+	app.route('/api/v1/RelacaoPSR/:idrelacaops')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterRelacaoPS)
 
-	app.route('/api/v1/RelacaoPS/:idevento')
+	app.route('/api/v1/RelacaoPSE/:idevento')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterListaRelacaoPSEvento)
 
-	app.route('/api/v1/RelacaoPS/:idpessoasingular')
-
+	app.route('/api/v1/RelacaoPSP/:idpessoasingular')
 		.get(controller.obterListaRelacaoPSingular)
 
 	app.route('/api/v1/RelacaoPC')
@@ -23,15 +22,15 @@ module.exports = app => {
 		.get(controller.obterListaRelacaoPC)
 		.post(controller.criarRelacaoPC)
 
-	app.route('/api/v1/RelacaoPC/:idrelacaopc')
+	app.route('/api/v1/RelacaoPCR/:idrelacaopc')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterRelacaoPC)
 
-	app.route('/api/v1/RelacaoPC/:idevento')
+	app.route('/api/v1/RelacaoPCE/:idevento')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterListaRelacaoPCEvento)
 
-	app.route('/api/v1/RelacaoPC/:idpessoacoletiva')
+	app.route('/api/v1/RelacaoPCP/:idpessoacoletiva')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterListaRelacaoPColetiva)
 
@@ -40,15 +39,15 @@ module.exports = app => {
 		.get(controller.obterListaRelacaoPessoasSC)
 		.post(controller.criarRelacaoPessoasSC)
 
-	app.route('/api/v1/RelacaoPessoasSC/:idpessoasingular')
+	app.route('/api/v1/RelacaoPessoasSCPS/:idpessoasingular')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterListaRelacaoPessoasSCPSingular)
 
-	app.route('/api/v1/RelacaoPessoasSC/:idpessoacoletiva')
+	app.route('/api/v1/RelacaoPessoasSCPC/:idpessoacoletiva')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterListaRelacaoPessoasSCPColetiva)
 
-	app.route('/api/v1/RelacaoPessoasSC/:idrelacoespessoassc')
+	app.route('/api/v1/RelacaoPessoasSCR/:idrelacoespessoassc')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterRelacaoPessoasSC)
 }

@@ -38,7 +38,7 @@ module.exports = app => {
 		//client.end;
 	}
 
-	controller.alterarCredibilidadeRPC = (req, res) => {
+	controller.aumentarCredibilidadeRPC = (req, res) => {
 
 		client.query(`UPDATE relacaopc SET credibilidade = credibilidade + 1 where idrelacaopc = $1;`,
 			[
@@ -53,9 +53,39 @@ module.exports = app => {
 		//client.end;
 	}
 
-	controller.alterarCredibilidadeRPS = (req, res) => {
+	controller.diminuirCredibilidadeRPC = (req, res) => {
+
+		client.query(`UPDATE relacaopc SET credibilidade = credibilidade - 1 where idrelacaopc = $1;`,
+			[
+				req.body.idrelacaops,
+			],
+			(err, result) => {
+				if (!err) {
+					res.send('Update was successful')
+				}
+				else { console.log(err.message) }
+			})
+		//client.end;
+	}
+
+	controller.aumentarCredibilidadeRPS = (req, res) => {
 
 		client.query(`UPDATE relacaops SET credibilidade = credibilidade + 1 where idrelacaops = $1;`,
+			[
+				req.body.idrelacaops,
+			],
+			(err, result) => {
+				if (!err) {
+					res.send('Update was successful')
+				}
+				else { console.log(err.message) }
+			})
+		//client.end;
+	}
+
+	controller.diminuirCredibilidadeRPS = (req, res) => {
+
+		client.query(`UPDATE relacaops SET credibilidade = credibilidade - 1 where idrelacaops = $1;`,
 			[
 				req.body.idrelacaops,
 			],

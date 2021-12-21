@@ -16,7 +16,10 @@ module.exports = app => {
 
 	controller.obterAdmin = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM utilizador where idtipoutilizador = 1 and idutilizador = idutilizador`, (err, result) => {
+		client.query(`SELECT * FROM utilizador where idtipoutilizador = 1 and idutilizador = $1`,
+			[
+				req.params.idutilizador,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -36,7 +39,10 @@ module.exports = app => {
 
 	controller.obterJornalista = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM utilizador where idtipoutilizador = 2 and idutilizador = idutilizador`, (err, result) => {
+		client.query(`SELECT * FROM utilizador where idtipoutilizador = 2 and idutilizador = $1`,
+			[
+				req.params.idutilizador,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -56,7 +62,10 @@ module.exports = app => {
 
 	controller.obterCidadaoRegistado = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM utilizador where idtipoutilizador = 3 and idutilizador = idutilizador`, (err, result) => {
+		client.query(`SELECT * FROM utilizador where idtipoutilizador = 3 and idutilizador = idutilizador = $1`,
+			[
+				req.params.idutilizador,
+			], (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
