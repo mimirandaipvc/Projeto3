@@ -16,7 +16,7 @@ function App() {
 				<Route path="/ConsultarPoliticos" element={<ConsultarPoliticos />} />
 			</Routes>
 			<Routes>
-				  <Route path="/RelacoesPoliticos" element={<RelacoesPoliticos />} />
+				  <Route path="/RelacoesPoliticos/:idpessoasingular" element={<RelacoesPoliticos />} />
 			</Routes>
 		  </BrowserRouter>
 	  </div>
