@@ -21,31 +21,31 @@ function RelacoesPoliticos() {
 			});
 	}
 
-	function mais() {
+	function mais(i) {
 		api.post('/api/v1/VotoRPS',{
-			idrelacaops: 2,
+			idrelacaops: i,
 			idutilizador: 1,
 		});
 		api.put('/api/v1/AumentarCredibilidadeRPS', {
-			idrelacaops: 2,
+			idrelacaops: i,
 		});
 		console.log('mais');
 	}
 
-	function menos() {
+	function menos(i) {
 		api.post('/api/v1/VotoRPS', {
-			idrelacaops: 2,
+			idrelacaops: i,
 			idutilizador: 1,
 		});
 		api.put('/api/v1/DiminuirCredibilidadeRPS', {
-			idrelacaops: 2,
+			idrelacaops: i,
 		});
 		console.log('menos');
 	}
 
 	useEffect(() => {
 		obterDados();
-	});
+	}, []);
 
 	return (
 			<div>
@@ -72,8 +72,8 @@ function RelacoesPoliticos() {
 								Inserido por: {item.idutilizador} <br></br>
 								<b>Credibilidade: {item.credibilidade}</b>
 							</Card.Text>
-							<Button onClick={mais} >Credível</Button>
-							<Button onClick={menos}>Não Credível</Button>
+							<Button onClick={() => mais(item.idrelacaops)}>Credível</Button>
+							<Button onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
 						</Card.Body>
 					</Card>
 				))}
