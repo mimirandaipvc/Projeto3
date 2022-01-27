@@ -1,9 +1,10 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './RelacoesPoliticos.css'
 
 
 import './HomeAdmin.css'
@@ -11,12 +12,32 @@ import './HomeAdmin.css'
 function RelacoesPoliticos() {
 
 	const params = useParams();
-	const [data, setData] = useState([]);
+	const [data1, setData1] = useState([]);
+	const [data2, setData2] = useState([]);
+	const [data3, setData3] = useState([]);
+
+	function obterPolitico() {
+		return api.get('/api/v1/Politico/' + params.idpessoasingular)
+			.then(function (response) {
+				setData2(response.data);
+				console.log(response.data);
+			});
+	}
+
+	function obterEvento() {
+		for (const i = 0; i < data1.length; i++) {
+			return api.get('/api/v1/Evento/' + data1[i].idevento)
+				.then(function (response) {
+					setData3(response.data);
+					console.log(response.data);
+				});
+		}
+	}
 
 	function obterDados(){
 		return api.get('/api/v1/RelacaoPSP/' + params.idpessoasingular)
 			.then(function (response) {
-				setData(response.data);
+				setData1(response.data);
 				console.log(response.data);
 			});
 	}
@@ -30,6 +51,8 @@ function RelacoesPoliticos() {
 			idrelacaops: i,
 		});
 		console.log('mais');
+		// window.location.reload();
+
 	}
 
 	function menos(i) {
@@ -41,44 +64,59 @@ function RelacoesPoliticos() {
 			idrelacaops: i,
 		});
 		console.log('menos');
+		// window.location.reload();
+
 	}
 
 	useEffect(() => {
 		obterDados();
-	}, []);
+		obterPolitico();
+		obterEvento();
+	}, [data1]);
 
 	return (
 			<div>
-				<Navbar bg="dark" variant="dark">
+				<Container fluid>
+
+				<Navbar bg="light" expand="lg">
 					<Container>
 						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Nav className="me-auto">
-							<Nav.Link href="#home">Home</Nav.Link>
-							<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
-						</Nav>
+						<Navbar.Toggle aria-controls="basic-navbar-nav" />
+						<Navbar.Collapse id="basic-navbar-nav">
+							<Nav className="me-auto">
+								<Nav.Link href="#home">Home</Nav.Link>
+								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+							</Nav>
+						</Navbar.Collapse>
 					</Container>
 				</Navbar>
-				<br />
-				<h1>RELACOES</h1>
 
-				{data.map(item => (
-					<Card style={{ width: '23rem' }} key={item.idrelacaops}>
-						<Card.Body>
-							<Card.Title>{item.idrelacaops} {item.idpessoasingular} e {item.idevento}</Card.Title>
-							<Card.Text>
-								Motivo: {item.motivo} <br></br>
-								Valores: {item.valores}€ <br></br>
-								Data inserção: {item.data} <br></br>
-								Inserido por: {item.idutilizador} <br></br>
-								<b>Credibilidade: {item.credibilidade}</b>
-							</Card.Text>
-							<Button onClick={() => mais(item.idrelacaops)}>Credível</Button>
-							<Button onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
-						</Card.Body>
-					</Card>
-				))}
+					<br />
+					<h1>RELAÇÕES</h1>
 
-
+					{data1.map(item => (
+						<Card style={{ width: '23rem' }} key={item.idrelacaops}>
+							<Card.Body>
+								<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
+								<Card.Text>
+									{data2.map(item => (
+									<p>Politico:{item.nome}</p>
+									))}
+									{data3.map(item => (
+									<p>Evento: {item.designacao}</p>
+									))}
+									<p>Motivo: {item.motivo}</p>
+									<p>Valores: {item.valores}€</p>
+									<p>Data inserção: {item.data}</p>
+									<p>Inserido por: {item.idutilizador}</p>
+									<p><b>Credibilidade: {item.credibilidade}</b></p>
+								</Card.Text>
+								<Button variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
+								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
+							</Card.Body>
+						</Card>
+					))}
+				</Container>
 			</div>
 		);
 

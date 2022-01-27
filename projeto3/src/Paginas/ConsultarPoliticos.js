@@ -1,33 +1,33 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import api from './api'
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-
-import './HomeAdmin.css'
-
+import './RelacoesPoliticos.css'
 
 
 
-class ConsultarPoliticos extends Component {
+function ConsultarPoliticos() {
 
-	state = {
-		linguagens: []
-	};
+	const params = useParams();
+	const [data1, setData1] = useState([]);
 
-	componentDidMount() {
-		fetch('http://192.168.1.78:8080/api/v1/Politico/2')
-		// fetch('http://192.168.1.78:8080/api/v1/RelacaoPS/2')
-			.then(res => res.json())
-			.then(res => {
-				this.setState({
-					linguagens: res
-				});
+
+	function obterListaPoliticos() {
+		return api.get('/api/v1/Politico')
+			.then(function (response) {
+				setData1(response.data);
+				console.log(response.data);
 			});
 	}
 
-	render() {
+
+	useEffect(() => {
+		obterListaPoliticos();
+	})
+
+
 		return (
 			<div>
 				<h1>POLITICOS</h1>
@@ -53,14 +53,14 @@ class ConsultarPoliticos extends Component {
 							</tr>
 					</thead>
 					<tbody>
-						{this.state.linguagens.map(item => (
+						{data1.map(item => (
 							<tr>
 								<td>{item.nome}</td>
 								<td>{item.sexo}</td>
 								<td>{item.nacionalidade}</td>
 								<td>{item.datanascimento}</td>
-								<td>{item.datanascimento}</td>
-								<td><Button variant="dark" href="http://localhost:3000/HomeAdmin">Ver relações</Button></td>
+								<td>{item.profissao}</td>
+								<td><Button variant="dark" href={"http://localhost:3000/RelacoesPoliticas/" + item.idpessoasingular}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -68,7 +68,6 @@ class ConsultarPoliticos extends Component {
 
 			</div>
 		);
-	}
 }
 
 export default ConsultarPoliticos;

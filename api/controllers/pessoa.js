@@ -6,7 +6,7 @@ module.exports = app => {
 
 	controller.obterListaPolitico = (req, res) => {
 		//client.connect()
-		client.query(`SELECT nome FROM pessoasingular where idtipopessoasingular = 1`, (err, result) => {
+		client.query(`SELECT * FROM pessoasingular where idtipopessoasingular = 1`, (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}

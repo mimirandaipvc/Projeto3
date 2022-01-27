@@ -1,0 +1,24 @@
+body {
+	font-family: sans-serif;
+	background-color: lightblue
+}
+
+#dois {
+	float: right;
+}
+
+p {
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+}
+
+.card {
+	margin: 0 auto;
+	float: center;
+	margin: 60px;
+}
+
+
