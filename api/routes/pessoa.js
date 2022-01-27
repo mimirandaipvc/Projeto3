@@ -23,7 +23,7 @@ module.exports = app => {
 		.get(controller.obterListaPessoaColetiva)
 		.post(controller.criarPessoaColetiva)
 
-	app.route('/api/v1/PessoaColetiva/:idpessoasingular')
+	app.route('/api/v1/PessoaColetiva/:idpessoacoletiva')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterPessoaColetiva)
 

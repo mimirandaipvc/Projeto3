@@ -9,15 +9,15 @@ import './RelacoesPoliticos.css'
 
 import './HomeAdmin.css'
 
-function RelacoesPoliticos() {
+function RelacoesEmpresas() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
 	const [data3, setData3] = useState([]);
 
-	function obterPolitico() {
-		return api.get('/api/v1/Politico/' + params.idpessoasingular)
+	function obterEmpresa() {
+		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
 			.then(function (response) {
 				setData2(response.data);
 				console.log(response.data);
@@ -34,8 +34,8 @@ function RelacoesPoliticos() {
 		}
 	}
 
-	function obterDados(){
-		return api.get('/api/v1/RelacaoPSP/' + params.idpessoasingular)
+	function obterDados() {
+		return api.get('/api/v1/RelacaoPCP/' + params.idpessoacoletiva)
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
@@ -43,12 +43,12 @@ function RelacoesPoliticos() {
 	}
 
 	function mais(i) {
-		api.post('/api/v1/VotoRPS',{
-			idrelacaops: i,
+		api.post('/api/v1/VotoRPC', {
+			idrelacaopc: i,
 			idutilizador: 1,
 		});
-		api.put('/api/v1/AumentarCredibilidadeRPS', {
-			idrelacaops: i,
+		api.put('/api/v1/AumentarCredibilidadeRPC', {
+			idrelacaopc: i,
 		});
 		console.log('mais');
 		// window.location.reload();
@@ -60,7 +60,7 @@ function RelacoesPoliticos() {
 			idrelacaops: i,
 			idutilizador: 1,
 		});
-		api.put('/api/v1/DiminuirCredibilidadeRPS', {
+		api.put('/api/v1/DiminuirCredibilidadeRPC', {
 			idrelacaops: i,
 		});
 		console.log('menos');
@@ -70,13 +70,13 @@ function RelacoesPoliticos() {
 
 	useEffect(() => {
 		obterDados();
-		obterPolitico();
+		obterEmpresa();
 		obterEvento();
 	}, [data1]);
 
 	return (
-			<div>
-				<Container fluid>
+		<div>
+			<Container fluid>
 
 				<Navbar bg="light" expand="lg">
 					<Container>
@@ -91,36 +91,35 @@ function RelacoesPoliticos() {
 					</Container>
 				</Navbar>
 
-					<br />
-					<h1>RELAÇÕES</h1>
+				<br />
+				<h1>RELAÇÕES</h1>
 
-					{data1.map(item => (
-						<Card style={{ width: '23rem' }} key={item.idrelacaops}>
-							<Card.Body>
-								<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
-								<Card.Text>
-									{data2.map(item => (
-									<p>Politico:{item.nome}</p>
-									))}
-									{data3.map(item => (
+				{data1.map(item => (
+					<Card style={{ width: '23rem' }} key={item.idrelacaopc}>
+						<Card.Body>
+							<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
+							<Card.Text>
+								{data2.map(item => (
+									<p>Empresa:{item.designacao}</p>
+								))}
+								{data3.map(item => (
 									<p>Evento: {item.designacao}</p>
-									))}
-									<p>Motivo: {item.motivo}</p>
-									<p>Valores: {item.valores}€</p>
-									<p>Data inserção: {item.data}</p>
-									<p>Inserido por: {item.idutilizador}</p>
-									<p><b>Credibilidade: {item.credibilidade}</b></p>
-								</Card.Text>
-								<Button variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
-								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
-							</Card.Body>
-						</Card>
-					))}
-				</Container>
-			</div>
-		);
+								))}
+								<p>Motivo: {item.motivo}</p>
+								<p>Valores: {item.valores}€</p>
+								<p>Data inserção: {item.data}</p>
+								<p>Inserido por: {item.idutilizador}</p>
+								<p><b>Credibilidade: {item.credibilidade}</b></p>
+							</Card.Text>
+							<Button variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
+							<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
+						</Card.Body>
+					</Card>
+				))}
+			</Container>
+		</div>
+	);
 
 }
 
-export default RelacoesPoliticos;
-
+export default RelacoesEmpresas;

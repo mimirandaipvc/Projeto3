@@ -30,7 +30,7 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPSEvento = (req, res) => {
 		//client.connect()
-		client.query(`SELECT idpessoasingular, idevento, data FROM relacaops where idevento = $1`,
+		client.query(`SELECT * FROM relacaops where idevento = $1`,
 			[
 				req.params.idevento,
 			], (err, result) => {
@@ -66,7 +66,7 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPCEvento = (req, res) => {
 		//client.connect()
-		client.query(`SELECT idpessoacoletiva, idevento, data FROM idpessoacoletiva where idevento = $1`,
+		client.query(`SELECT * FROM relacaopc where idevento = $1`,
 			[
 				req.params.idevento,
 			], (err, result) => {
@@ -79,7 +79,7 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPColetiva = (req, res) => {
 		//client.connect()
-		client.query(`SELECT idpessoacoletiva, idevento, data FROM idpessoacoletiva where idpessoacoletiva = $1`,
+		client.query(`SELECT * FROM relacaopc where idpessoacoletiva = $1`,
 			[
 				req.params.idpessoacoletiva,
 			], (err, result) => {

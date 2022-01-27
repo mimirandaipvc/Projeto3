@@ -29,7 +29,7 @@ module.exports = app => {
 
 	controller.obterListaEmpresario = (req, res) => {
 		//client.connect()
-		client.query(`SELECT nome FROM pessoasingular where idtipopessoasingular = 2`, (err, result) => {
+		client.query(`SELECT * FROM pessoasingular where idtipopessoasingular = 2`, (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -94,7 +94,7 @@ module.exports = app => {
 
 	controller.obterListaPessoaColetiva = (req, res) => {
 		//client.connect()
-		client.query(`SELECT designacao FROM pessoacoletiva`, (err, result) => {
+		client.query(`SELECT * FROM pessoacoletiva`, (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -136,7 +136,7 @@ module.exports = app => {
 
 	controller.obterListaEvento = (req, res) => {
 		//client.connect()
-		client.query(`SELECT designacao FROM evento`, (err, result) => {
+		client.query(`SELECT * FROM evento`, (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
