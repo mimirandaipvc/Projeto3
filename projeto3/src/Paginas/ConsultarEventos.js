@@ -25,7 +25,7 @@ function ConsultarEventos() {
 
 	useEffect(() => {
 		obterListaEventos();
-	})
+	}, []);
 
 
 	return (
@@ -62,7 +62,7 @@ function ConsultarEventos() {
 								<td>{item.designacao}</td>
 								<td>{item.descricao}</td>
 								<td>{item.data}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/RelacoesPoliticos/" + item.idpessoasingular}>Ver relações</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/RelacoesEventos/" + item.idevento}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>

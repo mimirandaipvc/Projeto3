@@ -25,7 +25,7 @@ function ConsultarPoliticos() {
 
 	useEffect(() => {
 		obterListaPoliticos();
-	})
+	}, []);
 
 
 		return (
@@ -56,6 +56,7 @@ function ConsultarPoliticos() {
 									<th>Nacionalidade</th>
 									<th>Data de Nascimento</th>
 									<th>Profissão</th>
+									<th>Cargos em Empresas</th>
 								</tr>
 						</thead>
 						<tbody>
@@ -66,7 +67,8 @@ function ConsultarPoliticos() {
 									<td>{item.nacionalidade}</td>
 									<td>{item.datanascimento}</td>
 									<td>{item.profissao}</td>
-									<td><Button variant="dark" href={"http://localhost:3000/RelacoesPoliticos/" + item.idpessoasingular}>Ver relações</Button></td>
+									<td><Button variant="dark" href={"http://localhost:3000/CargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
+									<td><Button variant="dark" href={"http://localhost:3000/RelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
 								</tr>
 							))}
 						</tbody>

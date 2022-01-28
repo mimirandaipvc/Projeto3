@@ -9,70 +9,36 @@ import './RelacoesPoliticos.css'
 
 import './HomeAdmin.css'
 
-function RelacoesEmpresas() {
+function CargosEmEmpresas() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
-	const [data3, setData3] = useState([]);
 
 	function obterEmpresa() {
-		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
-			.then(function (response) {
-				setData2(response.data);
-				console.log(response.data);
-			});
-	}
-
-	function obterEvento() {
 		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Evento/' + data1[i].idevento)
+			return api.get('/api/v1/PessoaColetiva/' + data1[i].idpessoacoletiva)
 				.then(function (response) {
-					setData3(response.data);
+					setData2(response.data);
 					console.log(response.data);
 				});
 		}
 	}
 
 	function obterDados() {
-		return api.get('/api/v1/RelacaoPCP/' + params.idpessoacoletiva)
+		return api.get('/api/v1/RelacaoPessoasSCPS/' + params.idpessoasingular)
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
 			});
 	}
 
-	function mais(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/AumentarCredibilidadeRPC', {
-			idrelacaopc: i,
-		});
-		console.log('mais');
-		// window.location.reload();
 
-	}
-
-	function menos(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaopc: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/DiminuirCredibilidadeRPC', {
-			idrelacaopc: i,
-		});
-		console.log('menos');
-		// window.location.reload();
-
-	}
 
 	useEffect(() => {
 		obterDados();
 		obterEmpresa();
-		obterEvento();
-	}, [data1]);
+	}, []);
 
 	return (
 		<div>
@@ -92,27 +58,21 @@ function RelacoesEmpresas() {
 				</Navbar>
 
 				<br />
-				<h1>RELAÇÕES</h1>
+				<h1>CARGOS EM EMPRESAS</h1>
 
 				{data1.map(item => (
-					<Card style={{ width: '23rem' }} key={item.idrelacaopc}>
+					<Card style={{ width: '23rem' }} key={item.idrelacaops}>
 						<Card.Body>
-							<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
+							<Card.Title>Relação número <b>{item.idrelacoespessoassc}</b> </Card.Title>
 							<Card.Text>
 								{data2.map(item => (
 									<p>Empresa:{item.designacao}</p>
 								))}
-								{data3.map(item => (
-									<p>Evento: {item.designacao}</p>
-								))}
-								<p>Motivo: {item.motivo}</p>
-								<p>Valores: {item.valores}€</p>
-								<p>Data inserção: {item.data}</p>
+								<p>Data Inicio: {item.datainicio}</p>
+								<p>Cargo: {item.cargo}</p>
+								<p>Salario: {item.salario} €</p>
 								<p>Inserido por: {item.idutilizador}</p>
-								<p><b>Credibilidade: {item.credibilidade}</b></p>
 							</Card.Text>
-							<Button variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
-							<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
 						</Card.Body>
 					</Card>
 				))}
@@ -122,4 +82,4 @@ function RelacoesEmpresas() {
 
 }
 
-export default RelacoesEmpresas;
+export default CargosEmEmpresas;

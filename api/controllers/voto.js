@@ -57,7 +57,7 @@ module.exports = app => {
 
 		client.query(`UPDATE relacaopc SET credibilidade = credibilidade - 1 where idrelacaopc = $1;`,
 			[
-				req.body.idrelacaops,
+				req.body.idrelacaopc,
 			],
 			(err, result) => {
 				if (!err) {

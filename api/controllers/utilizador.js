@@ -6,7 +6,7 @@ module.exports = app => {
 
 	controller.obterListaAdmin = (req, res) => {
 		//client.connect()
-		client.query(`SELECT username FROM utilizador where idtipoutilizador = 1`, (err, result) => {
+		client.query(`SELECT * FROM utilizador where idtipoutilizador = 1`, (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -29,7 +29,7 @@ module.exports = app => {
 
 	controller.obterListaJornalista = (req, res) => {
 		//client.connect()
-		client.query(`SELECT username FROM utilizador where idtipoutilizador = 2`, (err, result) => {
+		client.query(`SELECT * FROM utilizador where idtipoutilizador = 2`, (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}
@@ -52,7 +52,7 @@ module.exports = app => {
 
 	controller.obterListaCidadaoRegistado = (req, res) => {
 		//client.connect()
-		client.query(`SELECT username FROM utilizador where idtipoutilizador = 3`, (err, result) => {
+		client.query(`SELECT * FROM utilizador where idtipoutilizador = 3`, (err, result) => {
 			if (!err) {
 				res.send(result.rows);
 			}

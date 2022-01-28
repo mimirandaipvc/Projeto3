@@ -115,7 +115,7 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPessoasSCPSingular = (req, res) => {
 		//client.connect()
-		client.query(`SELECT idpessoasingular, idpessoacoletiva, cargo FROM relacoespessoassc where idpessoasingular = $1`,
+		client.query(`SELECT * FROM relacoespessoassc where idpessoasingular = $1`,
 			[
 				req.params.idpessoasingular,
 			], (err, result) => {

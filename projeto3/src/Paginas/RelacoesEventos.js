@@ -122,7 +122,8 @@ function RelacoesEventos() {
 		obterPolitico();
 		obterEmpresa();
 		obterEvento();
-	}, [data1, data5]);
+	}, [data1]);
+
 
 	return (
 		<div>

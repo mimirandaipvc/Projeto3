@@ -8,6 +8,10 @@ import ConsultarEmpresas from './Paginas/ConsultarEmpresas'
 import ConsultarEventos from './Paginas/ConsultarEventos'
 import RelacoesEmpresas from './Paginas/RelacoesEmpresas'
 import RelacoesEventos from './Paginas/RelacoesEventos'
+import RelacoesEmpresarios from './Paginas/RelacoesEmpresarios'
+import CargosEmEmpresas from './Paginas/CargosEmEmpresas'
+import ConsultarUtilizadores from './Paginas/ConsultarUtilizadores'
+
 
 
 function App() {
@@ -33,13 +37,19 @@ function App() {
 				  <Route path="/RelacoesPoliticos/:idpessoasingular" element={<RelacoesPoliticos />} />
 			</Routes>
 			<Routes>
-				<Route path="/RelacoesEmpresarios/:idpessoasingular" element={<RelacoesPoliticos />} />
+				<Route path="/RelacoesEmpresarios/:idpessoasingular" element={<RelacoesEmpresarios />} />
+			</Routes>
+			<Routes>
+				  <Route path="/CargosEmEmpresas/:idpessoasingular" element={<CargosEmEmpresas />} />
 			</Routes>
 			<Routes>
 				<Route path="/RelacoesEmpresas/:idpessoacoletiva" element={<RelacoesEmpresas />} />
 			</Routes>
 			<Routes>
 				<Route path="/RelacoesEventos/:idevento" element={<RelacoesEventos />} />
+			</Routes>
+			<Routes>
+				<Route path="/ConsultarUtilizadores" element={<ConsultarUtilizadores />} />
 			</Routes>
 		  </BrowserRouter>
 	  </div>
