@@ -11,7 +11,8 @@ import RelacoesEventos from './Paginas/RelacoesEventos'
 import RelacoesEmpresarios from './Paginas/RelacoesEmpresarios'
 import CargosEmEmpresas from './Paginas/CargosEmEmpresas'
 import ConsultarUtilizadores from './Paginas/ConsultarUtilizadores'
-
+import CriarRelacaoPSC from './Paginas/CriarRelacaoPSC'
+import CriarInfoPC from './Paginas/CriarInfoPC'
 
 
 function App() {
@@ -50,6 +51,12 @@ function App() {
 			</Routes>
 			<Routes>
 				<Route path="/ConsultarUtilizadores" element={<ConsultarUtilizadores />} />
+			</Routes>
+			<Routes>
+				<Route path="/CriarRelacaoPSC/:idpessoasingular" element={<CriarRelacaoPSC />} />
+			</Routes>
+			<Routes>
+				  <Route path="/CriarInfoPC/:idpessoacoletiva" element={<CriarInfoPC />} />
 			</Routes>
 		  </BrowserRouter>
 	  </div>

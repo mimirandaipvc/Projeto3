@@ -198,9 +198,6 @@ function RelacoesEventos() {
 						</Card>
 					))}
 				</div>
-
-
-
 			</Container>
 		</div>
 	);

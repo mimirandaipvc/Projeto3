@@ -116,6 +116,9 @@ function RelacoesPoliticos() {
 							</Card.Body>
 						</Card>
 					))}
+
+				<Button variant="dark" href={"http://localhost:3000/CriarInfoPS/" + params.idpessoasingular}>Criar Relação</Button>
+
 				</Container>
 			</div>
 		);

@@ -172,11 +172,12 @@ module.exports = app => {
 	}
 
 	controller.criarRelacaoPC = (req, res) => {
-		client.query(`INSERT INTO "relacaops" ("motivo", "valores", "idpessoasingular", "idevento", "idutilizador")
-                       values($1, $2, $3, $4, $5)`,
+		client.query(`INSERT INTO "relacaopc" ("motivo", "valores", "data", "idpessoacoletiva", "idevento", "idutilizador")
+                       values($1, $2, $3, $4, $5, $6)`,
 			[
 				req.body.motivo,
 				req.body.valores,
+				req.body.data,
 				req.body.idpessoacoletiva,
 				req.body.idevento,
 				req.body.idutilizador
@@ -192,7 +193,7 @@ module.exports = app => {
 
 	controller.criarRelacaoPessoasSC = (req, res) => {
 		client.query(`INSERT INTO "relacoespessoassc" ("datainicio", "cargo", "salario", "idpessoasingular", "idpessoacoletiva", "idutilizador")
-                       values($1, $2, $3)`,
+                       values($1, $2, $3, $4, $5, $6)`,
 			[
 				req.body.datainicio,
 				req.body.cargo,

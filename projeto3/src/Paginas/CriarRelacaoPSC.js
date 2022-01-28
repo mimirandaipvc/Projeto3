@@ -12,21 +12,26 @@ function CriarRelacaoPSC() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
+	const [Datainicio, setDatainicio] = useState([]);
+	const [Cargo, setCargo] = useState([]);
+	const [Salario, setSalario] = useState([]);
+	const [IDPessoaColetiva, setIDPessoaColetiva] = useState([]);
 
 
-	function obterListaPoliticos() {
-		return api.get('/api/v1/Politico')
-			.then(function (response) {
-				setData1(response.data);
-				console.log(response.data);
-			});
+	function adicionaRelacao() {
+		return api.post('/api/v1/RelacaoPessoasSC', {
+			datainicio: Datainicio,
+			cargo: Cargo,
+			salario: Salario,
+			idpessoasingular: params.idpessoasingular,
+			idpessoacoletiva: IDPessoaColetiva,
+			idutilizador: 1
+		}).then(response => {
+			console.log(response.data);
+		}).catch(error => {
+			console.log(error);
+		})
 	}
-
-
-	useEffect(() => {
-		obterListaPoliticos();
-	}, []);
-
 
 	return (
 		<div>
@@ -46,28 +51,26 @@ function CriarRelacaoPSC() {
 				</Navbar>
 
 				<br />
-				<h1>POLÍTICOS</h1>
-
-				<Form>
-					<Form.Group className="mb-3" controlId="formBasicEmail">
-						<Form.Label></Form.Label>
-						<Form.Control type="email" placeholder="Enter email" />
-						<Form.Text className="text-muted">
-							We'll never share your email with anyone else.
-						</Form.Text>
-					</Form.Group>
-
-					<Form.Group className="mb-3" controlId="formBasicPassword">
-						<Form.Label>Password</Form.Label>
-						<Form.Control type="password" placeholder="Password" />
-					</Form.Group>
-					<Form.Group className="mb-3" controlId="formBasicCheckbox">
-						<Form.Check type="checkbox" label="Check me out" />
-					</Form.Group>
-					<Button variant="primary" type="submit">
-						Submit
-					</Button>
-				</Form>
+				<h2>Adiciona Cargo</h2>
+				<br></br>
+				<Form.Label>Data Inicio: </Form.Label>
+				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="datainicio"
+					placeholder="Intoduza a data de inicio" onChange={e => setDatainicio(e.target.value)} />
+				<br></br>
+				<Form.Label>Cargo: </Form.Label>
+				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="cargo"
+					placeholder="Intoduza o cargo" onChange={e => setCargo(e.target.value)} />
+				<br></br>
+				<Form.Label>Salario: </Form.Label>
+				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="salario"
+					placeholder="Intoduza o salario" onChange={e => setSalario(e.target.value)} />
+				<br></br>
+				<Form.Label>ID Pessoa Coletiva: </Form.Label>
+				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="idpessoacoletiva"
+					placeholder="Intoduza o ID da Empresa" onChange={e => setIDPessoaColetiva(e.target.value)} />
+				<br></br>
+				<br></br>
+				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaRelacao}>Adicionar Relacao</button>
 			</Container>
 		</div>
 	);

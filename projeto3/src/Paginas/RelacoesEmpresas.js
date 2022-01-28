@@ -56,7 +56,7 @@ function RelacoesEmpresas() {
 	}
 
 	function menos(i) {
-		api.post('/api/v1/VotoRPS', {
+		api.post('/api/v1/VotoRPC', {
 			idrelacaopc: i,
 			idutilizador: 1,
 		});
@@ -116,6 +116,9 @@ function RelacoesEmpresas() {
 						</Card.Body>
 					</Card>
 				))}
+				<br></br>
+				<Button variant="dark" href={"http://localhost:3000/CriarInfoPC/" + params.idpessoacoletiva}>Criar Novo Cargo</Button>
+
 			</Container>
 		</div>
 	);

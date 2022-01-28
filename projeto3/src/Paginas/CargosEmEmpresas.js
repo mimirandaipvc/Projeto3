@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
@@ -76,6 +76,10 @@ function CargosEmEmpresas() {
 						</Card.Body>
 					</Card>
 				))}
+				<br></br>
+
+				<Button variant="dark" href={"http://localhost:3000/CriarRelacaoPSC/" + params.idpessoasingular}>Criar Novo Cargo</Button>
+
 			</Container>
 		</div>
 	);
