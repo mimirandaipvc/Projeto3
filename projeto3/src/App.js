@@ -13,6 +13,9 @@ import CargosEmEmpresas from './Paginas/CargosEmEmpresas'
 import ConsultarUtilizadores from './Paginas/ConsultarUtilizadores'
 import CriarRelacaoPSC from './Paginas/CriarRelacaoPSC'
 import CriarInfoPC from './Paginas/CriarInfoPC'
+import CriarJornalista from './Paginas/CriarJornalista'
+import CriarAdmin from './Paginas/CriarAdmin'
+import CriarCidadaoRegistado from './Paginas/CriarCidadaoRegistado'
 
 
 function App() {
@@ -56,7 +59,16 @@ function App() {
 				<Route path="/CriarRelacaoPSC/:idpessoasingular" element={<CriarRelacaoPSC />} />
 			</Routes>
 			<Routes>
-				  <Route path="/CriarInfoPC/:idpessoacoletiva" element={<CriarInfoPC />} />
+				<Route path="/CriarInfoPC/:idpessoacoletiva" element={<CriarInfoPC />} />
+			</Routes>
+			<Routes>
+				<Route path="/CriarJornalista" element={<CriarJornalista />} />
+			</Routes>
+			<Routes>
+				<Route path="/CriarAdmin" element={<CriarAdmin />} />
+			</Routes>
+			<Routes>
+				<Route path="/CriarCidadaoRegistado" element={<CriarCidadaoRegistado />} />
 			</Routes>
 		  </BrowserRouter>
 	  </div>

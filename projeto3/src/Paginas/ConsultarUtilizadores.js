@@ -137,6 +137,10 @@ function ConsultarUtilizadores() {
 						))}
 					</tbody>
 				</Table>
+				<br></br>
+				<Button variant="dark" href={"http://localhost:3000/CriarAdmin/"}>Criar Administrador</Button>
+				<br></br>
+				<Button variant="dark" href={"http://localhost:3000/CriarJornalista/"}>Criar Jornalista</Button>
 			</Container>
 		</div>
 	);
