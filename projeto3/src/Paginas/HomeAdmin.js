@@ -27,7 +27,7 @@ function HomeAdmin() {
 					<Carousel.Caption>
 						<h3>Consultar Politicos</h3>
 						<p>Visualizar políticos e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/detalhesLoja/1`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarPoliticos/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -39,6 +39,7 @@ function HomeAdmin() {
 					<Carousel.Caption>
 						<h3>Consultar Eventos</h3>
 						<p>Visualizar Eventos e respetivas relações</p>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEventos/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -50,6 +51,7 @@ function HomeAdmin() {
 					<Carousel.Caption>
 						<h3>Consultar Empresários</h3>
 						<p>Visualizar Empresários e respetivas relações</p>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEmpresarios/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -61,6 +63,7 @@ function HomeAdmin() {
 					<Carousel.Caption>
 						<h3>Consultar Empresas</h3>
 						<p>Visualizar Empresas e respetivas relações</p>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEmpresas/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -73,6 +76,7 @@ function HomeAdmin() {
 					<Carousel.Caption>
 						<h3>Gestão de Utilizadores</h3>
 						<p>Consultar e Registar outros administradores e jornalistas. Consultar cidadãos registados. </p>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarUtilizadores/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
