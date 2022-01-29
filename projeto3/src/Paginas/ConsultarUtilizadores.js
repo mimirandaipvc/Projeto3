@@ -16,6 +16,9 @@ function ConsultarUtilizadores() {
 	const [data3, setData3] = useState([]);
 
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function obterListaAdmin() {
 		return api.get('/api/v1/Admin')

@@ -13,9 +13,16 @@ import CargosEmEmpresas from './Paginas/CargosEmEmpresas'
 import ConsultarUtilizadores from './Paginas/ConsultarUtilizadores'
 import CriarRelacaoPSC from './Paginas/CriarRelacaoPSC'
 import CriarInfoPC from './Paginas/CriarInfoPC'
+import CriarInfoPS from './Paginas/CriarInfoPS'
 import CriarJornalista from './Paginas/CriarJornalista'
 import CriarAdmin from './Paginas/CriarAdmin'
 import CriarCidadaoRegistado from './Paginas/CriarCidadaoRegistado'
+import Login from './Paginas/Login'
+import CriarPolitico from './Paginas/CriarPolitico'
+import CriarEmpresario from './Paginas/CriarEmpresario'
+import CriarEmpresa from './Paginas/CriarEmpresa'
+import CriarEvento from './Paginas/CriarEvento'
+
 
 
 function App() {
@@ -62,6 +69,9 @@ function App() {
 				<Route path="/CriarInfoPC/:idpessoacoletiva" element={<CriarInfoPC />} />
 			</Routes>
 			<Routes>
+				<Route path="/CriarInfoPS/:idpessoasingular" element={<CriarInfoPS />} />
+			</Routes>
+			<Routes>
 				<Route path="/CriarJornalista" element={<CriarJornalista />} />
 			</Routes>
 			<Routes>
@@ -69,6 +79,21 @@ function App() {
 			</Routes>
 			<Routes>
 				<Route path="/CriarCidadaoRegistado" element={<CriarCidadaoRegistado />} />
+			</Routes>
+			<Routes>
+				<Route path="/Login" element={<Login />} />
+			</Routes>
+			<Routes>
+				<Route path="/CriarPolitico" element={<CriarPolitico />} />
+			</Routes>
+			<Routes>
+				<Route path="/CriarEmpresario" element={<CriarEmpresario />} />
+			</Routes>
+			<Routes>
+				  <Route path="/CriarEmpresa" element={<CriarEmpresa />} />
+			</Routes>
+			<Routes>
+				<Route path="/CriarEvento" element={<CriarEvento />} />
 			</Routes>
 		  </BrowserRouter>
 	  </div>

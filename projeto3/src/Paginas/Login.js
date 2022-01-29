@@ -17,18 +17,21 @@ function Login() {
 
 
 
-	function adicionaCidadao() {
-		return api.post('/api/v1/CidadaoRegistado', {
-			username: Username,
-			password: Password
-		}).then(response => {
-			console.log(response.data);
-			alert("Cidadao adicionado!");
-			navigate('/ConsultarUtilizadores')
-		}).catch(error => {
-			console.log(error);
-		})
+	function login() {
+		return api.post('/api/v1/signin', {
+				username: Username,
+				password: Password
+			})
+				.then(response => {
+					console.log(response.data);
+					var token = response.data.token;
+					document.cookie = "token=" + token + "; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;";
+					localStorage.setItem("token", token);
+					localStorage.setItem("iud", response.data.uid);
+					navigate('/ConsultarUtilizadores')
+				})
 	}
+
 
 	return (
 		<div>
@@ -61,11 +64,12 @@ function Login() {
 
 				<Button variant="dark" href={"http://localhost:3000/CriarCidadaoRegistado/"}>Registar-e</Button>
 
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaCidadao}>Registar-se</button>
+				<button type="button" className="btn btn-info btn-block mt-4" onClick={login}>Login</button>
 			</Container>
 		</div>
 	);
 }
+
 
 export default Login;
 
