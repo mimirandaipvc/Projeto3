@@ -22,7 +22,9 @@ import CriarPolitico from './Paginas/CriarPolitico'
 import CriarEmpresario from './Paginas/CriarEmpresario'
 import CriarEmpresa from './Paginas/CriarEmpresa'
 import CriarEvento from './Paginas/CriarEvento'
-
+import EditarAdmin from './Paginas/EditarAdmin'
+import EditarCidadaoRegistado from './Paginas/EditarCidadaoRegistado'
+import EditarJornalista from './Paginas/EditarJornalista'
 
 
 function App() {
@@ -94,6 +96,15 @@ function App() {
 			</Routes>
 			<Routes>
 				<Route path="/CriarEvento" element={<CriarEvento />} />
+			</Routes>
+			<Routes>
+				<Route path="/EditarAdmin/:idutilizador" element={<EditarAdmin />} />
+			</Routes>
+			<Routes>
+				<Route path="/EditarCidadaoRegistado/:idutilizador" element={<EditarCidadaoRegistado />} />
+			</Routes>
+			<Routes>
+				<Route path="/EditarJornalista/:idutilizador" element={<EditarJornalista />} />
 			</Routes>
 		  </BrowserRouter>
 	  </div>

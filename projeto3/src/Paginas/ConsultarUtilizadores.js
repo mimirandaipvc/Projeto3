@@ -86,7 +86,7 @@ function ConsultarUtilizadores() {
 								<td>{item.idutilizador}</td>
 								<td>{item.username}</td>
 								<td>{item.dataregisto}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Editar</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/EditarAdmin/" + item.idutilizador}>Editar</Button></td>
 								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Eliminar</Button></td>
 							</tr>
 						))}
@@ -110,7 +110,7 @@ function ConsultarUtilizadores() {
 								<td>{item.idutilizador}</td>
 								<td>{item.username}</td>
 								<td>{item.dataregisto}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Editar</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/EditarJornalista/" + item.idutilizador}>Editar</Button></td>
 								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Eliminar</Button></td>
 							</tr>
 						))}
@@ -134,7 +134,7 @@ function ConsultarUtilizadores() {
 								<td>{item.idutilizador}</td>
 								<td>{item.username}</td>
 								<td>{item.dataregisto}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Editar</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/EditarCidadaoRegistado/" + item.idutilizador}>Editar</Button></td>
 								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Eliminar</Button></td>
 							</tr>
 						))}

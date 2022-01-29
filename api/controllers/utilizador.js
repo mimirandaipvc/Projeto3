@@ -27,6 +27,51 @@ module.exports = app => {
 		//client.end
 	}
 
+	controller.editarAdmin = (req, res) => {
+		//client.connect()
+		client.query(`UPDATE utilizador SET username = $1, password = $2  where idutilizador = $3`,
+			[
+				req.body.username,
+				req.body.password,
+				req.params.idutilizador,
+			], (err, result) => {
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
+		//client.end
+	}
+
+	controller.editarJornalista = (req, res) => {
+		//client.connect()
+		client.query(`UPDATE utilizador SET username = $1, password = $2  where idutilizador = $3`,
+			[
+				req.body.username,
+				req.body.password,
+				req.params.idutilizador,
+			], (err, result) => {
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
+		//client.end
+	}
+
+	controller.editarCidadaoRegistado = (req, res) => {
+		//client.connect()
+		client.query(`UPDATE utilizador SET username = $1, password = $2  where idutilizador = $3`,
+			[
+				req.body.username,
+				req.body.password,
+				req.params.idutilizador,
+			], (err, result) => {
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
+		//client.end
+	}
+
 	controller.obterListaJornalista = (req, res) => {
 		//client.connect()
 		client.query(`SELECT * FROM utilizador where idtipoutilizador = 2`, (err, result) => {

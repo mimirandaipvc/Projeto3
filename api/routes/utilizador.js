@@ -5,13 +5,14 @@ module.exports = app => {
 	app.post('/api/v1/validateToken', app.controllers.auth.validateToken)
 
 	app.route('/api/v1/Admin')
-		.all(app.controllers.passport.authenticate())
+		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterListaAdmin)
 		.post(controller.criarAdmin)
 
 	app.route('/api/v1/Admin/:idutilizador')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterAdmin)
+		.put(controller.editarAdmin)
 
 	app.route('/api/v1/Jornalista')
 		// .all(app.controllers.passport.authenticate())
@@ -21,6 +22,7 @@ module.exports = app => {
 	app.route('/api/v1/Jornalista/:idutilizador')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterJornalista)
+		.put(controller.editarJornalista)
 
 	app.route('/api/v1/CidadaoRegistado')
 		// .all(app.controllers.passport.authenticate())
@@ -30,4 +32,5 @@ module.exports = app => {
 	app.route('/api/v1/CidadaoRegistado/:idutilizador')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterCidadaoRegistado)
+		.put(controller.editarCidadaoRegistado)
 }
