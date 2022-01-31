@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
+import jwt_decode from 'jwt-decode';
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -25,10 +26,24 @@ function Login() {
 				.then(response => {
 					console.log(response.data);
 					var token = response.data.token;
+					var decoded = jwt_decode(token);
 					document.cookie = "token=" + token + "; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;";
 					localStorage.setItem("token", token);
 					localStorage.setItem("iud", response.data.uid);
-					navigate('/ConsultarUtilizadores')
+					if (decoded.idtipoutilizador === 1) {
+						localStorage.setItem("idtipoutilizador", 1)
+						alert("Bem-vindo Admin!")
+						navigate('/HomeAdmin')
+
+					} else if (decoded.idtipoutilizador === 2) {
+						localStorage.setItem("idtipoutilizador", 2)
+						alert("Bem-vindo Jornalista!")
+						navigate("/HomeJornalista");
+					} else {
+						localStorage.setItem("idtipoutilizador", 3)
+						alert("Bem-vindo Cidadão Registado!")
+						navigate("/HomeCidadaoRegistado");
+					}
 				})
 	}
 
@@ -60,11 +75,14 @@ function Login() {
 				<Form.Label>Password: </Form.Label>
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
 					placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
-				<br></br>
-
-				<Button variant="dark" href={"http://localhost:3000/CriarCidadaoRegistado/"}>Registar-e</Button>
 
 				<button type="button" className="btn btn-info btn-block mt-4" onClick={login}>Login</button>
+				<br></br>
+				<br></br>
+				<Button variant="dark" href={"http://localhost:3000/CriarCidadaoRegistado/"}>Registar-se</Button>
+				<br></br>
+				<br></br>
+				<Button variant="dark" href={"http://localhost:3000/HomeCidadao/"}>Entrar como convidado</Button>
 			</Container>
 		</div>
 	);

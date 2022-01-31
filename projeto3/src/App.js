@@ -3,12 +3,19 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HomeAdmin from './Paginas/HomeAdmin'
 import ConsultarPoliticos from './Paginas/ConsultarPoliticos'
 import RelacoesPoliticos from './Paginas/RelacoesPoliticos'
+import RelacoesPoliticosSemVoto from './Paginas/RelacoesPoliticosSemVoto'
+import RelacoesPoliticosSoVoto from './Paginas/RelacoesPoliticosSoVoto'
 import ConsultarEmpresarios from './Paginas/ConsultarEmpresarios'
 import ConsultarEmpresas from './Paginas/ConsultarEmpresas'
 import ConsultarEventos from './Paginas/ConsultarEventos'
 import RelacoesEmpresas from './Paginas/RelacoesEmpresas'
 import RelacoesEventos from './Paginas/RelacoesEventos'
 import RelacoesEmpresarios from './Paginas/RelacoesEmpresarios'
+import RelacoesEmpresasSemVoto from './Paginas/RelacoesEmpresasSemVoto'
+import RelacoesEventosSemVoto from './Paginas/RelacoesEventosSemVoto'
+import RelacoesEmpresariosSemVoto from './Paginas/RelacoesEmpresariosSemVoto'
+import RelacoesEmpresasSoVoto from './Paginas/RelacoesEmpresasSemVoto'
+import RelacoesEmpresariosSoVoto from './Paginas/RelacoesEmpresariosSemVoto'
 import CargosEmEmpresas from './Paginas/CargosEmEmpresas'
 import ConsultarUtilizadores from './Paginas/ConsultarUtilizadores'
 import CriarRelacaoPSC from './Paginas/CriarRelacaoPSC'
@@ -25,6 +32,10 @@ import CriarEvento from './Paginas/CriarEvento'
 import EditarAdmin from './Paginas/EditarAdmin'
 import EditarCidadaoRegistado from './Paginas/EditarCidadaoRegistado'
 import EditarJornalista from './Paginas/EditarJornalista'
+import HomeJornalista from './Paginas/HomeJornalista'
+import HomeCidadaoRegistado from './Paginas/HomeCidadaoRegistado'
+import HomeCidadao from './Paginas/HomeCidadao'
+
 
 
 function App() {
@@ -33,6 +44,15 @@ function App() {
 		  <BrowserRouter>
 			<Routes>
 				<Route path="/HomeAdmin" element={<HomeAdmin />} />
+			</Routes>
+			<Routes>
+				<Route path="/HomeJornalista" element={<HomeJornalista />} />
+			</Routes>
+			<Routes>
+				<Route path="/HomeCidadaoRegistado" element={<HomeCidadaoRegistado />} />
+			</Routes>
+			<Routes>
+				<Route path="/HomeCidadao" element={<HomeCidadao />} />
 			</Routes>
 			<Routes>
 				<Route path="/ConsultarPoliticos" element={<ConsultarPoliticos />} />
@@ -60,6 +80,27 @@ function App() {
 			</Routes>
 			<Routes>
 				<Route path="/RelacoesEventos/:idevento" element={<RelacoesEventos />} />
+			</Routes>
+			<Routes>
+				<Route path="/RelacoesPoliticosSemVoto/:idpessoasingular" element={<RelacoesPoliticosSemVoto />} />
+			</Routes>
+			<Routes>
+				<Route path="/RelacoesEmpresariosSemVoto/:idpessoasingular" element={<RelacoesEmpresariosSemVoto />} />
+			</Routes>
+			<Routes>
+				<Route path="/RelacoesEmpresasSemVoto/:idpessoacoletiva" element={<RelacoesEmpresasSemVoto />} />
+			</Routes>
+			<Routes>
+				<Route path="/RelacoesEventosSemVoto/:idevento" element={<RelacoesEventosSemVoto />} />
+			</Routes>
+			<Routes>
+				<Route path="/RelacoesPoliticosSoVoto/:idpessoasingular" element={<RelacoesPoliticosSoVoto />} />
+			</Routes>
+			<Routes>
+				<Route path="/RelacoesEmpresariosSoVoto/:idpessoasingular" element={<RelacoesEmpresariosSoVoto />} />
+			</Routes>
+			<Routes>
+				<Route path="/RelacoesEmpresasSoVoto/:idpessoacoletiva" element={<RelacoesEmpresasSoVoto />} />
 			</Routes>
 			<Routes>
 				<Route path="/ConsultarUtilizadores" element={<ConsultarUtilizadores />} />

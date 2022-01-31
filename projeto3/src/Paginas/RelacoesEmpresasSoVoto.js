@@ -9,7 +9,7 @@ import './RelacoesPoliticos.css'
 
 import './HomeAdmin.css'
 
-function RelacoesEmpresas() {
+function RelacoesEmpresasSoVoto() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -117,12 +117,10 @@ function RelacoesEmpresas() {
 					</Card>
 				))}
 				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/CriarInfoPC/" + params.idpessoacoletiva}>Criar Relação</Button>
-
 			</Container>
 		</div>
 	);
 
 }
 
-export default RelacoesEmpresas;
+export default RelacoesEmpresasSoVoto;

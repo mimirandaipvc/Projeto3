@@ -24,7 +24,7 @@ function CriarCidadaoRegistado() {
 		}).then(response => {
 			console.log(response.data);
 			alert("Cidadao adicionado!");
-			navigate('/ConsultarUtilizadores')
+			navigate('/Login')
 		}).catch(error => {
 			console.log(error);
 		})
