@@ -27,7 +27,7 @@ function HomeAdmin() {
 					<Carousel.Caption>
 						<h3>Consultar Politicos</h3>
 						<p>Visualizar políticos e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarPoliticos/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarPoliticosSemVoto/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>

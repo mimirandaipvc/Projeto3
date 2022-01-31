@@ -13,7 +13,6 @@ function ConsultarPoliticos() {
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 
-
 	function obterListaPoliticos() {
 		return api.get('/api/v1/Politico')
 			.then(function (response) {
@@ -68,7 +67,7 @@ function ConsultarPoliticos() {
 									<td>{item.datanascimento}</td>
 									<td>{item.profissao}</td>
 									<td><Button variant="dark" href={"http://localhost:3000/CargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
-									<td><Button variant="dark" href={"http://localhost:3000/RelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
+									<td><Button variant="dark" href={"http://localhost:3000/RelacoesPoliticos/" + item.idpessoasingular}>Ver relações</Button></td>
 								</tr>
 							))}
 						</tbody>

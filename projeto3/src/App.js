@@ -2,6 +2,8 @@ import './App.css';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import HomeAdmin from './Paginas/HomeAdmin'
 import ConsultarPoliticos from './Paginas/ConsultarPoliticos'
+import ConsultarPoliticosSemVoto from './Paginas/ConsultarPoliticosSemVoto'
+import ConsultarPoliticosSoVoto from './Paginas/ConsultarPoliticosSoVoto'
 import RelacoesPoliticos from './Paginas/RelacoesPoliticos'
 import RelacoesPoliticosSemVoto from './Paginas/RelacoesPoliticosSemVoto'
 import RelacoesPoliticosSoVoto from './Paginas/RelacoesPoliticosSoVoto'
@@ -56,6 +58,12 @@ function App() {
 			</Routes>
 			<Routes>
 				<Route path="/ConsultarPoliticos" element={<ConsultarPoliticos />} />
+			</Routes>
+			<Routes>
+				<Route path="/ConsultarPoliticosSemVoto" element={<ConsultarPoliticosSemVoto />} />
+			</Routes>
+			<Routes>
+				<Route path="/ConsultarPoliticosSoVoto" element={<ConsultarPoliticosSoVoto />} />
 			</Routes>
 			<Routes>
 				<Route path="/ConsultarEmpresarios" element={<ConsultarEmpresarios />} />
