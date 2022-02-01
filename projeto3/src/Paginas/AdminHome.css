@@ -3,3 +3,7 @@ body{
 }
 
 .card {display:inline-block;}
+
+#logout {
+	float:right
+}

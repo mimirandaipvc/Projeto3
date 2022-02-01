@@ -1,5 +1,5 @@
 import { Form, Button, Table, Carousel, Card, CardGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import api from './api'
 import React, { useState, useEffect, Component } from 'react';
@@ -15,13 +15,22 @@ import imagem6 from "../Imagens/6.jpg";
 
 function AdminHome() {
 
+	const navigate = useNavigate()
+
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
+	function logout() {
+		localStorage.removeItem("iud");
+		localStorage.removeItem("token");
+		localStorage.removeItem("idtipoutilizador");
+		navigate("/Login");
+	}
+
 	return (
 		<div>
-			<h1>Bem-vindo Administrador!</h1>
+			<h1>Bem-vindo Administrador! <button id="logout" type="button" className="btn btn-danger btn-block mt-4" onClick={logout}>Logout</button></h1>
 
 			<Carousel>
 				<Carousel.Item>
@@ -97,6 +106,8 @@ function AdminHome() {
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
+
+
 
 		</div>
 
