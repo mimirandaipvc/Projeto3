@@ -20,10 +20,55 @@ module.exports = app => {
 			[
 				req.params.idutilizador,
 			], (err, result) => {
-			if (!err) {
-				res.send(result.rows);
-			}
-		})
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
+		//client.end
+	}
+
+	controller.AdminEditarAdmin = (req, res) => {
+		//client.connect()
+		client.query(`UPDATE utilizador SET username = $1, password = $2  where idutilizador = $3`,
+			[
+				req.body.username,
+				req.body.password,
+				req.params.idutilizador,
+			], (err, result) => {
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
+		//client.end
+	}
+
+	controller.AdminEditarJornalista = (req, res) => {
+		//client.connect()
+		client.query(`UPDATE utilizador SET username = $1, password = $2  where idutilizador = $3`,
+			[
+				req.body.username,
+				req.body.password,
+				req.params.idutilizador,
+			], (err, result) => {
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
+		//client.end
+	}
+
+	controller.AdminEditarCidadaoRegistado = (req, res) => {
+		//client.connect()
+		client.query(`UPDATE utilizador SET username = $1, password = $2  where idutilizador = $3`,
+			[
+				req.body.username,
+				req.body.password,
+				req.params.idutilizador,
+			], (err, result) => {
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
 		//client.end
 	}
 
@@ -43,10 +88,10 @@ module.exports = app => {
 			[
 				req.params.idutilizador,
 			], (err, result) => {
-			if (!err) {
-				res.send(result.rows);
-			}
-		})
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
 		//client.end
 	}
 
@@ -66,17 +111,17 @@ module.exports = app => {
 			[
 				req.params.idutilizador,
 			], (err, result) => {
-			if (!err) {
-				res.send(result.rows);
-			}
-		})
+				if (!err) {
+					res.send(result.rows);
+				}
+			})
 		//client.end
 	}
 
-	controller.criarAdmin = (req, res) => {
+	controller.AdminCriarAdmin = (req, res) => {
 		const user = req.body;
 		// let insertQuery = "insert into utilizador(username, password, idtipoutilizador)
-        //                values('${user.username}', '${user.password}', ${user.idtipoutilizador})"
+		//                values('${user.username}', '${user.password}', ${user.idtipoutilizador})"
 
 		client.query(`INSERT INTO "utilizador" ("username", "password", "idtipoutilizador")
                        values($1, $2, $3)`,
@@ -86,15 +131,15 @@ module.exports = app => {
 				'1'
 			],
 			(err, result) => {
-			if (!err) {
-				res.send('Insertion was successful')
-			}
-			else { console.log(err.message) }
-		})
+				if (!err) {
+					res.send('Insertion was successful')
+				}
+				else { console.log(err.message) }
+			})
 		//client.end;
 	}
 
-	controller.criarJornalista = (req, res) => {
+	controller.AdminCriarJornalista = (req, res) => {
 		const user = req.body;
 		// let insertQuery = "insert into utilizador(username, password, idtipoutilizador)
 		//                values('${user.username}', '${user.password}', ${user.idtipoutilizador})"
@@ -115,7 +160,7 @@ module.exports = app => {
 		//client.end;
 	}
 
-	controller.criarCidadaoRegistado = (req, res) => {
+	controller.AdminCriarCidadaoRegistado = (req, res) => {
 		const user = req.body;
 		// let insertQuery = "insert into utilizador(username, password, idtipoutilizador)
 		//                values('${user.username}', '${user.password}', ${user.idtipoutilizador})"

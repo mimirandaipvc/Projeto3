@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarUtilizadores() {
+function AdminConsultarUtilizadores() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -16,6 +16,9 @@ function ConsultarUtilizadores() {
 	const [data3, setData3] = useState([]);
 
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function obterListaAdmin() {
 		return api.get('/api/v1/Admin')
@@ -59,8 +62,12 @@ function ConsultarUtilizadores() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/AdminHome">Home</Nav.Link>
+								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -83,8 +90,7 @@ function ConsultarUtilizadores() {
 								<td>{item.idutilizador}</td>
 								<td>{item.username}</td>
 								<td>{item.dataregisto}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Editar</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Eliminar</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminEditarAdmin/" + item.idutilizador}>Editar</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -107,8 +113,7 @@ function ConsultarUtilizadores() {
 								<td>{item.idutilizador}</td>
 								<td>{item.username}</td>
 								<td>{item.dataregisto}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Editar</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Eliminar</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminEditarJornalista/" + item.idutilizador}>Editar</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -131,19 +136,18 @@ function ConsultarUtilizadores() {
 								<td>{item.idutilizador}</td>
 								<td>{item.username}</td>
 								<td>{item.dataregisto}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Editar</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Eliminar</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminEditarCidadaoRegistado/" + item.idutilizador}>Editar</Button></td>
 							</tr>
 						))}
 					</tbody>
 				</Table>
 				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/CriarAdmin/"}>Criar Administrador</Button>
+				<Button variant="dark" href={"http://localhost:3000/AdminCriarAdmin/"}>Criar Administrador</Button>
 				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/CriarJornalista/"}>Criar Jornalista</Button>
+				<Button variant="dark" href={"http://localhost:3000/AdminCriarJornalista/"}>Criar Jornalista</Button>
 			</Container>
 		</div>
 	);
 }
 
-export default ConsultarUtilizadores;
+export default AdminConsultarUtilizadores;

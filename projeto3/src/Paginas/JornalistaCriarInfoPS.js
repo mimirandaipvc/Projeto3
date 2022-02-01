@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function CriarInfoPC() {
+function JornalistaCriarInfoPS() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -17,13 +17,16 @@ function CriarInfoPC() {
 	const [Data, setData] = useState([]);
 	const [IDEvento, setIDEvento] = useState([]);
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
-	function adicionaRelacaoPC() {
-		return api.post('/api/v1/RelacaoPC', {
+	function adicionaRelacaoPS() {
+		return api.post('/api/v1/RelacaoPS', {
 			motivo: Motivo,
 			valores: Valores,
 			data: Data,
-			idpessoacoletiva: params.idpessoacoletiva,
+			idpessoasingular: params.idpessoasingular,
 			idevento: IDEvento,
 			idutilizador: 1
 		}).then(response => {
@@ -43,8 +46,11 @@ function CriarInfoPC() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -70,10 +76,10 @@ function CriarInfoPC() {
 					placeholder="Intoduza o ID do Evento" onChange={e => setIDEvento(e.target.value)} />
 				<br></br>
 				<br></br>
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaRelacaoPC}>Adicionar Relacao</button>
+				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaRelacaoPS}>Adicionar Relacao</button>
 			</Container>
 		</div>
 	);
 }
 
-export default CriarInfoPC;
+export default JornalistaCriarInfoPS;

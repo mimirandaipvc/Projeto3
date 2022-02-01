@@ -8,14 +8,13 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarEmpresarios() {
+function ConsultarPoliticosSoVoto() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 
-
-	function obterListaEmpresarios() {
-		return api.get('/api/v1/Empresario')
+	function obterListaPoliticos() {
+		return api.get('/api/v1/Politico')
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
@@ -24,7 +23,7 @@ function ConsultarEmpresarios() {
 
 
 	useEffect(() => {
-		obterListaEmpresarios();
+		obterListaPoliticos();
 	}, []);
 
 
@@ -38,8 +37,12 @@ function ConsultarEmpresarios() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/AdminHome">Home</Nav.Link>
+								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -68,7 +71,7 @@ function ConsultarEmpresarios() {
 								<td>{item.datanascimento}</td>
 								<td>{item.profissao}</td>
 								<td><Button variant="dark" href={"http://localhost:3000/CargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/RelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/RelacoesPoliticosSoVoto/" + item.idpessoasingular}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -78,4 +81,4 @@ function ConsultarEmpresarios() {
 	);
 }
 
-export default ConsultarEmpresarios;
+export default ConsultarPoliticosSoVoto;

@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './HomeAdmin.css'
+import './AdminHome.css'
 
-function RelacoesEventos() {
+function AdminRelacoesEventos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -18,7 +18,9 @@ function RelacoesEventos() {
 	const [data4, setData4] = useState([]);
 	const [data5, setData5] = useState([]);
 
-
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function obterPolitico() {
 		for (const i = 0; i < data5.length; i++) {
@@ -66,55 +68,6 @@ function RelacoesEventos() {
 			});
 	}
 
-	function maisS(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaops: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/AumentarCredibilidadeRPS', {
-			idrelacaops: i,
-		});
-		console.log('mais');
-		// window.location.reload();
-
-	}
-
-	function menosS(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaops: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/DiminuirCredibilidadeRPS', {
-			idrelacaops: i,
-		});
-		console.log('menos');
-		// window.location.reload();
-	}
-
-	function maisC(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/AumentarCredibilidadeRPC', {
-			idrelacaopc: i,
-		});
-		console.log('mais');
-		// window.location.reload();
-
-	}
-
-	function menosC(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/DiminuirCredibilidadeRPC', {
-			idrelacaopc: i,
-		});
-		console.log('menos');
-		// window.location.reload();
-	}
 
 	useEffect(() => {
 		obterDadosPCE();
@@ -135,8 +88,12 @@ function RelacoesEventos() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/AdminHome">Home</Nav.Link>
+								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -163,8 +120,6 @@ function RelacoesEventos() {
 									<p>Inserido por: {item.idutilizador}</p>
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
-								<Button variant="success" onClick={() => maisC(item.idrelacaopc)}>Credível</Button>
-								<Button id="dois" variant="danger" onClick={() => menosC(item.idrelacaopc)}>Não Credível</Button>
 							</Card.Body>
 						</Card>
 					))}
@@ -192,8 +147,6 @@ function RelacoesEventos() {
 									<p>Inserido por: {item.idutilizador}</p>
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
-								<Button variant="success" onClick={() => maisS(item.idrelacaops)}>Credível</Button>
-								<Button id="dois" variant="danger" onClick={() => menosS(item.idrelacaops)}>Não Credível</Button>
 							</Card.Body>
 						</Card>
 					))}
@@ -204,5 +157,5 @@ function RelacoesEventos() {
 
 }
 
-export default RelacoesEventos;
+export default AdminRelacoesEventos;
 

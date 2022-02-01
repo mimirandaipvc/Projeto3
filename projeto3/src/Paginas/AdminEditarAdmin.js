@@ -2,29 +2,29 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-function CriarCidadaoRegistado() {
+
+function AdminEditarAdmin() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [Username, setUsername] = useState([]);
 	const [Password, setPassword] = useState([]);
-	const navigate = useNavigate()
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
-
-	function adicionaCidadao() {
-		return api.post('/api/v1/CidadaoRegistado', {
+	function editaAdmin() {
+		return api.put('/api/v1/Admin/' + params.idutilizador, {
 			username: Username,
-			password: Password
+			password: Password,
 		}).then(response => {
 			console.log(response.data);
-			alert("Cidadao adicionado!");
-			navigate('/ConsultarUtilizadores')
 		}).catch(error => {
 			console.log(error);
 		})
@@ -40,15 +40,19 @@ function CriarCidadaoRegistado() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/AdminHome">Home</Nav.Link>
+								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
 				</Navbar>
 
 				<br />
-				<h2>Registar-se</h2>
+				<h2>Editar Administrador</h2>
 				<br></br>
 				<Form.Label>Username: </Form.Label>
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
@@ -59,10 +63,10 @@ function CriarCidadaoRegistado() {
 					placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
 				<br></br>
 
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaCidadao}>Registar-se</button>
+				<button type="button" className="btn btn-info btn-block mt-4" onClick={editaAdmin}>Editar Administrador</button>
 			</Container>
 		</div>
 	);
 }
 
-export default CriarCidadaoRegistado;
+export default AdminEditarAdmin;

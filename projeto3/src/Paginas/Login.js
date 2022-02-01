@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
+import jwt_decode from 'jwt-decode';
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -17,35 +18,38 @@ function Login() {
 
 
 
-	function adicionaCidadao() {
-		return api.post('/api/v1/CidadaoRegistado', {
+	function login() {
+		return api.post('/api/v1/signin', {
 			username: Username,
 			password: Password
-		}).then(response => {
-			console.log(response.data);
-			alert("Cidadao adicionado!");
-			navigate('/ConsultarUtilizadores')
-		}).catch(error => {
-			console.log(error);
 		})
+			.then(response => {
+				console.log(response.data);
+				var token = response.data.token;
+				var decoded = jwt_decode(token);
+				document.cookie = "token=" + token + "; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;";
+				localStorage.setItem("token", token);
+				localStorage.setItem("iud", response.data.uid);
+				if (decoded.idtipoutilizador === 1) {
+					localStorage.setItem("idtipoutilizador", 1)
+					alert("Bem-vindo Administrador!")
+					navigate('/AdminHome')
+				} else if (decoded.idtipoutilizador === 2) {
+					localStorage.setItem("idtipoutilizador", 2)
+					alert("Bem-vindo Jornalista!")
+					navigate("/JornalistaHome");
+				} else {
+					localStorage.setItem("idtipoutilizador", 3)
+					alert("Bem-vindo Cidadão Registado!")
+					navigate("/HomeCidadaoRegistado");
+				}
+			})
 	}
+
 
 	return (
 		<div>
 			<Container fluid>
-
-				<Navbar bg="light" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
 
 				<br />
 				<h2>Login</h2>
@@ -57,15 +61,19 @@ function Login() {
 				<Form.Label>Password: </Form.Label>
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
 					placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
+
+				<button type="button" className="btn btn-info btn-block mt-4" onClick={login}>Login</button>
 				<br></br>
-
-				<Button variant="dark" href={"http://localhost:3000/CriarCidadaoRegistado/"}>Registar-e</Button>
-
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaCidadao}>Registar-se</button>
+				<br></br>
+				<Button variant="dark" href={"http://localhost:3000/AdminCriarCidadaoRegistado/"}>Registar-se</Button>
+				<br></br>
+				<br></br>
+				<Button variant="dark" href={"http://localhost:3000/HomeCidadao/"}>Entrar como convidado</Button>
 			</Container>
 		</div>
 	);
 }
+
 
 export default Login;
 

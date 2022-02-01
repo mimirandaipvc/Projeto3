@@ -2,7 +2,7 @@ module.exports = app => {
 	const controller = app.controllers.relacoes;
 
 	app.route('/api/v1/RelacaoPS')
-		// .all(app.controllers.passport.authenticate())
+		.all(app.controllers.passport.authenticate())
 		.get(controller.obterListaRelacaoPS)
 		.post(controller.criarRelacaoPS)
 
