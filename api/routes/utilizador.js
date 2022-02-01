@@ -10,27 +10,27 @@ module.exports = app => {
 		.post(controller.AdminCriarAdmin)
 
 	app.route('/api/v1/Admin/:idutilizador')
-		// .all(app.controllers.passport.authenticate())
+		.all(app.controllers.passport.authenticate())
 		.get(controller.obterAdmin)
 		.put(controller.AdminEditarAdmin)
 
 	app.route('/api/v1/Jornalista')
-		// .all(app.controllers.passport.authenticate())
+		.all(app.controllers.passport.authenticate())
 		.get(controller.obterListaJornalista)
 		.post(controller.AdminCriarJornalista)
 
 	app.route('/api/v1/Jornalista/:idutilizador')
-		// .all(app.controllers.passport.authenticate())
+		.all(app.controllers.passport.authenticate())
 		.get(controller.obterJornalista)
 		.put(controller.AdminEditarJornalista)
 
 	app.route('/api/v1/CidadaoRegistado')
-		// .all(app.controllers.passport.authenticate())
+		.all(app.controllers.passport.authenticate())
 		.get(controller.obterListaCidadaoRegistado)
 		.post(controller.AdminCriarCidadaoRegistado)
 
 	app.route('/api/v1/CidadaoRegistado/:idutilizador')
-		// .all(app.controllers.passport.authenticate())
+		.all(app.controllers.passport.authenticate())
 		.get(controller.obterCidadaoRegistado)
 		.put(controller.AdminEditarCidadaoRegistado)
 }
