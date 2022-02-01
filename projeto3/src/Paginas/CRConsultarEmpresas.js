@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function JornalistaConsultarEmpresas() {
+function CRConsultarEmpresas() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -41,11 +41,11 @@ function JornalistaConsultarEmpresas() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/CRHome">Home</Nav.Link>
+								<Nav.Link href="/CRConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -70,7 +70,7 @@ function JornalistaConsultarEmpresas() {
 								<td>{item.pais}</td>
 								<td>{item.anofundacao}</td>
 								<td>{item.ramoatividade}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/JornalistaRelacoesEmpresas/" + item.idpessoacoletiva}>Ver relações</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/CRRelacoesEmpresas/" + item.idpessoasingular}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -80,4 +80,4 @@ function JornalistaConsultarEmpresas() {
 	);
 }
 
-export default JornalistaConsultarEmpresas;
+export default CRConsultarEmpresas;

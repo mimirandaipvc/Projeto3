@@ -19,7 +19,7 @@ function AdminRelacoesPoliticos() {
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
-	
+
 	function obterPolitico() {
 		return api.get('/api/v1/Politico/' + params.idpessoasingular)
 			.then(function (response) {

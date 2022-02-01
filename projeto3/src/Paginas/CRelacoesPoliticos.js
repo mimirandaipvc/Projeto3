@@ -9,7 +9,7 @@ import './RelacoesPoliticos.css'
 
 import './AdminHome.css'
 
-function AdminRelacoesEmpresarios() {
+function CRelacoesPoliticos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -20,8 +20,8 @@ function AdminRelacoesEmpresarios() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function obterEmpresario() {
-		return api.get('/api/v1/Empresario/' + params.idpessoasingular)
+	function obterPolitico() {
+		return api.get('/api/v1/Politico/' + params.idpessoasingular)
 			.then(function (response) {
 				setData2(response.data);
 				console.log(response.data);
@@ -46,12 +46,37 @@ function AdminRelacoesEmpresarios() {
 			});
 	}
 
+	function mais(i) {
+		api.post('/api/v1/VotoRPS', {
+			idrelacaops: i,
+			idutilizador: 1,
+		});
+		api.put('/api/v1/AumentarCredibilidadeRPS', {
+			idrelacaops: i,
+		});
+		console.log('mais');
+		// window.location.reload();
+
+	}
+
+	function menos(i) {
+		api.post('/api/v1/VotoRPS', {
+			idrelacaops: i,
+			idutilizador: 1,
+		});
+		api.put('/api/v1/DiminuirCredibilidadeRPS', {
+			idrelacaops: i,
+		});
+		console.log('menos');
+		// window.location.reload();
+
+	}
 
 	useEffect(() => {
 		obterDados();
-		obterEmpresario();
+		obterPolitico();
 		obterEvento();
-	}, []);
+	}, [data1]);
 
 	return (
 		<div>
@@ -63,12 +88,11 @@ function AdminRelacoesEmpresarios() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="/AdminHome">Home</Nav.Link>
-								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
+								<Nav.Link href="/CHome">Home</Nav.Link>
+								<Nav.Link href="/CConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/CConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/CConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/CConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -83,7 +107,7 @@ function AdminRelacoesEmpresarios() {
 							<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
 							<Card.Text>
 								{data2.map(item => (
-									<p>Empresário:{item.nome}</p>
+									<p>Politico:{item.nome}</p>
 								))}
 								{data3.map(item => (
 									<p>Evento: {item.designacao}</p>
@@ -97,11 +121,11 @@ function AdminRelacoesEmpresarios() {
 						</Card.Body>
 					</Card>
 				))}
-
 			</Container>
 		</div>
 	);
 
 }
 
-export default AdminRelacoesEmpresarios;
+export default CRelacoesPoliticos;
+

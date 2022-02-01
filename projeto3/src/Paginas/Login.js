@@ -41,7 +41,7 @@ function Login() {
 				} else {
 					localStorage.setItem("idtipoutilizador", 3)
 					alert("Bem-vindo Cidadão Registado!")
-					navigate("/HomeCidadaoRegistado");
+					navigate("/CRHome");
 				}
 			})
 	}
@@ -65,10 +65,10 @@ function Login() {
 				<button type="button" className="btn btn-info btn-block mt-4" onClick={login}>Login</button>
 				<br></br>
 				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/AdminCriarCidadaoRegistado/"}>Registar-se</Button>
+				<Button variant="dark" href={"http://localhost:3000/CriarCidadaoRegistado/"}>Registar-se</Button>
 				<br></br>
 				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/HomeCidadao/"}>Entrar como convidado</Button>
+				<Button variant="dark" href={"http://localhost:3000/CHome/"}>Entrar como convidado</Button>
 			</Container>
 		</div>
 	);

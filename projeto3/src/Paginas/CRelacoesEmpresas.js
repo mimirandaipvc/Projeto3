@@ -9,12 +9,16 @@ import './RelacoesPoliticos.css'
 
 import './AdminHome.css'
 
-function RelacoesEmpresasSoVoto() {
+function CRelacoesEmpresas() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
 	const [data3, setData3] = useState([]);
+
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function obterEmpresa() {
 		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
@@ -42,32 +46,6 @@ function RelacoesEmpresasSoVoto() {
 			});
 	}
 
-	function mais(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/AumentarCredibilidadeRPC', {
-			idrelacaopc: i,
-		});
-		console.log('mais');
-		// window.location.reload();
-
-	}
-
-	function menos(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/DiminuirCredibilidadeRPC', {
-			idrelacaopc: i,
-		});
-		console.log('menos');
-		// window.location.reload();
-
-	}
-
 	useEffect(() => {
 		obterDados();
 		obterEmpresa();
@@ -84,12 +62,11 @@ function RelacoesEmpresasSoVoto() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="/AdminHome">Home</Nav.Link>
-								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
+								<Nav.Link href="/CHome">Home</Nav.Link>
+								<Nav.Link href="/CConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/CConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/CConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/CConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -115,8 +92,6 @@ function RelacoesEmpresasSoVoto() {
 								<p>Inserido por: {item.idutilizador}</p>
 								<p><b>Credibilidade: {item.credibilidade}</b></p>
 							</Card.Text>
-							<Button variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
-							<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
 						</Card.Body>
 					</Card>
 				))}
@@ -127,4 +102,4 @@ function RelacoesEmpresasSoVoto() {
 
 }
 
-export default RelacoesEmpresasSoVoto;
+export default CRelacoesEmpresas;

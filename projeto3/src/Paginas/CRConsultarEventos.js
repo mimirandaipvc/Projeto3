@@ -8,14 +8,17 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarEmpresasSoVoto() {
+function CRConsultarEventos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
-	function obterListaEmpresas() {
-		return api.get('/api/v1/PessoaColetiva')
+	function obterListaEventos() {
+		return api.get('/api/v1/Evento')
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
@@ -24,7 +27,7 @@ function ConsultarEmpresasSoVoto() {
 
 
 	useEffect(() => {
-		obterListaEmpresas();
+		obterListaEventos();
 	}, []);
 
 
@@ -38,37 +41,34 @@ function ConsultarEmpresasSoVoto() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="/AdminHome">Home</Nav.Link>
-								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
+								<Nav.Link href="/CRHome">Home</Nav.Link>
+								<Nav.Link href="/CRConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
 				</Navbar>
 
 				<br />
-				<h1>Empresas</h1>
+				<h1>EVENTO</h1>
 
 				<Table striped bordered hover>
 					<thead>
 						<tr>
-							<th>Designação</th>
-							<th>País</th>
-							<th>Fundação</th>
-							<th>Ramo de Atividade</th>
+							<th>Designacao</th>
+							<th>Descrição</th>
+							<th>Data</th>
 						</tr>
 					</thead>
 					<tbody>
 						{data1.map(item => (
 							<tr>
 								<td>{item.designacao}</td>
-								<td>{item.pais}</td>
-								<td>{item.anofundacao}</td>
-								<td>{item.ramoatividade}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/RelacoesEmpresasSoVoto/" + item.idpessoasingular}>Ver relações</Button></td>
+								<td>{item.descricao}</td>
+								<td>{item.data}</td>
+								<td><Button variant="dark" href={"http://localhost:3000/CRRelacoesEventos/" + item.idevento}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -78,4 +78,4 @@ function ConsultarEmpresasSoVoto() {
 	);
 }
 
-export default ConsultarEmpresasSoVoto;
+export default CRConsultarEventos;

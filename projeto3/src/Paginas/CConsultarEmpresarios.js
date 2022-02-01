@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function JornalistaConsultarEmpresas() {
+function CConsultarEmpresarios() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -17,8 +17,8 @@ function JornalistaConsultarEmpresas() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function obterListaEmpresas() {
-		return api.get('/api/v1/PessoaColetiva')
+	function obterListaEmpresarios() {
+		return api.get('/api/v1/Empresario')
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
@@ -27,7 +27,7 @@ function JornalistaConsultarEmpresas() {
 
 
 	useEffect(() => {
-		obterListaEmpresas();
+		obterListaEmpresarios();
 	}, []);
 
 
@@ -41,36 +41,40 @@ function JornalistaConsultarEmpresas() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/CHome">Home</Nav.Link>
+								<Nav.Link href="/CConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/CConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/CConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/CConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
 				</Navbar>
 
 				<br />
-				<h1>Empresas</h1>
+				<h1>POLÍTICOS</h1>
 
 				<Table striped bordered hover>
 					<thead>
 						<tr>
-							<th>Designação</th>
-							<th>País</th>
-							<th>Fundação</th>
-							<th>Ramo de Atividade</th>
+							<th>Nome</th>
+							<th>Sexo</th>
+							<th>Nacionalidade</th>
+							<th>Data de Nascimento</th>
+							<th>Profissão</th>
+							<th>Cargos em Empresas</th>
 						</tr>
 					</thead>
 					<tbody>
 						{data1.map(item => (
 							<tr>
-								<td>{item.designacao}</td>
-								<td>{item.pais}</td>
-								<td>{item.anofundacao}</td>
-								<td>{item.ramoatividade}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/JornalistaRelacoesEmpresas/" + item.idpessoacoletiva}>Ver relações</Button></td>
+								<td>{item.nome}</td>
+								<td>{item.sexo}</td>
+								<td>{item.nacionalidade}</td>
+								<td>{item.datanascimento}</td>
+								<td>{item.profissao}</td>
+								<td><Button variant="dark" href={"http://localhost:3000/CCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/CRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -80,4 +84,4 @@ function JornalistaConsultarEmpresas() {
 	);
 }
 
-export default JornalistaConsultarEmpresas;
+export default CConsultarEmpresarios;

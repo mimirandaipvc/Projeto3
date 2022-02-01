@@ -9,12 +9,16 @@ import './RelacoesPoliticos.css'
 
 import './AdminHome.css'
 
-function RelacoesPoliticosSoVoto() {
+function CRRelacoesPoliticos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
 	const [data3, setData3] = useState([]);
+
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function obterPolitico() {
 		return api.get('/api/v1/Politico/' + params.idpessoasingular)
@@ -84,12 +88,11 @@ function RelacoesPoliticosSoVoto() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="/AdminHome">Home</Nav.Link>
-								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
+								<Nav.Link href="/CRHome">Home</Nav.Link>
+								<Nav.Link href="/CRConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -126,5 +129,5 @@ function RelacoesPoliticosSoVoto() {
 
 }
 
-export default RelacoesPoliticosSoVoto;
+export default CRRelacoesPoliticos;
 

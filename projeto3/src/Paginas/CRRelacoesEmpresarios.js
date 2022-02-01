@@ -9,7 +9,7 @@ import './RelacoesPoliticos.css'
 
 import './AdminHome.css'
 
-function AdminRelacoesEmpresarios() {
+function CRRelacoesEmpresas() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -20,8 +20,8 @@ function AdminRelacoesEmpresarios() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function obterEmpresario() {
-		return api.get('/api/v1/Empresario/' + params.idpessoasingular)
+	function obterEmpresa() {
+		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
 			.then(function (response) {
 				setData2(response.data);
 				console.log(response.data);
@@ -39,19 +39,44 @@ function AdminRelacoesEmpresarios() {
 	}
 
 	function obterDados() {
-		return api.get('/api/v1/RelacaoPSP/' + params.idpessoasingular)
+		return api.get('/api/v1/RelacaoPCP/' + params.idpessoacoletiva)
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
 			});
 	}
 
+	function mais(i) {
+		api.post('/api/v1/VotoRPC', {
+			idrelacaopc: i,
+			idutilizador: 1,
+		});
+		api.put('/api/v1/AumentarCredibilidadeRPC', {
+			idrelacaopc: i,
+		});
+		console.log('mais');
+		// window.location.reload();
+
+	}
+
+	function menos(i) {
+		api.post('/api/v1/VotoRPC', {
+			idrelacaopc: i,
+			idutilizador: 1,
+		});
+		api.put('/api/v1/DiminuirCredibilidadeRPC', {
+			idrelacaopc: i,
+		});
+		console.log('menos');
+		// window.location.reload();
+
+	}
 
 	useEffect(() => {
 		obterDados();
-		obterEmpresario();
+		obterEmpresa();
 		obterEvento();
-	}, []);
+	}, [data1]);
 
 	return (
 		<div>
@@ -63,12 +88,11 @@ function AdminRelacoesEmpresarios() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="/AdminHome">Home</Nav.Link>
-								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
+								<Nav.Link href="/CRHome">Home</Nav.Link>
+								<Nav.Link href="/CRConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -78,12 +102,12 @@ function AdminRelacoesEmpresarios() {
 				<h1>RELAÇÕES</h1>
 
 				{data1.map(item => (
-					<Card style={{ width: '23rem' }} key={item.idrelacaops}>
+					<Card style={{ width: '23rem' }} key={item.idrelacaopc}>
 						<Card.Body>
-							<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
+							<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
 							<Card.Text>
 								{data2.map(item => (
-									<p>Empresário:{item.nome}</p>
+									<p>Empresa:{item.designacao}</p>
 								))}
 								{data3.map(item => (
 									<p>Evento: {item.designacao}</p>
@@ -94,14 +118,16 @@ function AdminRelacoesEmpresarios() {
 								<p>Inserido por: {item.idutilizador}</p>
 								<p><b>Credibilidade: {item.credibilidade}</b></p>
 							</Card.Text>
+							<Button variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
+							<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
 						</Card.Body>
 					</Card>
 				))}
-
+				<br></br>
 			</Container>
 		</div>
 	);
 
 }
 
-export default AdminRelacoesEmpresarios;
+export default CRRelacoesEmpresas;

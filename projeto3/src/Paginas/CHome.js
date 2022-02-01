@@ -1,7 +1,8 @@
 import { Form, Button, Table, Carousel, Card, CardGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import api from './api'
+import React, { useState, useEffect, Component } from 'react';
 import './AdminHome.css'
 import imagem1 from "../Imagens/1.jpg";
 import imagem2 from "../Imagens/2.jpg";
@@ -10,9 +11,12 @@ import imagem4 from "../Imagens/4.jpg";
 import imagem5 from "../Imagens/5.jpg";
 import imagem6 from "../Imagens/6.jpg";
 
+function CHome() {
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
-function HomeCidadaoRegistado() {
 	return (
 		<div>
 			<h1>Bem-vindo!</h1>
@@ -27,7 +31,7 @@ function HomeCidadaoRegistado() {
 					<Carousel.Caption>
 						<h3>Consultar Politicos</h3>
 						<p>Visualizar políticos e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarPoliticos/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarPoliticos/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -39,7 +43,7 @@ function HomeCidadaoRegistado() {
 					<Carousel.Caption>
 						<h3>Consultar Eventos</h3>
 						<p>Visualizar Eventos e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEventos/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEventos/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -51,7 +55,7 @@ function HomeCidadaoRegistado() {
 					<Carousel.Caption>
 						<h3>Consultar Empresários</h3>
 						<p>Visualizar Empresários e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEmpresarios/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEmpresarios/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -63,7 +67,7 @@ function HomeCidadaoRegistado() {
 					<Carousel.Caption>
 						<h3>Consultar Empresas</h3>
 						<p>Visualizar Empresas e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEmpresas/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEmpresas/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -85,4 +89,4 @@ function HomeCidadaoRegistado() {
 	);
 }
 
-export default HomeCidadaoRegistado;
+export default CHome;

@@ -8,14 +8,17 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarEmpresariosSoVoto() {
+function CRConsultarPoliticos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
-	function obterListaEmpresarios() {
-		return api.get('/api/v1/Empresario')
+	function obterListaPoliticos() {
+		return api.get('/api/v1/Politico')
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
@@ -24,7 +27,7 @@ function ConsultarEmpresariosSoVoto() {
 
 
 	useEffect(() => {
-		obterListaEmpresarios();
+		obterListaPoliticos();
 	}, []);
 
 
@@ -38,12 +41,11 @@ function ConsultarEmpresariosSoVoto() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="/AdminHome">Home</Nav.Link>
-								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
+								<Nav.Link href="/CRHome">Home</Nav.Link>
+								<Nav.Link href="/CRConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -71,8 +73,8 @@ function ConsultarEmpresariosSoVoto() {
 								<td>{item.nacionalidade}</td>
 								<td>{item.datanascimento}</td>
 								<td>{item.profissao}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/CargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/CRCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/CRRelacoesPoliticos/" + item.idpessoasingular}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -82,4 +84,4 @@ function ConsultarEmpresariosSoVoto() {
 	);
 }
 
-export default ConsultarEmpresariosSoVoto;
+export default CRConsultarPoliticos;

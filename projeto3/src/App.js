@@ -9,7 +9,6 @@ import AdminRelacoesPoliticos from './Paginas/AdminRelacoesPoliticos'
 import AdminConsultarUtilizadores from './Paginas/AdminConsultarUtilizadores'
 import AdminCriarJornalista from './Paginas/AdminCriarJornalista'
 import AdminCriarAdmin from './Paginas/AdminCriarAdmin'
-import AdminCriarCidadaoRegistado from './Paginas/AdminCriarCidadaoRegistado'
 import AdminEditarAdmin from './Paginas/AdminEditarAdmin'
 import AdminEditarCidadaoRegistado from './Paginas/AdminEditarCidadaoRegistado'
 import AdminEditarJornalista from './Paginas/AdminEditarJornalista'
@@ -36,20 +35,30 @@ import JornalistaCriarEmpresario from './Paginas/JornalistaCriarEmpresario'
 import JornalistaCriarEmpresa from './Paginas/JornalistaCriarEmpresa'
 import JornalistaCriarEvento from './Paginas/JornalistaCriarEvento'
 
-// import ConsultarPoliticos from './Paginas/JornalistaConsultarPoliticos'
-// import ConsultarPoliticosSoVoto from './Paginas/ConsultarPoliticosSoVoto'
-// import RelacoesPoliticos from './Paginas/RelacoesPoliticos'
-// import RelacoesPoliticosSoVoto from './Paginas/RelacoesPoliticosSoVoto'
-// import ConsultarEmpresarios from './Paginas/ConsultarEmpresarios'
-// import ConsultarEmpresas from './Paginas/ConsultarEmpresas'
-// import ConsultarEventos from './Paginas/ConsultarEventos'
-// import RelacoesEmpresas from './Paginas/RelacoesEmpresas'
-// import RelacoesEventos from './Paginas/RelacoesEventos'
-// import RelacoesEmpresasSoVoto from './Paginas/AdminRelacoesEmpresas'
-// import CargosEmEmpresas from './Paginas/CargosEmEmpresas'
+import CRHome from './Paginas/CRHome'
+import CRRelacoesEmpresarios from './Paginas/CRRelacoesEmpresarios'
+import CRRelacoesEmpresas from './Paginas/CRRelacoesEmpresas'
+import CRRelacoesEventos from './Paginas/CRRelacoesEventos'
+import CRConsultarPoliticos from './Paginas/CRConsultarPoliticos'
+import CRRelacoesPoliticos from './Paginas/CRRelacoesPoliticos'
+import CRConsultarEmpresarios from './Paginas/CRConsultarEmpresarios'
+import CRCargosEmEmpresas from './Paginas/CRCargosEmEmpresas'
+import CRConsultarEventos from './Paginas/CRConsultarEventos'
+import CRConsultarEmpresas from './Paginas/CRConsultarEmpresas'
+
+import CHome from './Paginas/CHome'
+import CRelacoesEmpresarios from './Paginas/CRelacoesEmpresarios'
+import CRelacoesEmpresas from './Paginas/CRelacoesEmpresas'
+import CRelacoesEventos from './Paginas/CRelacoesEventos'
+import CConsultarPoliticos from './Paginas/CConsultarPoliticos'
+import CRelacoesPoliticos from './Paginas/CRelacoesPoliticos'
+import CConsultarEmpresarios from './Paginas/CConsultarEmpresarios'
+import CCargosEmEmpresas from './Paginas/CCargosEmEmpresas'
+import CConsultarEventos from './Paginas/CConsultarEventos'
+import CConsultarEmpresas from './Paginas/CConsultarEmpresas'
+
 import Login from './Paginas/Login'
-// import HomeCidadaoRegistado from './Paginas/HomeCidadaoRegistado'
-// import HomeCidadao from './Paginas/HomeCidadao'
+import CriarCidadaoRegistado from './Paginas/CriarCidadaoRegistado'
 
 
 function App() {
@@ -63,13 +72,7 @@ function App() {
 					<Route path="/AdminConsultarPoliticos" element={<AdminConsultarPoliticos />} />
 				</Routes>
 				<Routes>
-					<Route path="/AdminRelacoesEmpresarios/:idpessoasingular" element={<AdminRelacoesEmpresarios />} />
-				</Routes>
-				<Routes>
 					<Route path="/AdminRelacoesPoliticos/:idpessoasingular" element={<AdminRelacoesPoliticos />} />
-				</Routes>
-				<Routes>
-					<Route path="/AdminRelacoesEmpresarios/:idpessoasingular" element={<AdminRelacoesEmpresarios />} />
 				</Routes>
 				<Routes>
 					<Route path="/AdminRelacoesEmpresas/:idpessoacoletiva" element={<AdminRelacoesEmpresas />} />
@@ -88,9 +91,6 @@ function App() {
 				</Routes>
 				<Routes>
 					<Route path="/AdminCriarAdmin" element={<AdminCriarAdmin />} />
-				</Routes>
-				<Routes>
-					<Route path="/AdminCriarCidadaoRegistado" element={<AdminCriarCidadaoRegistado />} />
 				</Routes>
 				<Routes>
 					<Route path="/AdminEditarAdmin/:idutilizador" element={<AdminEditarAdmin />} />
@@ -113,6 +113,7 @@ function App() {
 				<Routes>
 					<Route path="/AdminConsultarEmpresas" element={<AdminConsultarEmpresas />} />
 				</Routes>
+
 				<Routes>
 					<Route path="/JornalistaHome" element={<JornalistaHome />} />
 				</Routes>
@@ -126,16 +127,10 @@ function App() {
 					<Route path="/JornalistaRelacoesPoliticos/:idpessoasingular" element={<JornalistaRelacoesPoliticos />} />
 				</Routes>
 				<Routes>
-					<Route path="/JornalistaRelacoesEmpresarios/:idpessoasingular" element={<JornalistaRelacoesEmpresarios />} />
-				</Routes>
-				<Routes>
 					<Route path="/JornalistaRelacoesEmpresas/:idpessoacoletiva" element={<JornalistaRelacoesEmpresas />} />
 				</Routes>
 				<Routes>
 					<Route path="/JornalistaRelacoesEventos/:idevento" element={<JornalistaRelacoesEventos />} />
-				</Routes>
-				<Routes>
-					<Route path="/JornalistaRelacoesEmpresarios/:idpessoasingular" element={<JornalistaRelacoesEmpresarios />} />
 				</Routes>
 				<Routes>
 					<Route path="/JornalistaConsultarEventos" element={<JornalistaConsultarEventos />} />
@@ -171,44 +166,73 @@ function App() {
 					<Route path="/JornalistaCriarEvento" element={<JornalistaCriarEvento />} />
 				</Routes>
 
-				{/* <Routes>
-					<Route path="/HomeCidadaoRegistado" element={<HomeCidadaoRegistado />} />
+				<Routes>
+					<Route path="/CRHome" element={<CRHome />} />
 				</Routes>
 				<Routes>
-					<Route path="/HomeCidadao" element={<HomeCidadao />} />
+					<Route path="/CRConsultarPoliticos" element={<CRConsultarPoliticos />} />
 				</Routes>
 				<Routes>
-					<Route path="/ConsultarPoliticos" element={<ConsultarPoliticos />} />
+					<Route path="/CRRelacoesPoliticos/:idpessoasingular" element={<CRRelacoesPoliticos />} />
 				</Routes>
 				<Routes>
-					<Route path="/ConsultarPoliticosSoVoto" element={<ConsultarPoliticosSoVoto />} />
+					<Route path="/CRRelacoesEmpresas/:idpessoacoletiva" element={<CRRelacoesEmpresas />} />
 				</Routes>
 				<Routes>
-					<Route path="/ConsultarEmpresarios" element={<ConsultarEmpresarios />} />
+					<Route path="/CRRelacoesEventos/:idevento" element={<CRRelacoesEventos />} />
 				</Routes>
 				<Routes>
-					<Route path="/ConsultarEmpresas" element={<ConsultarEmpresas />} />
+					<Route path="/CRRelacoesEmpresarios/:idpessoasingular" element={<CRRelacoesEmpresarios />} />
 				</Routes>
 				<Routes>
-					<Route path="/ConsultarEventos" element={<ConsultarEventos />} />
+					<Route path="/CRConsultarEventos" element={<CRConsultarEventos />} />
 				</Routes>
 				<Routes>
-					<Route path="/RelacoesPoliticos/:idpessoasingular" element={<RelacoesPoliticos />} />
+					<Route path="/CRConsultarEmpresarios" element={<CRConsultarEmpresarios />} />
 				</Routes>
 				<Routes>
-					<Route path="/RelacoesEmpresas/:idpessoacoletiva" element={<RelacoesEmpresas />} />
+					<Route path="/CRCargosEmEmpresas/:idpessoasingular" element={<CRCargosEmEmpresas />} />
 				</Routes>
 				<Routes>
-					<Route path="/RelacoesEventos/:idevento" element={<RelacoesEventos />} />
+					<Route path="/CRConsultarEmpresas" element={<CRConsultarEmpresas />} />
+				</Routes>
+
+				<Routes>
+					<Route path="/CHome" element={<CHome />} />
 				</Routes>
 				<Routes>
-					<Route path="/RelacoesPoliticosSoVoto/:idpessoasingular" element={<RelacoesPoliticosSoVoto />} />
+					<Route path="/CConsultarPoliticos" element={<CConsultarPoliticos />} />
 				</Routes>
 				<Routes>
-					<Route path="/RelacoesEmpresasSoVoto/:idpessoacoletiva" element={<RelacoesEmpresasSoVoto />} />
-				</Routes> */}
+					<Route path="/CRelacoesPoliticos/:idpessoasingular" element={<CRelacoesPoliticos />} />
+				</Routes>
+				<Routes>
+					<Route path="/CRelacoesEmpresas/:idpessoacoletiva" element={<CRelacoesEmpresas />} />
+				</Routes>
+				<Routes>
+					<Route path="/CRelacoesEventos/:idevento" element={<CRelacoesEventos />} />
+				</Routes>
+				<Routes>
+					<Route path="/CRelacoesEmpresarios/:idpessoasingular" element={<CRelacoesEmpresarios />} />
+				</Routes>
+				<Routes>
+					<Route path="/CConsultarEventos" element={<CConsultarEventos />} />
+				</Routes>
+				<Routes>
+					<Route path="/CConsultarEmpresarios" element={<CConsultarEmpresarios />} />
+				</Routes>
+				<Routes>
+					<Route path="/CCargosEmEmpresas/:idpessoasingular" element={<CCargosEmEmpresas />} />
+				</Routes>
+				<Routes>
+					<Route path="/CConsultarEmpresas" element={<CConsultarEmpresas />} />
+				</Routes>
+
 				<Routes>
 					<Route path="/Login" element={<Login />} />
+				</Routes>
+				<Routes>
+					<Route path="/CriarCidadaoRegistado" element={<CriarCidadaoRegistado />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
