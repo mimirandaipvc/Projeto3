@@ -2,7 +2,7 @@ import { Form, Button, Table, Carousel, Card, CardGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import './HomeAdmin.css'
+import './AdminHome.css'
 import imagem1 from "../Imagens/1.jpg";
 import imagem2 from "../Imagens/2.jpg";
 import imagem3 from "../Imagens/3.jpg";

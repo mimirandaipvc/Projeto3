@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarEmpresarios() {
+function ConsultarEmpresariosSoVoto() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -78,4 +78,4 @@ function ConsultarEmpresarios() {
 	);
 }
 
-export default ConsultarEmpresarios;
+export default ConsultarEmpresariosSoVoto;

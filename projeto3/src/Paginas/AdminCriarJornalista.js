@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function CriarAdmin() {
+function AdminCriarJornalista() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -16,8 +16,8 @@ function CriarAdmin() {
 	const [Password, setPassword] = useState([]);
 
 
-	function adicionaAdmin() {
-		return api.post('/api/v1/Admin', {
+	function adicionaJornalista() {
+		return api.post('/api/v1/Jornalista', {
 			username: Username,
 			password: Password
 		}).then(response => {
@@ -45,7 +45,7 @@ function CriarAdmin() {
 				</Navbar>
 
 				<br />
-				<h2>Criar Administrador</h2>
+				<h2>Criar Jornalista</h2>
 				<br></br>
 				<Form.Label>Username: </Form.Label>
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
@@ -55,11 +55,12 @@ function CriarAdmin() {
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
 					placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
 				<br></br>
-
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaAdmin}>Criar Administrador</button>
+				<br></br>
+				<br></br>
+				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaJornalista}>Criar Jornalista</button>
 			</Container>
 		</div>
 	);
 }
 
-export default CriarAdmin;
+export default AdminCriarJornalista;

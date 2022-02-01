@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './HomeAdmin.css'
+import './AdminHome.css'
 
 function RelacoesPoliticos() {
 
@@ -34,7 +34,7 @@ function RelacoesPoliticos() {
 		}
 	}
 
-	function obterDados(){
+	function obterDados() {
 		return api.get('/api/v1/RelacaoPSP/' + params.idpessoasingular)
 			.then(function (response) {
 				setData1(response.data);
@@ -43,7 +43,7 @@ function RelacoesPoliticos() {
 	}
 
 	function mais(i) {
-		api.post('/api/v1/VotoRPS',{
+		api.post('/api/v1/VotoRPS', {
 			idrelacaops: i,
 			idutilizador: 1,
 		});
@@ -75,8 +75,8 @@ function RelacoesPoliticos() {
 	}, [data1]);
 
 	return (
-			<div>
-				<Container fluid>
+		<div>
+			<Container fluid>
 
 				<Navbar bg="light" expand="lg">
 					<Container>
@@ -91,37 +91,37 @@ function RelacoesPoliticos() {
 					</Container>
 				</Navbar>
 
-					<br />
-					<h1>RELAÇÕES</h1>
+				<br />
+				<h1>RELAÇÕES</h1>
 
-					{data1.map(item => (
-						<Card style={{ width: '23rem' }} key={item.idrelacaops}>
-							<Card.Body>
-								<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
-								<Card.Text>
-									{data2.map(item => (
+				{data1.map(item => (
+					<Card style={{ width: '23rem' }} key={item.idrelacaops}>
+						<Card.Body>
+							<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
+							<Card.Text>
+								{data2.map(item => (
 									<p>Politico:{item.nome}</p>
-									))}
-									{data3.map(item => (
+								))}
+								{data3.map(item => (
 									<p>Evento: {item.designacao}</p>
-									))}
-									<p>Motivo: {item.motivo}</p>
-									<p>Valores: {item.valores}€</p>
-									<p>Data inserção: {item.data}</p>
-									<p>Inserido por: {item.idutilizador}</p>
-									<p><b>Credibilidade: {item.credibilidade}</b></p>
-								</Card.Text>
-								<Button variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
-								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
-							</Card.Body>
-						</Card>
-					))}
+								))}
+								<p>Motivo: {item.motivo}</p>
+								<p>Valores: {item.valores}€</p>
+								<p>Data inserção: {item.data}</p>
+								<p>Inserido por: {item.idutilizador}</p>
+								<p><b>Credibilidade: {item.credibilidade}</b></p>
+							</Card.Text>
+							<Button variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
+							<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
+						</Card.Body>
+					</Card>
+				))}
 
 				<Button variant="dark" href={"http://localhost:3000/CriarInfoPS/" + params.idpessoasingular}>Criar Relação</Button>
 
-				</Container>
-			</div>
-		);
+			</Container>
+		</div>
+	);
 
 }
 

@@ -20,31 +20,31 @@ function Login() {
 
 	function login() {
 		return api.post('/api/v1/signin', {
-				username: Username,
-				password: Password
-			})
-				.then(response => {
-					console.log(response.data);
-					var token = response.data.token;
-					var decoded = jwt_decode(token);
-					document.cookie = "token=" + token + "; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;";
-					localStorage.setItem("token", token);
-					localStorage.setItem("iud", response.data.uid);
-					if (decoded.idtipoutilizador === 1) {
-						localStorage.setItem("idtipoutilizador", 1)
-						alert("Bem-vindo Admin!")
-						navigate('/HomeAdmin')
+			username: Username,
+			password: Password
+		})
+			.then(response => {
+				console.log(response.data);
+				var token = response.data.token;
+				var decoded = jwt_decode(token);
+				document.cookie = "token=" + token + "; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;";
+				localStorage.setItem("token", token);
+				localStorage.setItem("iud", response.data.uid);
+				if (decoded.idtipoutilizador === 1) {
+					localStorage.setItem("idtipoutilizador", 1)
+					alert("Bem-vindo Administrador!")
+					navigate('/AdminHome')
 
-					} else if (decoded.idtipoutilizador === 2) {
-						localStorage.setItem("idtipoutilizador", 2)
-						alert("Bem-vindo Jornalista!")
-						navigate("/HomeJornalista");
-					} else {
-						localStorage.setItem("idtipoutilizador", 3)
-						alert("Bem-vindo Cidadão Registado!")
-						navigate("/HomeCidadaoRegistado");
-					}
-				})
+				} else if (decoded.idtipoutilizador === 2) {
+					localStorage.setItem("idtipoutilizador", 2)
+					alert("Bem-vindo Jornalista!")
+					navigate("/HomeJornalista");
+				} else {
+					localStorage.setItem("idtipoutilizador", 3)
+					alert("Bem-vindo Cidadão Registado!")
+					navigate("/HomeCidadaoRegistado");
+				}
+			})
 	}
 
 
@@ -79,7 +79,7 @@ function Login() {
 				<button type="button" className="btn btn-info btn-block mt-4" onClick={login}>Login</button>
 				<br></br>
 				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/CriarCidadaoRegistado/"}>Registar-se</Button>
+				<Button variant="dark" href={"http://localhost:3000/AdminCriarCidadaoRegistado/"}>Registar-se</Button>
 				<br></br>
 				<br></br>
 				<Button variant="dark" href={"http://localhost:3000/HomeCidadao/"}>Entrar como convidado</Button>

@@ -2,7 +2,7 @@ import { Form, Button, Table, Carousel, Card, CardGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import './HomeAdmin.css'
+import './AdminHome.css'
 import imagem1 from "../Imagens/1.jpg";
 import imagem2 from "../Imagens/2.jpg";
 import imagem3 from "../Imagens/3.jpg";
@@ -12,10 +12,10 @@ import imagem6 from "../Imagens/6.jpg";
 
 
 
-function HomeAdmin() {
+function AdminHome() {
 	return (
 		<div>
-			<h1>Bem-vindo!</h1>
+			<h1>Bem-vindo Administrador!</h1>
 
 			<Carousel>
 				<Carousel.Item>
@@ -25,9 +25,9 @@ function HomeAdmin() {
 						alt="First slide"
 					/>
 					<Carousel.Caption>
-						<h3>Consultar Politicos</h3>
+						<h3>Consultar Políticos</h3>
 						<p>Visualizar políticos e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarPoliticosSemVoto/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminConsultarPoliticos/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -39,7 +39,7 @@ function HomeAdmin() {
 					<Carousel.Caption>
 						<h3>Consultar Eventos</h3>
 						<p>Visualizar Eventos e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEventos/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminConsultarEventos/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -51,7 +51,7 @@ function HomeAdmin() {
 					<Carousel.Caption>
 						<h3>Consultar Empresários</h3>
 						<p>Visualizar Empresários e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEmpresarios/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminConsultarEmpresarios/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -63,7 +63,7 @@ function HomeAdmin() {
 					<Carousel.Caption>
 						<h3>Consultar Empresas</h3>
 						<p>Visualizar Empresas e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEmpresas/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminConsultarEmpresas/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -76,7 +76,7 @@ function HomeAdmin() {
 					<Carousel.Caption>
 						<h3>Gestão de Utilizadores</h3>
 						<p>Consultar e Registar outros administradores e jornalistas. Consultar cidadãos registados. </p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarUtilizadores/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminConsultarUtilizadores/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -98,4 +98,4 @@ function HomeAdmin() {
 	);
 }
 
-export default HomeAdmin;
+export default AdminHome;

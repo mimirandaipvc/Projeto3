@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function EditarCidadaoRegistado() {
+function AdminEditarJornalista() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -16,8 +16,8 @@ function EditarCidadaoRegistado() {
 	const [Password, setPassword] = useState([]);
 
 
-	function editaCidadaoRegistado() {
-		return api.put('/api/v1/CidadaoRegistado/' + params.idutilizador, {
+	function editaJornalista() {
+		return api.put('/api/v1/Jornalista/' + params.idutilizador, {
 			username: Username,
 			password: Password,
 		}).then(response => {
@@ -45,7 +45,7 @@ function EditarCidadaoRegistado() {
 				</Navbar>
 
 				<br />
-				<h2>Editar Cidadão Registado</h2>
+				<h2>Editar Jornalista</h2>
 				<br></br>
 				<Form.Label>Username: </Form.Label>
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
@@ -56,10 +56,10 @@ function EditarCidadaoRegistado() {
 					placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
 				<br></br>
 
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={editaCidadaoRegistado}>Editar Cidadão Registado</button>
+				<button type="button" className="btn btn-info btn-block mt-4" onClick={editaJornalista}>Editar Jornalista</button>
 			</Container>
 		</div>
 	);
 }
 
-export default EditarCidadaoRegistado;
+export default AdminEditarJornalista;

@@ -8,13 +8,14 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarPoliticosSemVoto() {
+function AdminConsultarEventos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 
-	function obterListaPoliticos() {
-		return api.get('/api/v1/Politico')
+
+	function obterListaEventos() {
+		return api.get('/api/v1/Evento')
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
@@ -23,7 +24,7 @@ function ConsultarPoliticosSemVoto() {
 
 
 	useEffect(() => {
-		obterListaPoliticos();
+		obterListaEventos();
 	}, []);
 
 
@@ -45,29 +46,23 @@ function ConsultarPoliticosSemVoto() {
 				</Navbar>
 
 				<br />
-				<h1>POLÍTICOS</h1>
+				<h1>EVENTOS</h1>
 
 				<Table striped bordered hover>
 					<thead>
 						<tr>
-							<th>Nome</th>
-							<th>Sexo</th>
-							<th>Nacionalidade</th>
-							<th>Data de Nascimento</th>
-							<th>Profissão</th>
-							<th>Cargos em Empresas</th>
+							<th>Designacao</th>
+							<th>Descrição</th>
+							<th>Data</th>
 						</tr>
 					</thead>
 					<tbody>
 						{data1.map(item => (
 							<tr>
-								<td>{item.nome}</td>
-								<td>{item.sexo}</td>
-								<td>{item.nacionalidade}</td>
-								<td>{item.datanascimento}</td>
-								<td>{item.profissao}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/CargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/RelacoesPoliticosSemVoto/" + item.idpessoasingular}>Ver relações</Button></td>
+								<td>{item.designacao}</td>
+								<td>{item.descricao}</td>
+								<td>{item.data}</td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEventos/" + item.idevento}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -77,4 +72,4 @@ function ConsultarPoliticosSemVoto() {
 	);
 }
 
-export default ConsultarPoliticosSemVoto;
+export default AdminConsultarEventos;

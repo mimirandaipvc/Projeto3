@@ -8,14 +8,13 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarEmpresarios() {
+function AdminConsultarPoliticos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 
-
-	function obterListaEmpresarios() {
-		return api.get('/api/v1/Empresario')
+	function obterListaPoliticos() {
+		return api.get('/api/v1/Politico')
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
@@ -24,7 +23,7 @@ function ConsultarEmpresarios() {
 
 
 	useEffect(() => {
-		obterListaEmpresarios();
+		obterListaPoliticos();
 	}, []);
 
 
@@ -67,8 +66,8 @@ function ConsultarEmpresarios() {
 								<td>{item.nacionalidade}</td>
 								<td>{item.datanascimento}</td>
 								<td>{item.profissao}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/CargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesPoliticos/" + item.idpessoasingular}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -78,4 +77,4 @@ function ConsultarEmpresarios() {
 	);
 }
 
-export default ConsultarEmpresarios;
+export default AdminConsultarPoliticos;

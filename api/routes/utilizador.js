@@ -7,30 +7,30 @@ module.exports = app => {
 	app.route('/api/v1/Admin')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterListaAdmin)
-		.post(controller.criarAdmin)
+		.post(controller.AdminCriarAdmin)
 
 	app.route('/api/v1/Admin/:idutilizador')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterAdmin)
-		.put(controller.editarAdmin)
+		.put(controller.AdminEditarAdmin)
 
 	app.route('/api/v1/Jornalista')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterListaJornalista)
-		.post(controller.criarJornalista)
+		.post(controller.AdminCriarJornalista)
 
 	app.route('/api/v1/Jornalista/:idutilizador')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterJornalista)
-		.put(controller.editarJornalista)
+		.put(controller.AdminEditarJornalista)
 
 	app.route('/api/v1/CidadaoRegistado')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterListaCidadaoRegistado)
-		.post(controller.criarCidadaoRegistado)
+		.post(controller.AdminCriarCidadaoRegistado)
 
 	app.route('/api/v1/CidadaoRegistado/:idutilizador')
 		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterCidadaoRegistado)
-		.put(controller.editarCidadaoRegistado)
+		.put(controller.AdminEditarCidadaoRegistado)
 }

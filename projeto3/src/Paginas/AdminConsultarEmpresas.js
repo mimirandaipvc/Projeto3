@@ -8,14 +8,14 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarEmpresarios() {
+function AdminConsultarEmpresas() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 
 
-	function obterListaEmpresarios() {
-		return api.get('/api/v1/Empresario')
+	function obterListaEmpresas() {
+		return api.get('/api/v1/PessoaColetiva')
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
@@ -24,7 +24,7 @@ function ConsultarEmpresarios() {
 
 
 	useEffect(() => {
-		obterListaEmpresarios();
+		obterListaEmpresas();
 	}, []);
 
 
@@ -46,29 +46,25 @@ function ConsultarEmpresarios() {
 				</Navbar>
 
 				<br />
-				<h1>POLÍTICOS</h1>
+				<h1>EMPRESAS</h1>
 
 				<Table striped bordered hover>
 					<thead>
 						<tr>
-							<th>Nome</th>
-							<th>Sexo</th>
-							<th>Nacionalidade</th>
-							<th>Data de Nascimento</th>
-							<th>Profissão</th>
-							<th>Cargos em Empresas</th>
+							<th>Designação</th>
+							<th>País</th>
+							<th>Fundação</th>
+							<th>Ramo de Atividade</th>
 						</tr>
 					</thead>
 					<tbody>
 						{data1.map(item => (
 							<tr>
-								<td>{item.nome}</td>
-								<td>{item.sexo}</td>
-								<td>{item.nacionalidade}</td>
-								<td>{item.datanascimento}</td>
-								<td>{item.profissao}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/CargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
+								<td>{item.designacao}</td>
+								<td>{item.pais}</td>
+								<td>{item.anofundacao}</td>
+								<td>{item.ramoatividade}</td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEmpresas/" + item.idpessoacoletiva}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -78,4 +74,4 @@ function ConsultarEmpresarios() {
 	);
 }
 
-export default ConsultarEmpresarios;
+export default AdminConsultarEmpresas;

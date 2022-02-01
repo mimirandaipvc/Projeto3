@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarUtilizadores() {
+function AdminConsultarUtilizadores() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -86,8 +86,7 @@ function ConsultarUtilizadores() {
 								<td>{item.idutilizador}</td>
 								<td>{item.username}</td>
 								<td>{item.dataregisto}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/EditarAdmin/" + item.idutilizador}>Editar</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Eliminar</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminEditarAdmin/" + item.idutilizador}>Editar</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -110,8 +109,7 @@ function ConsultarUtilizadores() {
 								<td>{item.idutilizador}</td>
 								<td>{item.username}</td>
 								<td>{item.dataregisto}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/EditarJornalista/" + item.idutilizador}>Editar</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Eliminar</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminEditarJornalista/" + item.idutilizador}>Editar</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -134,19 +132,18 @@ function ConsultarUtilizadores() {
 								<td>{item.idutilizador}</td>
 								<td>{item.username}</td>
 								<td>{item.dataregisto}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/EditarCidadaoRegistado/" + item.idutilizador}>Editar</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/" + item.utilizador}>Eliminar</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminEditarCidadaoRegistado/" + item.idutilizador}>Editar</Button></td>
 							</tr>
 						))}
 					</tbody>
 				</Table>
 				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/CriarAdmin/"}>Criar Administrador</Button>
+				<Button variant="dark" href={"http://localhost:3000/AdminCriarAdmin/"}>Criar Administrador</Button>
 				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/CriarJornalista/"}>Criar Jornalista</Button>
+				<Button variant="dark" href={"http://localhost:3000/AdminCriarJornalista/"}>Criar Jornalista</Button>
 			</Container>
 		</div>
 	);
 }
 
-export default ConsultarUtilizadores;
+export default AdminConsultarUtilizadores;

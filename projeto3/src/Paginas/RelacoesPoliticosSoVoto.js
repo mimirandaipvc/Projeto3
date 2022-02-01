@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './HomeAdmin.css'
+import './AdminHome.css'
 
 function RelacoesPoliticosSoVoto() {
 

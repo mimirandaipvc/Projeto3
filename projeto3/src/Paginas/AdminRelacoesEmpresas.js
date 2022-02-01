@@ -7,17 +7,17 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './HomeAdmin.css'
+import './AdminHome.css'
 
-function RelacoesEmpresarios() {
+function AdminRelacoesEmpresas() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
 	const [data3, setData3] = useState([]);
 
-	function obterEmpresario() {
-		return api.get('/api/v1/Empresario/' + params.idpessoasingular)
+	function obterEmpresa() {
+		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
 			.then(function (response) {
 				setData2(response.data);
 				console.log(response.data);
@@ -35,17 +35,16 @@ function RelacoesEmpresarios() {
 	}
 
 	function obterDados() {
-		return api.get('/api/v1/RelacaoPSP/' + params.idpessoasingular)
+		return api.get('/api/v1/RelacaoPCP/' + params.idpessoacoletiva)
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
 			});
 	}
 
-
 	useEffect(() => {
 		obterDados();
-		obterEmpresario();
+		obterEmpresa();
 		obterEvento();
 	}, [data1]);
 
@@ -70,12 +69,12 @@ function RelacoesEmpresarios() {
 				<h1>RELAÇÕES</h1>
 
 				{data1.map(item => (
-					<Card style={{ width: '23rem' }} key={item.idrelacaops}>
+					<Card style={{ width: '23rem' }} key={item.idrelacaopc}>
 						<Card.Body>
-							<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
+							<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
 							<Card.Text>
 								{data2.map(item => (
-									<p>Empresário:{item.nome}</p>
+									<p>Empresa:{item.designacao}</p>
 								))}
 								{data3.map(item => (
 									<p>Evento: {item.designacao}</p>
@@ -89,11 +88,11 @@ function RelacoesEmpresarios() {
 						</Card.Body>
 					</Card>
 				))}
-
+				<br></br>
 			</Container>
 		</div>
 	);
 
 }
 
-export default RelacoesEmpresarios;
+export default AdminRelacoesEmpresas;

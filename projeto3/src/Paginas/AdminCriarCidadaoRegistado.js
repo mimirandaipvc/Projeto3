@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-function CriarCidadaoRegistado() {
+function AdminCriarCidadaoRegistado() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -65,4 +65,4 @@ function CriarCidadaoRegistado() {
 	);
 }
 
-export default CriarCidadaoRegistado;
+export default AdminCriarCidadaoRegistado;

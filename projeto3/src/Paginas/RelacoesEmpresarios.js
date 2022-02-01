@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './HomeAdmin.css'
+import './AdminHome.css'
 
-function RelacoesEmpresarios() {
+function AdminRelacoesEmpresarios() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -126,4 +126,4 @@ function RelacoesEmpresarios() {
 
 }
 
-export default RelacoesEmpresarios;
+export default AdminRelacoesEmpresarios;

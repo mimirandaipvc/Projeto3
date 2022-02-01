@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarEmpresarios() {
+function AdminConsultarEmpresarios() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -46,7 +46,7 @@ function ConsultarEmpresarios() {
 				</Navbar>
 
 				<br />
-				<h1>POLÍTICOS</h1>
+				<h1>EMPRESÁRIOS</h1>
 
 				<Table striped bordered hover>
 					<thead>
@@ -67,7 +67,7 @@ function ConsultarEmpresarios() {
 								<td>{item.nacionalidade}</td>
 								<td>{item.datanascimento}</td>
 								<td>{item.profissao}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/CargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/AdminCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
 								<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
 							</tr>
 						))}
@@ -78,4 +78,4 @@ function ConsultarEmpresarios() {
 	);
 }
 
-export default ConsultarEmpresarios;
+export default AdminConsultarEmpresarios;

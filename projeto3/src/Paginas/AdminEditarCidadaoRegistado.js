@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function CriarJornalista() {
+function AdminEditarCidadaoRegistado() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -16,10 +16,10 @@ function CriarJornalista() {
 	const [Password, setPassword] = useState([]);
 
 
-	function adicionaJornalista() {
-		return api.post('/api/v1/Jornalista', {
+	function editaCidadaoRegistado() {
+		return api.put('/api/v1/CidadaoRegistado/' + params.idutilizador, {
 			username: Username,
-			password: Password
+			password: Password,
 		}).then(response => {
 			console.log(response.data);
 		}).catch(error => {
@@ -45,7 +45,7 @@ function CriarJornalista() {
 				</Navbar>
 
 				<br />
-				<h2>Criar Jornalista</h2>
+				<h2>Editar Cidadão Registado</h2>
 				<br></br>
 				<Form.Label>Username: </Form.Label>
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
@@ -55,12 +55,11 @@ function CriarJornalista() {
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
 					placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
 				<br></br>
-				<br></br>
-				<br></br>
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaJornalista}>Criar Jornalista</button>
+
+				<button type="button" className="btn btn-info btn-block mt-4" onClick={editaCidadaoRegistado}>Editar Cidadão Registado</button>
 			</Container>
 		</div>
 	);
 }
 
-export default CriarJornalista;
+export default AdminEditarCidadaoRegistado;

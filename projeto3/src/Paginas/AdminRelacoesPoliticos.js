@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './HomeAdmin.css'
+import './AdminHome.css'
 
-function RelacoesPoliticosSemVoto() {
+function AdminRelacoesPoliticos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -96,5 +96,5 @@ function RelacoesPoliticosSemVoto() {
 
 }
 
-export default RelacoesPoliticosSemVoto;
+export default AdminRelacoesPoliticos;
 
