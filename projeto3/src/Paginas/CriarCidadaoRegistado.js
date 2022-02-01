@@ -36,23 +36,6 @@ function AdminCriarCidadaoRegistado() {
 		<div>
 			<Container fluid>
 
-				<Navbar bg="light" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="/AdminHome">Home</Nav.Link>
-								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
-
 				<br />
 				<h2>Registar-se</h2>
 				<br></br>
@@ -63,9 +46,11 @@ function AdminCriarCidadaoRegistado() {
 				<Form.Label>Password: </Form.Label>
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
 					placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
-				<br></br>
 
 				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaCidadao}>Registar-se</button>
+				<br></br><br></br>
+				<Button variant="dark" href={"http://localhost:3000/Login/"}>Voltar para Login</Button>
+
 			</Container>
 		</div>
 	);
