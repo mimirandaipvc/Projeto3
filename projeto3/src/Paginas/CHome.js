@@ -19,7 +19,7 @@ function CHome() {
 
 	return (
 		<div>
-			<h1>Bem-vindo!</h1>
+			<h1>Bem-vindo Cidadão!<Button style={{ float: 'right' }} variant="dark" href="http://localhost:3000/Login/">Efetuar Login</Button></h1>
 
 			<Carousel>
 				<Carousel.Item>
