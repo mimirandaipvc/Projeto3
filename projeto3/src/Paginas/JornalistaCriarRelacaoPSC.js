@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function CriarRelacaoPSC() {
+function JornalistaCriarRelacaoPSC() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -17,6 +17,9 @@ function CriarRelacaoPSC() {
 	const [Salario, setSalario] = useState([]);
 	const [IDPessoaColetiva, setIDPessoaColetiva] = useState([]);
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function adicionaRelacao() {
 		return api.post('/api/v1/RelacaoPessoasSC', {
@@ -43,8 +46,11 @@ function CriarRelacaoPSC() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -76,4 +82,4 @@ function CriarRelacaoPSC() {
 	);
 }
 
-export default CriarRelacaoPSC;
+export default JornalistaCriarRelacaoPSC;

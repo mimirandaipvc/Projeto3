@@ -9,15 +9,19 @@ import './RelacoesPoliticos.css'
 
 import './AdminHome.css'
 
-function RelacoesEmpresas() {
+function JornalistaRelacoesPoliticos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
 	const [data3, setData3] = useState([]);
 
-	function obterEmpresa() {
-		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
+
+	function obterPolitico() {
+		return api.get('/api/v1/Politico/' + params.idpessoasingular)
 			.then(function (response) {
 				setData2(response.data);
 				console.log(response.data);
@@ -35,7 +39,7 @@ function RelacoesEmpresas() {
 	}
 
 	function obterDados() {
-		return api.get('/api/v1/RelacaoPCP/' + params.idpessoacoletiva)
+		return api.get('/api/v1/RelacaoPSP/' + params.idpessoasingular)
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
@@ -43,12 +47,12 @@ function RelacoesEmpresas() {
 	}
 
 	function mais(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
+		api.post('/api/v1/VotoRPS', {
+			idrelacaops: i,
 			idutilizador: 1,
 		});
-		api.put('/api/v1/AumentarCredibilidadeRPC', {
-			idrelacaopc: i,
+		api.put('/api/v1/AumentarCredibilidadeRPS', {
+			idrelacaops: i,
 		});
 		console.log('mais');
 		// window.location.reload();
@@ -56,12 +60,12 @@ function RelacoesEmpresas() {
 	}
 
 	function menos(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
+		api.post('/api/v1/VotoRPS', {
+			idrelacaops: i,
 			idutilizador: 1,
 		});
-		api.put('/api/v1/DiminuirCredibilidadeRPC', {
-			idrelacaopc: i,
+		api.put('/api/v1/DiminuirCredibilidadeRPS', {
+			idrelacaops: i,
 		});
 		console.log('menos');
 		// window.location.reload();
@@ -70,7 +74,7 @@ function RelacoesEmpresas() {
 
 	useEffect(() => {
 		obterDados();
-		obterEmpresa();
+		obterPolitico();
 		obterEvento();
 	}, [data1]);
 
@@ -84,8 +88,11 @@ function RelacoesEmpresas() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -95,12 +102,12 @@ function RelacoesEmpresas() {
 				<h1>RELAÇÕES</h1>
 
 				{data1.map(item => (
-					<Card style={{ width: '23rem' }} key={item.idrelacaopc}>
+					<Card style={{ width: '23rem' }} key={item.idrelacaops}>
 						<Card.Body>
-							<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
+							<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
 							<Card.Text>
 								{data2.map(item => (
-									<p>Empresa:{item.designacao}</p>
+									<p>Politico:{item.nome}</p>
 								))}
 								{data3.map(item => (
 									<p>Evento: {item.designacao}</p>
@@ -111,13 +118,13 @@ function RelacoesEmpresas() {
 								<p>Inserido por: {item.idutilizador}</p>
 								<p><b>Credibilidade: {item.credibilidade}</b></p>
 							</Card.Text>
-							<Button variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
-							<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
+							<Button variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
+							<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
 						</Card.Body>
 					</Card>
 				))}
-				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/CriarInfoPC/" + params.idpessoacoletiva}>Criar Relação</Button>
+
+				<Button variant="dark" href={"http://localhost:3000/CriarInfoPS/" + params.idpessoasingular}>Criar Relação</Button>
 
 			</Container>
 		</div>
@@ -125,4 +132,5 @@ function RelacoesEmpresas() {
 
 }
 
-export default RelacoesEmpresas;
+export default JornalistaRelacoesPoliticos;
+

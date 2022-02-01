@@ -9,7 +9,7 @@ import './RelacoesPoliticos.css'
 
 import './AdminHome.css'
 
-function RelacoesEventos() {
+function JornalistaRelacoesEventos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -18,7 +18,9 @@ function RelacoesEventos() {
 	const [data4, setData4] = useState([]);
 	const [data5, setData5] = useState([]);
 
-
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function obterPolitico() {
 		for (const i = 0; i < data5.length; i++) {
@@ -135,8 +137,11 @@ function RelacoesEventos() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -204,5 +209,5 @@ function RelacoesEventos() {
 
 }
 
-export default RelacoesEventos;
+export default JornalistaRelacoesEventos;
 

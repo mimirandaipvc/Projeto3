@@ -15,6 +15,10 @@ function AdminCargosEmEmpresas() {
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
+
 	function obterEmpresa() {
 		for (const i = 0; i < data1.length; i++) {
 			return api.get('/api/v1/PessoaColetiva/' + data1[i].idpessoacoletiva)
@@ -50,8 +54,12 @@ function AdminCargosEmEmpresas() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/AdminHome">Home</Nav.Link>
+								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>

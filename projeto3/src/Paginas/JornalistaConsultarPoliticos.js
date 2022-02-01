@@ -8,10 +8,14 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarPoliticos() {
+function JornalistaConsultarPoliticos() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
+
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function obterListaPoliticos() {
 		return api.get('/api/v1/Politico')
@@ -37,8 +41,11 @@ function ConsultarPoliticos() {
 							<Navbar.Toggle aria-controls="basic-navbar-nav" />
 							<Navbar.Collapse id="basic-navbar-nav">
 								<Nav className="me-auto">
-									<Nav.Link href="#home">Home</Nav.Link>
-									<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+									<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
 								</Nav>
 							</Navbar.Collapse>
 						</Container>
@@ -66,8 +73,8 @@ function ConsultarPoliticos() {
 									<td>{item.nacionalidade}</td>
 									<td>{item.datanascimento}</td>
 									<td>{item.profissao}</td>
-									<td><Button variant="dark" href={"http://localhost:3000/CargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
-									<td><Button variant="dark" href={"http://localhost:3000/RelacoesPoliticos/" + item.idpessoasingular}>Ver relações</Button></td>
+									<td><Button variant="dark" href={"http://localhost:3000/JornalistaCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
+									<td><Button variant="dark" href={"http://localhost:3000/JornalistaRelacoesPoliticos/" + item.idpessoasingular}>Ver relações</Button></td>
 								</tr>
 							))}
 						</tbody>
@@ -77,4 +84,4 @@ function ConsultarPoliticos() {
 		);
 }
 
-export default ConsultarPoliticos;
+export default JornalistaConsultarPoliticos;

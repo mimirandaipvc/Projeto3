@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function CriarEmpresa() {
+function JornalistaCriarEmpresa() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -17,6 +17,9 @@ function CriarEmpresa() {
 	const [AnoFundacao, setAnoFundacao] = useState([]);
 	const [RamoAtividade, setRamoAtividade] = useState([]);
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function adicionaEmpresa() {
 		return api.post('/api/v1/PessoaColetiva', {
@@ -41,8 +44,11 @@ function CriarEmpresa() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -73,4 +79,4 @@ function CriarEmpresa() {
 	);
 }
 
-export default CriarEmpresa;
+export default JornalistaCriarEmpresa;

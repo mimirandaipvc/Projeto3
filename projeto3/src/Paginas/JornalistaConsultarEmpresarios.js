@@ -8,11 +8,14 @@ import './RelacoesPoliticos.css'
 
 
 
-function ConsultarEmpresarios() {
+function JornalistaConsultarEmpresarios() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function obterListaEmpresarios() {
 		return api.get('/api/v1/Empresario')
@@ -38,15 +41,18 @@ function ConsultarEmpresarios() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
 				</Navbar>
 
 				<br />
-				<h1>POLÍTICOS</h1>
+				<h1>EMPRESÁRIOS</h1>
 
 				<Table striped bordered hover>
 					<thead>
@@ -67,8 +73,8 @@ function ConsultarEmpresarios() {
 								<td>{item.nacionalidade}</td>
 								<td>{item.datanascimento}</td>
 								<td>{item.profissao}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/CargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/JornalistaCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
+								<td><Button variant="dark" href={"http://localhost:3000/JornalistaRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
 							</tr>
 						))}
 					</tbody>
@@ -78,4 +84,4 @@ function ConsultarEmpresarios() {
 	);
 }
 
-export default ConsultarEmpresarios;
+export default JornalistaConsultarEmpresarios;

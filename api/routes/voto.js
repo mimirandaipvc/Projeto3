@@ -2,7 +2,7 @@ module.exports = app => {
 	const controller = app.controllers.voto;
 
 	app.route('/api/v1/VotoRPC')
-		// .all(app.controllers.passport.authenticate())
+		.all(app.controllers.passport.authenticate())
 		.post(controller.criarVotoRPC)
 
 	app.route('/api/v1/AumentarCredibilidadeRPC')

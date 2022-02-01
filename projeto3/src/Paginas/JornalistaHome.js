@@ -1,7 +1,6 @@
 import { Form, Button, Table, Carousel, Card, CardGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 import './AdminHome.css'
 import imagem1 from "../Imagens/1.jpg";
 import imagem2 from "../Imagens/2.jpg";
@@ -12,7 +11,7 @@ import imagem6 from "../Imagens/6.jpg";
 
 
 
-function HomeJornalista() {
+function JornalistaHome() {
 	return (
 		<div>
 			<h1>Bem-vindo!</h1>
@@ -27,7 +26,7 @@ function HomeJornalista() {
 					<Carousel.Caption>
 						<h3>Consultar Politicos</h3>
 						<p>Visualizar políticos e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarPoliticos/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaConsultarPoliticos/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -39,7 +38,7 @@ function HomeJornalista() {
 					<Carousel.Caption>
 						<h3>Consultar Eventos</h3>
 						<p>Visualizar Eventos e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEventos/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaConsultarEventos/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -51,7 +50,7 @@ function HomeJornalista() {
 					<Carousel.Caption>
 						<h3>Consultar Empresários</h3>
 						<p>Visualizar Empresários e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEmpresarios/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaConsultarEmpresarios/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -63,7 +62,7 @@ function HomeJornalista() {
 					<Carousel.Caption>
 						<h3>Consultar Empresas</h3>
 						<p>Visualizar Empresas e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/ConsultarEmpresas/`}>Clique aqui</Link>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaConsultarEmpresas/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -85,4 +84,4 @@ function HomeJornalista() {
 	);
 }
 
-export default HomeJornalista;
+export default JornalistaHome;

@@ -17,28 +17,39 @@ import AdminConsultarEmpresarios from './Paginas/AdminConsultarEmpresarios'
 import AdminCargosEmEmpresas from './Paginas/AdminCargosEmEmpresas'
 import AdminConsultarEventos from './Paginas/AdminConsultarEventos'
 import AdminConsultarEmpresas from './Paginas/AdminConsultarEmpresas'
-import ConsultarPoliticos from './Paginas/ConsultarPoliticos'
-import ConsultarPoliticosSoVoto from './Paginas/ConsultarPoliticosSoVoto'
-import RelacoesPoliticos from './Paginas/RelacoesPoliticos'
-import RelacoesPoliticosSoVoto from './Paginas/RelacoesPoliticosSoVoto'
-import ConsultarEmpresarios from './Paginas/ConsultarEmpresarios'
-import ConsultarEmpresas from './Paginas/ConsultarEmpresas'
-import ConsultarEventos from './Paginas/ConsultarEventos'
-import RelacoesEmpresas from './Paginas/RelacoesEmpresas'
-import RelacoesEventos from './Paginas/RelacoesEventos'
-import RelacoesEmpresasSoVoto from './Paginas/AdminRelacoesEmpresas'
-import CargosEmEmpresas from './Paginas/CargosEmEmpresas'
-import CriarRelacaoPSC from './Paginas/CriarRelacaoPSC'
-import CriarInfoPC from './Paginas/CriarInfoPC'
-import CriarInfoPS from './Paginas/CriarInfoPS'
+
+import JornalistaHome from './Paginas/JornalistaHome'
+import JornalistaRelacoesEmpresarios from './Paginas/JornalistaRelacoesEmpresarios'
+import JornalistaRelacoesEmpresas from './Paginas/JornalistaRelacoesEmpresas'
+import JornalistaRelacoesEventos from './Paginas/JornalistaRelacoesEventos'
+import JornalistaConsultarPoliticos from './Paginas/JornalistaConsultarPoliticos'
+import JornalistaRelacoesPoliticos from './Paginas/JornalistaRelacoesPoliticos'
+import JornalistaConsultarEmpresarios from './Paginas/JornalistaConsultarEmpresarios'
+import JornalistaCargosEmEmpresas from './Paginas/JornalistaCargosEmEmpresas'
+import JornalistaConsultarEventos from './Paginas/JornalistaConsultarEventos'
+import JornalistaConsultarEmpresas from './Paginas/JornalistaConsultarEmpresas'
+import JornalistaCriarInfoPC from './Paginas/JornalistaCriarInfoPC'
+import JornalistaCriarInfoPS from './Paginas/JornalistaCriarInfoPS'
+import JornalistaCriarRelacaoPSC from './Paginas/JornalistaCriarRelacaoPSC'
+import JornalistaCriarPolitico from './Paginas/JornalistaCriarPolitico'
+import JornalistaCriarEmpresario from './Paginas/JornalistaCriarEmpresario'
+import JornalistaCriarEmpresa from './Paginas/JornalistaCriarEmpresa'
+import JornalistaCriarEvento from './Paginas/JornalistaCriarEvento'
+
+// import ConsultarPoliticos from './Paginas/JornalistaConsultarPoliticos'
+// import ConsultarPoliticosSoVoto from './Paginas/ConsultarPoliticosSoVoto'
+// import RelacoesPoliticos from './Paginas/RelacoesPoliticos'
+// import RelacoesPoliticosSoVoto from './Paginas/RelacoesPoliticosSoVoto'
+// import ConsultarEmpresarios from './Paginas/ConsultarEmpresarios'
+// import ConsultarEmpresas from './Paginas/ConsultarEmpresas'
+// import ConsultarEventos from './Paginas/ConsultarEventos'
+// import RelacoesEmpresas from './Paginas/RelacoesEmpresas'
+// import RelacoesEventos from './Paginas/RelacoesEventos'
+// import RelacoesEmpresasSoVoto from './Paginas/AdminRelacoesEmpresas'
+// import CargosEmEmpresas from './Paginas/CargosEmEmpresas'
 import Login from './Paginas/Login'
-import CriarPolitico from './Paginas/CriarPolitico'
-import CriarEmpresario from './Paginas/CriarEmpresario'
-import CriarEmpresa from './Paginas/CriarEmpresa'
-import CriarEvento from './Paginas/CriarEvento'
-import HomeJornalista from './Paginas/HomeJornalista'
-import HomeCidadaoRegistado from './Paginas/HomeCidadaoRegistado'
-import HomeCidadao from './Paginas/HomeCidadao'
+// import HomeCidadaoRegistado from './Paginas/HomeCidadaoRegistado'
+// import HomeCidadao from './Paginas/HomeCidadao'
 
 
 function App() {
@@ -103,9 +114,64 @@ function App() {
 					<Route path="/AdminConsultarEmpresas" element={<AdminConsultarEmpresas />} />
 				</Routes>
 				<Routes>
-					<Route path="/HomeJornalista" element={<HomeJornalista />} />
+					<Route path="/JornalistaHome" element={<JornalistaHome />} />
 				</Routes>
 				<Routes>
+					<Route path="/JornalistaConsultarPoliticos" element={<JornalistaConsultarPoliticos />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaRelacoesEmpresarios/:idpessoasingular" element={<JornalistaRelacoesEmpresarios />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaRelacoesPoliticos/:idpessoasingular" element={<JornalistaRelacoesPoliticos />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaRelacoesEmpresarios/:idpessoasingular" element={<JornalistaRelacoesEmpresarios />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaRelacoesEmpresas/:idpessoacoletiva" element={<JornalistaRelacoesEmpresas />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaRelacoesEventos/:idevento" element={<JornalistaRelacoesEventos />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaRelacoesEmpresarios/:idpessoasingular" element={<JornalistaRelacoesEmpresarios />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaConsultarEventos" element={<JornalistaConsultarEventos />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaConsultarEmpresarios" element={<JornalistaConsultarEmpresarios />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaCargosEmEmpresas/:idpessoasingular" element={<JornalistaCargosEmEmpresas />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaConsultarEmpresas" element={<JornalistaConsultarEmpresas />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaCriarInfoPC/:idpessoacoletiva" element={<JornalistaCriarInfoPC />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaCriarInfoPS/:idpessoasingular" element={<JornalistaCriarInfoPS />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaCriarRelacaoPSC/:idpessoasingular" element={<JornalistaCriarRelacaoPSC />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaCriarPolitico" element={<JornalistaCriarPolitico />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaCriarEmpresario" element={<JornalistaCriarEmpresario />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaCriarEmpresa" element={<JornalistaCriarEmpresa />} />
+				</Routes>
+				<Routes>
+					<Route path="/JornalistaCriarEvento" element={<JornalistaCriarEvento />} />
+				</Routes>
+
+				{/* <Routes>
 					<Route path="/HomeCidadaoRegistado" element={<HomeCidadaoRegistado />} />
 				</Routes>
 				<Routes>
@@ -140,30 +206,9 @@ function App() {
 				</Routes>
 				<Routes>
 					<Route path="/RelacoesEmpresasSoVoto/:idpessoacoletiva" element={<RelacoesEmpresasSoVoto />} />
-				</Routes>
-				<Routes>
-					<Route path="/CriarRelacaoPSC/:idpessoasingular" element={<CriarRelacaoPSC />} />
-				</Routes>
-				<Routes>
-					<Route path="/CriarInfoPC/:idpessoacoletiva" element={<CriarInfoPC />} />
-				</Routes>
-				<Routes>
-					<Route path="/CriarInfoPS/:idpessoasingular" element={<CriarInfoPS />} />
-				</Routes>
+				</Routes> */}
 				<Routes>
 					<Route path="/Login" element={<Login />} />
-				</Routes>
-				<Routes>
-					<Route path="/CriarPolitico" element={<CriarPolitico />} />
-				</Routes>
-				<Routes>
-					<Route path="/CriarEmpresario" element={<CriarEmpresario />} />
-				</Routes>
-				<Routes>
-					<Route path="/CriarEmpresa" element={<CriarEmpresa />} />
-				</Routes>
-				<Routes>
-					<Route path="/CriarEvento" element={<CriarEvento />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

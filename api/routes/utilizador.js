@@ -5,7 +5,7 @@ module.exports = app => {
 	app.post('/api/v1/validateToken', app.controllers.auth.validateToken)
 
 	app.route('/api/v1/Admin')
-		// .all(app.controllers.passport.authenticate())
+		.all(app.controllers.passport.authenticate())
 		.get(controller.obterListaAdmin)
 		.post(controller.AdminCriarAdmin)
 

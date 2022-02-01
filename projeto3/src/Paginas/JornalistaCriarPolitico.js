@@ -8,7 +8,7 @@ import './RelacoesPoliticos.css'
 
 
 
-function CriarPolitico() {
+function JornalistaCriarPolitico() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
@@ -18,6 +18,9 @@ function CriarPolitico() {
 	const [DataNascimento, setDataNascimento] = useState([]);
 	const [Profissao, setProfissao] = useState([]);
 
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
 
 	function adicionaPolitico() {
 		return api.post('/api/v1/Politico', {
@@ -43,8 +46,11 @@ function CriarPolitico() {
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
+								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
@@ -79,4 +85,4 @@ function CriarPolitico() {
 	);
 }
 
-export default CriarPolitico;
+export default JornalistaCriarPolitico;

@@ -34,11 +34,10 @@ function Login() {
 					localStorage.setItem("idtipoutilizador", 1)
 					alert("Bem-vindo Administrador!")
 					navigate('/AdminHome')
-
 				} else if (decoded.idtipoutilizador === 2) {
 					localStorage.setItem("idtipoutilizador", 2)
 					alert("Bem-vindo Jornalista!")
-					navigate("/HomeJornalista");
+					navigate("/JornalistaHome");
 				} else {
 					localStorage.setItem("idtipoutilizador", 3)
 					alert("Bem-vindo Cidadão Registado!")
@@ -51,19 +50,6 @@ function Login() {
 	return (
 		<div>
 			<Container fluid>
-
-				<Navbar bg="light" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="#home">Home</Nav.Link>
-								<Nav.Link href="#areapessoal">Área Pessoal</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
 
 				<br />
 				<h2>Login</h2>

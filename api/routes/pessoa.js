@@ -2,7 +2,7 @@ module.exports = app => {
 	const controller = app.controllers.pessoa;
 
 	app.route('/api/v1/Empresario')
-		// .all(app.controllers.passport.authenticate())
+		.all(app.controllers.passport.authenticate())
 		.get(controller.obterListaEmpresario)
 		.post(controller.criarEmpresario)
 

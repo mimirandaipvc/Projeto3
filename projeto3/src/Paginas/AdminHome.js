@@ -1,7 +1,8 @@
 import { Form, Button, Table, Carousel, Card, CardGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import api from './api'
+import React, { useState, useEffect, Component } from 'react';
 import './AdminHome.css'
 import imagem1 from "../Imagens/1.jpg";
 import imagem2 from "../Imagens/2.jpg";
@@ -13,6 +14,11 @@ import imagem6 from "../Imagens/6.jpg";
 
 
 function AdminHome() {
+
+	useEffect(() => {
+		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
+	}, []);
+
 	return (
 		<div>
 			<h1>Bem-vindo Administrador!</h1>
