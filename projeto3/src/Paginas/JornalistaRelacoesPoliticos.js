@@ -196,7 +196,7 @@ function JornalistaRelacoesPoliticos() {
 					</Card>
 				))}
 
-				<Button variant="dark" href={"http://localhost:3000/CriarInfoPS/" + params.idpessoasingular}>Criar Relação</Button>
+				<Button variant="dark" href={"http://localhost:3000/JornalistaCriarInfoPS/" + params.idpessoasingular}>Criar Relação</Button>
 
 			</Container>
 		</div>

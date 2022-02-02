@@ -75,6 +75,7 @@ function JornalistaConsultarEmpresas() {
 						))}
 					</tbody>
 				</Table>
+				<Button variant="dark" href={"http://localhost:3000/JornalistaCriarEmpresa/"}>Criar Empresa</Button>
 			</Container>
 		</div>
 	);

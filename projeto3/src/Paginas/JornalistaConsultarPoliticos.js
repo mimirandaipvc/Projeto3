@@ -79,6 +79,8 @@ function JornalistaConsultarPoliticos() {
 							))}
 						</tbody>
 					</Table>
+					<br></br>
+					<Button variant="dark" href={"http://localhost:3000/JornalistaCriarPolitico/"}>Criar Politico</Button>
 				</Container>
 			</div>
 		);

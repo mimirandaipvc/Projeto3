@@ -73,6 +73,7 @@ function JornalistaConsultarEventos() {
 						))}
 					</tbody>
 				</Table>
+				<Button variant="dark" href={"http://localhost:3000/JornalistaCriarEvento/"}>Criar Evento</Button>
 			</Container>
 		</div>
 	);
