@@ -15,10 +15,22 @@ function AdminRelacoesPoliticos() {
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
 	const [data3, setData3] = useState([]);
+	const [data4, setData4] = useState([]);
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
+
+	function obterJornalista() {
+		for (const i = 0; i < data1.length; i++) {
+			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
+				.then(function (response) {
+					setData4(response.data);
+					console.log(response.data);
+				});
+		}
+	}
 
 	function obterPolitico() {
 		return api.get('/api/v1/Politico/' + params.idpessoasingular)
@@ -51,6 +63,7 @@ function AdminRelacoesPoliticos() {
 		obterDados();
 		obterPolitico();
 		obterEvento();
+		obterJornalista();
 	}, [data1]);
 
 	return (
@@ -91,7 +104,9 @@ function AdminRelacoesPoliticos() {
 								<p>Motivo: {item.motivo}</p>
 								<p>Valores: {item.valores}€</p>
 								<p>Data inserção: {item.data}</p>
-								<p>Inserido por: {item.idutilizador}</p>
+								{data4.map(item => (
+									<p>Inserido por: {item.username}</p>
+								))}
 								<p><b>Credibilidade: {item.credibilidade}</b></p>
 							</Card.Text>
 						</Card.Body>

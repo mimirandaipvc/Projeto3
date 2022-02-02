@@ -129,7 +129,7 @@ function CRelacoesPoliticos() {
 								<p>Valores: {item.valores}€</p>
 								<p>Data inserção: {item.data}</p>
 								{data4.map(item => (
-									<p>Inserido por: {item.idutilizador}</p>
+									<p>Inserido por: {item.username}</p>
 								))}
 								<p><b>Credibilidade: {item.credibilidade}</b></p>
 							</Card.Text>
