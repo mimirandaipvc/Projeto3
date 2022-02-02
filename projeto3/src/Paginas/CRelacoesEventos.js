@@ -17,10 +17,22 @@ function CRelacoesEventos() {
 	const [data3, setData3] = useState([]);
 	const [data4, setData4] = useState([]);
 	const [data5, setData5] = useState([]);
+	const [data6, setData6] = useState([]);
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
+
+	function obterJornalista() {
+		for (const i = 0; i < data1.length; i++) {
+			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
+				.then(function (response) {
+					setData6(response.data);
+					console.log(response.data);
+				});
+		}
+	}
 
 	function obterPolitico() {
 		for (const i = 0; i < data5.length; i++) {
@@ -71,7 +83,7 @@ function CRelacoesEventos() {
 	function maisS(i) {
 		api.post('/api/v1/VotoRPS', {
 			idrelacaops: i,
-			idutilizador: 1,
+			idutilizador: localStorage.getItem("idutilizador"),
 		});
 		api.put('/api/v1/AumentarCredibilidadeRPS', {
 			idrelacaops: i,
@@ -84,7 +96,7 @@ function CRelacoesEventos() {
 	function menosS(i) {
 		api.post('/api/v1/VotoRPS', {
 			idrelacaops: i,
-			idutilizador: 1,
+			idutilizador: localStorage.getItem("idutilizador"),
 		});
 		api.put('/api/v1/DiminuirCredibilidadeRPS', {
 			idrelacaops: i,
@@ -99,6 +111,7 @@ function CRelacoesEventos() {
 		obterPolitico();
 		obterEmpresa();
 		obterEvento();
+		obterJornalista();
 	}, [data1]);
 
 
@@ -140,7 +153,9 @@ function CRelacoesEventos() {
 									<p>Motivo: {item.motivo}</p>
 									<p>Valores: {item.valores}€</p>
 									<p>Data inserção: {item.data}</p>
-									<p>Inserido por: {item.idutilizador}</p>
+									{data6.map(item => (
+										<p>Inserido por: {item.idutilizador}</p>
+									))}
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
 							</Card.Body>

@@ -5,6 +5,10 @@ module.exports = app => {
 		.all(app.controllers.passport.authenticate())
 		.post(controller.criarVotoRPC)
 
+	app.route('/api/v1/VerificaVotoRPC/:idutilizador/:idrelacaopc')
+		.all(app.controllers.passport.authenticate())
+		.get(controller.obterVotoRPC)
+
 	app.route('/api/v1/AumentarCredibilidadeRPC')
 		.all(app.controllers.passport.authenticate())
 		.put(controller.aumentarCredibilidadeRPC)
@@ -14,8 +18,12 @@ module.exports = app => {
 		.put(controller.diminuirCredibilidadeRPC)
 
 	app.route('/api/v1/VotoRPS')
-		.all(app.controllers.passport.authenticate())
+		// .all(app.controllers.passport.authenticate())
 		.post(controller.criarVotoRPS)
+
+	app.route('/api/v1/VerificaVotoRPS/:idutilizador/:idrelacaops')
+		.all(app.controllers.passport.authenticate())
+		.get(controller.obterVotoRPS)
 
 	app.route('/api/v1/AumentarCredibilidadeRPS')
 		.all(app.controllers.passport.authenticate())

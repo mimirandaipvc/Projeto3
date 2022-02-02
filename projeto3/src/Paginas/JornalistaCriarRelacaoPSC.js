@@ -28,7 +28,7 @@ function JornalistaCriarRelacaoPSC() {
 			salario: Salario,
 			idpessoasingular: params.idpessoasingular,
 			idpessoacoletiva: IDPessoaColetiva,
-			idutilizador: 1
+			idutilizador: localStorage.getItem("idutilizador")
 		}).then(response => {
 			console.log(response.data);
 		}).catch(error => {

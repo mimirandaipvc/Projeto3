@@ -15,10 +15,24 @@ function CRRelacoesPoliticos() {
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
 	const [data3, setData3] = useState([]);
+	const [data4, setData4] = useState([]);
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
+
+	const idutilizador = localStorage.getItem("idutilizador");
+
+	function obterJornalista() {
+		for (const i = 0; i < data1.length; i++) {
+			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
+				.then(function (response) {
+					setData4(response.data);
+					console.log(response.data);
+				});
+		}
+	}
 
 	function obterPolitico() {
 		return api.get('/api/v1/Politico/' + params.idpessoasingular)
@@ -47,35 +61,46 @@ function CRRelacoesPoliticos() {
 	}
 
 	function mais(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaops: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/AumentarCredibilidadeRPS', {
-			idrelacaops: i,
-		});
-		console.log('mais');
-		// window.location.reload();
-
+		return api.get('/api/v1/VerificaVotoRPS/' + idutilizador + '/' + i)
+			.then(function (response) {
+				console.log(response.data)
+				if (response.data.length != 0) {
+					alert('Já votou!')
+				} else {
+					api.post('/api/v1/VotoRPS', {
+						idrelacaops: i,
+						idutilizador
+					});
+					api.put('/api/v1/AumentarCredibilidadeRPS', {
+						idrelacaops: i,
+					});
+				}
+			});
 	}
 
 	function menos(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaops: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/DiminuirCredibilidadeRPS', {
-			idrelacaops: i,
-		});
-		console.log('menos');
-		// window.location.reload();
-
+		return api.get('/api/v1/VerificaVotoRPS/' + idutilizador + '/' + i)
+			.then(function (response) {
+				console.log(response.data)
+				if (response.data.length != 0) {
+					alert('Já votou!')
+				} else {
+					api.post('/api/v1/VotoRPS', {
+						idrelacaops: i,
+						idutilizador
+					});
+					api.put('/api/v1/DiminuirCredibilidadeRPS', {
+						idrelacaops: i,
+					});
+				}
+			});
 	}
 
 	useEffect(() => {
 		obterDados();
 		obterPolitico();
 		obterEvento();
+		obterJornalista();
 	}, [data1]);
 
 	return (
@@ -115,7 +140,9 @@ function CRRelacoesPoliticos() {
 								<p>Motivo: {item.motivo}</p>
 								<p>Valores: {item.valores}€</p>
 								<p>Data inserção: {item.data}</p>
-								<p>Inserido por: {item.idutilizador}</p>
+								{data4.map(item => (
+									<p>Inserido por: {item.username}</p>
+								))}
 								<p><b>Credibilidade: {item.credibilidade}</b></p>
 							</Card.Text>
 							<Button variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>

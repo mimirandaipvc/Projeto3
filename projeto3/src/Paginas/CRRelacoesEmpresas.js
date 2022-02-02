@@ -15,10 +15,24 @@ function CRRelacoesEmpresas() {
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
 	const [data3, setData3] = useState([]);
+	const [data4, setData4] = useState([]);
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
+
+	const idutilizador = localStorage.getItem("idutilizador");
+
+	function obterJornalista() {
+		for (const i = 0; i < data1.length; i++) {
+			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
+				.then(function (response) {
+					setData4(response.data);
+					console.log(response.data);
+				});
+		}
+	}
 
 	function obterEmpresa() {
 		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
@@ -49,7 +63,7 @@ function CRRelacoesEmpresas() {
 	function mais(i) {
 		api.post('/api/v1/VotoRPC', {
 			idrelacaopc: i,
-			idutilizador: 1,
+			idutilizador: localStorage.getItem("idutilizador"),
 		});
 		api.put('/api/v1/AumentarCredibilidadeRPC', {
 			idrelacaopc: i,
@@ -62,7 +76,7 @@ function CRRelacoesEmpresas() {
 	function menos(i) {
 		api.post('/api/v1/VotoRPC', {
 			idrelacaopc: i,
-			idutilizador: 1,
+			idutilizador: localStorage.getItem("idutilizador"),
 		});
 		api.put('/api/v1/DiminuirCredibilidadeRPC', {
 			idrelacaopc: i,
@@ -76,6 +90,7 @@ function CRRelacoesEmpresas() {
 		obterDados();
 		obterEmpresa();
 		obterEvento();
+		obterJornalista();
 	}, [data1]);
 
 	return (
@@ -115,7 +130,9 @@ function CRRelacoesEmpresas() {
 								<p>Motivo: {item.motivo}</p>
 								<p>Valores: {item.valores}€</p>
 								<p>Data inserção: {item.data}</p>
-								<p>Inserido por: {item.idutilizador}</p>
+								{data4.map(item => (
+									<p>Inserido por: {item.username}</p>
+								))}
 								<p><b>Credibilidade: {item.credibilidade}</b></p>
 							</Card.Text>
 							<Button variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>

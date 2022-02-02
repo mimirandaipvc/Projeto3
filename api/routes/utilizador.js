@@ -20,7 +20,7 @@ module.exports = app => {
 		.post(controller.AdminCriarJornalista)
 
 	app.route('/api/v1/Jornalista/:idutilizador')
-		.all(app.controllers.passport.authenticate())
+		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterJornalista)
 		.put(controller.AdminEditarJornalista)
 

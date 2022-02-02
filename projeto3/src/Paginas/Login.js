@@ -30,6 +30,8 @@ function Login() {
 				document.cookie = "token=" + token + "; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;";
 				localStorage.setItem("token", token);
 				localStorage.setItem("iud", response.data.uid);
+				localStorage.setItem("idutilizador", response.data.id);
+				console.log(localStorage.getItem("idutilizador"));
 				if (decoded.idtipoutilizador === 1) {
 					localStorage.setItem("idtipoutilizador", 1)
 					alert("Bem-vindo Administrador!")

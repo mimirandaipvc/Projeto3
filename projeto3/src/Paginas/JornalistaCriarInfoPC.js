@@ -28,7 +28,7 @@ function JornalistaCriarInfoPC() {
 			data: Data,
 			idpessoacoletiva: params.idpessoacoletiva,
 			idevento: IDEvento,
-			idutilizador: 1
+			idutilizador: localStorage.getItem("idutilizador")
 		}).then(response => {
 			console.log(response.data);
 		}).catch(error => {

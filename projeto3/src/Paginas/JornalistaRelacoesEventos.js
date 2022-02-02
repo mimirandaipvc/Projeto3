@@ -17,10 +17,25 @@ function JornalistaRelacoesEventos() {
 	const [data3, setData3] = useState([]);
 	const [data4, setData4] = useState([]);
 	const [data5, setData5] = useState([]);
+	const [data6, setData6] = useState([]);
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
+
+	const idutilizador = localStorage.getItem("idutilizador");
+
+
+	function obterJornalista() {
+		for (const i = 0; i < data1.length; i++) {
+			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
+				.then(function (response) {
+					setData6(response.data);
+					console.log(response.data);
+				});
+		}
+	}
 
 	function obterPolitico() {
 		for (const i = 0; i < data5.length; i++) {
@@ -69,53 +84,75 @@ function JornalistaRelacoesEventos() {
 	}
 
 	function maisS(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaops: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/AumentarCredibilidadeRPS', {
-			idrelacaops: i,
-		});
-		console.log('mais');
-		// window.location.reload();
-
+		return api.get('/api/v1/VerificaVotoRPS/' + idutilizador + '/' + i)
+			.then(function (response) {
+				console.log(response.data)
+				if (response.data.length != 0) {
+					alert('Já votou!')
+				} else {
+					api.post('/api/v1/VotoRPS', {
+						idrelacaops: i,
+						idutilizador
+					});
+					api.put('/api/v1/AumentarCredibilidadeRPS', {
+						idrelacaops: i,
+					});
+				}
+			});
 	}
 
 	function menosS(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaops: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/DiminuirCredibilidadeRPS', {
-			idrelacaops: i,
-		});
-		console.log('menos');
-		// window.location.reload();
+		return api.get('/api/v1/VerificaVotoRPS/' + idutilizador + '/' + i)
+			.then(function (response) {
+				console.log(response.data)
+				if (response.data.length != 0) {
+					alert('Já votou!')
+				} else {
+					api.post('/api/v1/VotoRPS', {
+						idrelacaops: i,
+						idutilizador
+					});
+					api.put('/api/v1/DiminuirCredibilidadeRPS', {
+						idrelacaops: i,
+					});
+				}
+			});
 	}
 
 	function maisC(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/AumentarCredibilidadeRPC', {
-			idrelacaopc: i,
-		});
-		console.log('mais');
-		// window.location.reload();
-
+		return api.get('/api/v1/VerificaVotoRPC/' + idutilizador + '/' + i)
+			.then(function (response) {
+				console.log(response.data)
+				if (response.data.length != 0) {
+					alert('Já votou!')
+				} else {
+					api.post('/api/v1/VotoRPC', {
+						idrelacaopc: i,
+						idutilizador
+					});
+					api.put('/api/v1/AumentarCredibilidadeRPC', {
+						idrelacaopc: i,
+					});
+				}
+			});
 	}
 
 	function menosC(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
-			idutilizador: 1,
-		});
-		api.put('/api/v1/DiminuirCredibilidadeRPC', {
-			idrelacaopc: i,
-		});
-		console.log('menos');
-		// window.location.reload();
+		return api.get('/api/v1/VerificaVotoRPC/' + idutilizador + '/' + i)
+			.then(function (response) {
+				console.log(response.data)
+				if (response.data.length != 0) {
+					alert('Já votou!')
+				} else {
+					api.post('/api/v1/VotoRPC', {
+						idrelacaopc: i,
+						idutilizador
+					});
+					api.put('/api/v1/DiminuirCredibilidadeRPC', {
+						idrelacaopc: i,
+					});
+				}
+			});
 	}
 
 	useEffect(() => {
@@ -124,6 +161,7 @@ function JornalistaRelacoesEventos() {
 		obterPolitico();
 		obterEmpresa();
 		obterEvento();
+		obterJornalista();
 	}, [data1]);
 
 
@@ -165,7 +203,9 @@ function JornalistaRelacoesEventos() {
 									<p>Motivo: {item.motivo}</p>
 									<p>Valores: {item.valores}€</p>
 									<p>Data inserção: {item.data}</p>
-									<p>Inserido por: {item.idutilizador}</p>
+									{data6.map(item => (
+										<p>Inserido por: {item.username}</p>
+									))}
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
 								<Button variant="success" onClick={() => maisC(item.idrelacaopc)}>Credível</Button>
@@ -194,7 +234,9 @@ function JornalistaRelacoesEventos() {
 									<p>Motivo: {item.motivo}</p>
 									<p>Valores: {item.valores}€</p>
 									<p>Data inserção: {item.data}</p>
-									<p>Inserido por: {item.idutilizador}</p>
+									{data6.map(item => (
+										<p>Inserido por: {item.username}</p>
+									))}
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
 								<Button variant="success" onClick={() => maisS(item.idrelacaops)}>Credível</Button>

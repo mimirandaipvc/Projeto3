@@ -28,7 +28,7 @@ function JornalistaCriarInfoPS() {
 			data: Data,
 			idpessoasingular: params.idpessoasingular,
 			idevento: IDEvento,
-			idutilizador: 1
+			idutilizador: localStorage.getItem("idutilizador")
 		}).then(response => {
 			console.log(response.data);
 		}).catch(error => {
