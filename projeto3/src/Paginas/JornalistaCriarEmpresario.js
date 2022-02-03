@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
@@ -17,23 +17,31 @@ function JornalistaCriarEmpresario() {
 	const [Nacionalidade, setNacionalidade] = useState([]);
 	const [DataNascimento, setDataNascimento] = useState([]);
 	const [Profissao, setProfissao] = useState([]);
+	const navigate = useNavigate()
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
 	function adicionaEmpresario() {
-		return api.post('/api/v1/Empresario', {
-			nome: Nome,
-			sexo: Sexo,
-			nacionalidade: Nacionalidade,
-			datanascimento: DataNascimento,
-			profissao: Profissao
-		}).then(response => {
-			console.log(response.data);
-		}).catch(error => {
-			console.log(error);
-		})
+		if (Nome.length == 0 || Sexo.length == 0 || Nacionalidade.length == 0 || DataNascimento.length == 0 || Profissao.length == 0) {
+			alert("Dados incorretos")
+		} else {
+			return api.post('/api/v1/Empresario', {
+				nome: Nome,
+				sexo: Sexo,
+				nacionalidade: Nacionalidade,
+				datanascimento: DataNascimento,
+				profissao: Profissao
+			}).then(response => {
+				console.log(response.data);
+				alert("Empresário criado!")
+				navigate("/JornalistaConsultarEmpresarios")
+			}).catch(error => {
+				console.log(error);
+			})
+		}
 	}
 
 	return (

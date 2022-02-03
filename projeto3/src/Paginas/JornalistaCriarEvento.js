@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
@@ -15,21 +15,29 @@ function JornalistaCriarEvento() {
 	const [Designacao, setDesignacao] = useState([]);
 	const [Descrição, setDescricao] = useState([]);
 	const [Data, setData] = useState([]);
+	const navigate = useNavigate()
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
 	function adicionaEvento() {
-		return api.post('/api/v1/Evento', {
-			designacao: Designacao,
-			descricao: Descrição,
-			data: Data
-		}).then(response => {
-			console.log(response.data);
-		}).catch(error => {
-			console.log(error);
-		})
+		if (Designacao.length == 0 || Descrição.length == 0 || Data.length == 0) {
+			alert("Dados incorretos")
+		} else {
+			return api.post('/api/v1/Evento', {
+				designacao: Designacao,
+				descricao: Descrição,
+				data: Data
+			}).then(response => {
+				console.log(response.data);
+				alert("Evento criado!")
+				navigate("/JornalistaConsultarEventos")
+			}).catch(error => {
+				console.log(error);
+			})
+		}
 	}
 
 	return (

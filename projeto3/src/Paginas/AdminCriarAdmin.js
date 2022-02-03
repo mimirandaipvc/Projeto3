@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
@@ -14,20 +14,28 @@ function AdminCriarAdmin() {
 	const [data1, setData1] = useState([]);
 	const [Username, setUsername] = useState([]);
 	const [Password, setPassword] = useState([]);
+	const navigate = useNavigate()
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
 	function adicionaAdmin() {
-		return api.post('/api/v1/Admin', {
-			username: Username,
-			password: Password
-		}).then(response => {
-			console.log(response.data);
-		}).catch(error => {
-			console.log(error);
-		})
+		if (Username.length == 0 || Password.length == 0){
+			alert("Dados incorretos")
+		} else{
+			return api.post('/api/v1/Admin', {
+				username: Username,
+				password: Password
+			}).then(response => {
+				console.log(response.data);
+				alert("Admin criado!")
+				navigate("/AdminConsultarUtilizadores")
+			}).catch(error => {
+				console.log(error);
+			})
+		}
 	}
 
 	return (

@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
@@ -16,22 +16,30 @@ function JornalistaCriarEmpresa() {
 	const [Pais, setPais] = useState([]);
 	const [AnoFundacao, setAnoFundacao] = useState([]);
 	const [RamoAtividade, setRamoAtividade] = useState([]);
+	const navigate = useNavigate()
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
 	function adicionaEmpresa() {
-		return api.post('/api/v1/PessoaColetiva', {
-			designacao: Designacao,
-			pais: Pais,
-			anofundacao: AnoFundacao,
-			ramoatividade: RamoAtividade,
-		}).then(response => {
-			console.log(response.data);
-		}).catch(error => {
-			console.log(error);
-		})
+		if (Designacao.length == 0 || Pais.length == 0 || AnoFundacao.length == 0 || RamoAtividade.length == 0) {
+			alert("Dados incorretos")
+		} else {
+			return api.post('/api/v1/PessoaColetiva', {
+				designacao: Designacao,
+				pais: Pais,
+				anofundacao: AnoFundacao,
+				ramoatividade: RamoAtividade,
+			}).then(response => {
+				console.log(response.data);
+				alert("Empresa criada!")
+				navigate("/JornalistaConsultarEmpresas")
+			}).catch(error => {
+				console.log(error);
+			})
+		}
 	}
 
 	return (

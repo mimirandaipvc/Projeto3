@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
@@ -16,25 +16,47 @@ function JornalistaCriarInfoPC() {
 	const [Valores, setValores] = useState([]);
 	const [Data, setData] = useState([]);
 	const [IDEvento, setIDEvento] = useState([]);
+	const [Eventos, setEventos] = useState([]);
+	const navigate = useNavigate()
+
+	const idutilizador = localStorage.getItem("idutilizador");
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
 	function adicionaRelacaoPC() {
-		return api.post('/api/v1/RelacaoPC', {
-			motivo: Motivo,
-			valores: Valores,
-			data: Data,
-			idpessoacoletiva: params.idpessoacoletiva,
-			idevento: IDEvento,
-			idutilizador: localStorage.getItem("idutilizador")
-		}).then(response => {
-			console.log(response.data);
-		}).catch(error => {
-			console.log(error);
-		})
+		if (Motivo.length == 0 || Valores.length == 0 || Data.length == 0 || IDEvento.length == 0) {
+			alert("Dados incorretos")
+		} else {
+			return api.post('/api/v1/RelacaoPC', {
+				motivo: Motivo,
+				valores: Valores,
+				data: Data,
+				idpessoacoletiva: params.idpessoacoletiva,
+				idevento: IDEvento,
+				idutilizador
+			}).then(response => {
+				console.log(response.data);
+				alert("Informação Criada!")
+				navigate("/JornalistaHome")
+			}).catch(error => {
+				console.log(error);
+			})
+		}
 	}
+
+	function obterListaEventos() {
+		return api.get('/api/v1/Evento')
+			.then(function (response) {
+				setEventos(response.data);
+				console.log(response.data);
+			});
+	}
+
+	useEffect(() => {
+		obterListaEventos();
+	}, []);
 
 	return (
 		<div>
@@ -71,9 +93,13 @@ function JornalistaCriarInfoPC() {
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="valores"
 					placeholder="Introduza os valores" onChange={e => setValores(e.target.value)} />
 				<br></br>
-				<Form.Label>ID Evento: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="idevento"
-					placeholder="Intoduza o ID do Evento" onChange={e => setIDEvento(e.target.value)} />
+				<Form.Label>Evento: </Form.Label>
+				<Form.Select aria-label="Default select example" onChange={e => setIDEvento(e.target.value)}>
+					<option>Selecione o evento</option>
+					{Eventos.map(item => (
+						<option value={item.idevento} >{item.designacao}</option>
+					))}
+				</Form.Select>
 				<br></br>
 				<br></br>
 				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaRelacaoPC}>Adicionar Relacao</button>

@@ -55,7 +55,7 @@ function CCargosEmEmpresas() {
 		obterDados();
 		obterEmpresa();
 		obterJornalista();
-	}, []);
+	}, [data1]);
 
 	return (
 		<div>

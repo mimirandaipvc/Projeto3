@@ -55,7 +55,7 @@ function JornalistaCargosEmEmpresas() {
 		obterDados();
 		obterEmpresa();
 		obterJornalista();
-	}, []);
+	}, [data1]);
 
 	return (
 		<div>
@@ -92,7 +92,7 @@ function JornalistaCargosEmEmpresas() {
 								<p>Cargo: {item.cargo}</p>
 								<p>Salario: {item.salario} €</p>
 								{data3.map(item => (
-									<p>Inserido por: {item.idutilizador}</p>
+									<p>Inserido por: {item.username}</p>
 								))}
 							</Card.Text>
 						</Card.Body>

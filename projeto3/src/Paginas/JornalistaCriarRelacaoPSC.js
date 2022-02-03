@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
@@ -16,25 +16,47 @@ function JornalistaCriarRelacaoPSC() {
 	const [Cargo, setCargo] = useState([]);
 	const [Salario, setSalario] = useState([]);
 	const [IDPessoaColetiva, setIDPessoaColetiva] = useState([]);
+	const [PessoaColetiva, setPessoaColetiva] = useState([]);
+	const navigate = useNavigate()
+
+	const idutilizador = localStorage.getItem("idutilizador");
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
 	function adicionaRelacao() {
-		return api.post('/api/v1/RelacaoPessoasSC', {
-			datainicio: Datainicio,
-			cargo: Cargo,
-			salario: Salario,
-			idpessoasingular: params.idpessoasingular,
-			idpessoacoletiva: IDPessoaColetiva,
-			idutilizador: localStorage.getItem("idutilizador")
-		}).then(response => {
-			console.log(response.data);
-		}).catch(error => {
-			console.log(error);
-		})
+		if (Datainicio.length == 0 || Cargo.length == 0 || Salario.length == 0 || IDPessoaColetiva.length == 0) {
+			alert("Dados incorretos")
+		} else {
+			return api.post('/api/v1/RelacaoPessoasSC', {
+				datainicio: Datainicio,
+				cargo: Cargo,
+				salario: Salario,
+				idpessoasingular: params.idpessoasingular,
+				idpessoacoletiva: IDPessoaColetiva,
+				idutilizador
+			}).then(response => {
+				console.log(response.data);
+				alert("Cargo Adicionado!")
+				navigate("/JornalistaHome")
+			}).catch(error => {
+				console.log(error);
+			})
+		}
 	}
+
+	function obterListaEmpresas() {
+		return api.get('/api/v1/PessoaColetiva')
+			.then(function (response) {
+				setPessoaColetiva(response.data);
+				console.log(response.data);
+			});
+	}
+
+	useEffect(() => {
+		obterListaEmpresas();
+	}, []);
 
 	return (
 		<div>
@@ -71,9 +93,13 @@ function JornalistaCriarRelacaoPSC() {
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="salario"
 					placeholder="Intoduza o salario" onChange={e => setSalario(e.target.value)} />
 				<br></br>
-				<Form.Label>ID Pessoa Coletiva: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="idpessoacoletiva"
-					placeholder="Intoduza o ID da Empresa" onChange={e => setIDPessoaColetiva(e.target.value)} />
+				<Form.Label>Empresa: </Form.Label>
+				<Form.Select aria-label="Default select example" onChange={e => setIDPessoaColetiva(e.target.value)}>
+					<option>Selecione a Empresa</option>
+					{PessoaColetiva.map(item => (
+						<option value={item.idpessoacoletiva} >{item.designacao}</option>
+					))}
+				</Form.Select>
 				<br></br>
 				<br></br>
 				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaRelacao}>Adicionar Relacao</button>
