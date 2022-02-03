@@ -72,7 +72,7 @@ function CRHome() {
 						className="d-block w-100"
 						src={imagem4}
 						alt="First slide"
-					/>
+					/>CRAPessoal
 					<Carousel.Caption>
 						<h3>Consultar Empresas</h3>
 						<p>Visualizar Empresas e respetivas relações</p>
@@ -88,6 +88,7 @@ function CRHome() {
 					<Carousel.Caption>
 						<h3>Minha área pessoal</h3>
 						<p>Alterar dados pessoais.</p>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CRAPessoal/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>

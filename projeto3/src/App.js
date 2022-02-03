@@ -16,6 +16,8 @@ import AdminConsultarEmpresarios from './Paginas/AdminConsultarEmpresarios'
 import AdminCargosEmEmpresas from './Paginas/AdminCargosEmEmpresas'
 import AdminConsultarEventos from './Paginas/AdminConsultarEventos'
 import AdminConsultarEmpresas from './Paginas/AdminConsultarEmpresas'
+import AdminAPessoal from './Paginas/AdminAPessoal'
+
 
 import JornalistaHome from './Paginas/JornalistaHome'
 import JornalistaRelacoesEmpresarios from './Paginas/JornalistaRelacoesEmpresarios'
@@ -34,6 +36,8 @@ import JornalistaCriarPolitico from './Paginas/JornalistaCriarPolitico'
 import JornalistaCriarEmpresario from './Paginas/JornalistaCriarEmpresario'
 import JornalistaCriarEmpresa from './Paginas/JornalistaCriarEmpresa'
 import JornalistaCriarEvento from './Paginas/JornalistaCriarEvento'
+import JornalistaAPessoal from './Paginas/JornalistaAPessoal'
+
 
 import CRHome from './Paginas/CRHome'
 import CRRelacoesEmpresarios from './Paginas/CRRelacoesEmpresarios'
@@ -45,6 +49,8 @@ import CRConsultarEmpresarios from './Paginas/CRConsultarEmpresarios'
 import CRCargosEmEmpresas from './Paginas/CRCargosEmEmpresas'
 import CRConsultarEventos from './Paginas/CRConsultarEventos'
 import CRConsultarEmpresas from './Paginas/CRConsultarEmpresas'
+import CRAPessoal from './Paginas/CRAPessoal'
+
 
 import CHome from './Paginas/CHome'
 import CRelacoesEmpresarios from './Paginas/CRelacoesEmpresarios'
@@ -113,6 +119,9 @@ function App() {
 				<Routes>
 					<Route path="/AdminConsultarEmpresas" element={<AdminConsultarEmpresas />} />
 				</Routes>
+				<Routes>
+					<Route path="/AdminAPessoal" element={<AdminAPessoal />} />
+				</Routes>
 
 				<Routes>
 					<Route path="/JornalistaHome" element={<JornalistaHome />} />
@@ -165,6 +174,9 @@ function App() {
 				<Routes>
 					<Route path="/JornalistaCriarEvento" element={<JornalistaCriarEvento />} />
 				</Routes>
+				<Routes>
+					<Route path="/JornalistaAPessoal" element={<JornalistaAPessoal />} />
+				</Routes>
 
 				<Routes>
 					<Route path="/CRHome" element={<CRHome />} />
@@ -195,6 +207,9 @@ function App() {
 				</Routes>
 				<Routes>
 					<Route path="/CRConsultarEmpresas" element={<CRConsultarEmpresas />} />
+				</Routes>
+				<Routes>
+					<Route path="/CRAPessoal" element={<CRAPessoal />} />
 				</Routes>
 
 				<Routes>

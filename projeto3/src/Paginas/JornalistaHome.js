@@ -90,6 +90,7 @@ function JornalistaHome() {
 					<Carousel.Caption>
 						<h3>Minha área pessoal</h3>
 						<p>Alterar dados pessoais.</p>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaAPessoal/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
