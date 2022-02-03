@@ -52,25 +52,26 @@ function Login() {
 	return (
 		<div>
 			<Container fluid>
+				<div class="conteudoo">
+					<br />
+					<h2>Login</h2>
+					<br></br>
+					<Form.Label>Username: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
+						placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
+					<br></br>
+					<Form.Label>Password: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
+						placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
 
-				<br />
-				<h2>Login</h2>
-				<br></br>
-				<Form.Label>Username: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
-					placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
-				<br></br>
-				<Form.Label>Password: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-					placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
-
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={login}>Login</button>
-				<br></br>
-				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/CriarCidadaoRegistado/"}>Registar-se</Button>
-				<br></br>
-				<br></br>
-				<Button variant="dark" href={"http://localhost:3000/CHome/"}>Entrar como convidado</Button>
+					<button type="button" className="btn btn-info btn-block mt-4" onClick={login}>Login</button>
+					<br></br>
+					<br></br>
+					<Button variant="dark" href={"http://localhost:3000/CriarCidadaoRegistado/"}>Registar-se</Button>
+					<br></br>
+					<br></br>
+					<Button variant="dark" href={"http://localhost:3000/CHome/"}>Entrar como convidado</Button>
+				</div>
 			</Container>
 		</div>
 	);
