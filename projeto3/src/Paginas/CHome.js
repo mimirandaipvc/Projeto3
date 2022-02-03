@@ -70,17 +70,6 @@ function CHome() {
 						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEmpresas/`}>Clique aqui</Link>
 					</Carousel.Caption>
 				</Carousel.Item>
-				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src={imagem6}
-						alt="Third slide"
-					/>
-					<Carousel.Caption>
-						<h3>Minha área pessoal</h3>
-						<p>Alterar dados pessoais.</p>
-					</Carousel.Caption>
-				</Carousel.Item>
 			</Carousel>
 
 		</div>
