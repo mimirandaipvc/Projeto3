@@ -14,10 +14,22 @@ function CRCargosEmEmpresas() {
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
+	const [data3, setData3] = useState([]);
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
+
+	function obterJornalista() {
+		for (const i = 0; i < data1.length; i++) {
+			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
+				.then(function (response) {
+					setData3(response.data);
+					console.log(response.data);
+				});
+		}
+	}
 
 	function obterEmpresa() {
 		for (const i = 0; i < data1.length; i++) {
@@ -42,6 +54,7 @@ function CRCargosEmEmpresas() {
 	useEffect(() => {
 		obterDados();
 		obterEmpresa();
+		obterJornalista();
 	}, []);
 
 	return (
@@ -78,7 +91,9 @@ function CRCargosEmEmpresas() {
 								<p>Data Inicio: {item.datainicio}</p>
 								<p>Cargo: {item.cargo}</p>
 								<p>Salario: {item.salario} €</p>
-								<p>Inserido por: {item.idutilizador}</p>
+								{data3.map(item => (
+									<p>Inserido por: {item.idutilizador}</p>
+								))}
 							</Card.Text>
 						</Card.Body>
 					</Card>
