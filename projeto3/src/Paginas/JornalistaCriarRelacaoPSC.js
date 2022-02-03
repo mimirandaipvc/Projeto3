@@ -83,15 +83,15 @@ function JornalistaCriarRelacaoPSC() {
 				<br></br>
 				<Form.Label>Data Inicio: </Form.Label>
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="datainicio"
-					placeholder="Intoduza a data de inicio" onChange={e => setDatainicio(e.target.value)} />
+					placeholder="Introduza a data de inicio" onChange={e => setDatainicio(e.target.value)} />
 				<br></br>
 				<Form.Label>Cargo: </Form.Label>
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="cargo"
-					placeholder="Intoduza o cargo" onChange={e => setCargo(e.target.value)} />
+					placeholder="Introduza o cargo" onChange={e => setCargo(e.target.value)} />
 				<br></br>
-				<Form.Label>Salario: </Form.Label>
+				<Form.Label>Salario Mensal: </Form.Label>
 				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="salario"
-					placeholder="Intoduza o salario" onChange={e => setSalario(e.target.value)} />
+					placeholder="Introduza o salario" onChange={e => setSalario(e.target.value)} />
 				<br></br>
 				<Form.Label>Empresa: </Form.Label>
 				<Form.Select aria-label="Default select example" onChange={e => setIDPessoaColetiva(e.target.value)}>

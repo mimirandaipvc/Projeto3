@@ -90,7 +90,7 @@ function CRCargosEmEmpresas() {
 								))}
 								<p>Data Inicio: {item.datainicio}</p>
 								<p>Cargo: {item.cargo}</p>
-								<p>Salario: {item.salario} €</p>
+								<p>Salario Mensal: {item.salario} €</p>
 								{data3.map(item => (
 									<p>Inserido por: {item.username}</p>
 								))}
