@@ -55,27 +55,31 @@ function JornalistaCriarEvento() {
 								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
 								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
 								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
 				</Navbar>
 
 				<br />
-				<h2>Criar Evento</h2>
-				<br></br>
-				<Form.Label>Designação: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="designacao"
-					placeholder="Introduza a designação" onChange={e => setDesignacao(e.target.value)} />
-				<br></br>
-				<Form.Label>Descrição: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="descrição"
-					placeholder="Introduza a descrição" onChange={e => setDescricao(e.target.value)} />
-				<br></br>
-				<Form.Label>Data: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="data"
-					placeholder="Introduza a data" onChange={e => setData(e.target.value)} />
-				<br></br>
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaEvento}>Criar Evento</button>
+				<div class="conteudoo">
+					<h2>Criar Evento</h2>
+					<br></br>
+					<Form.Label>Designação: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="designacao"
+						placeholder="Introduza a designação" onChange={e => setDesignacao(e.target.value)} />
+					<br></br>
+					<Form.Label>Descrição: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="descrição"
+						placeholder="Introduza a descrição" onChange={e => setDescricao(e.target.value)} />
+					<br></br>
+					<Form.Label>Data: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="data"
+						placeholder="Introduza a data" onChange={e => setData(e.target.value)} />
+					<br></br>
+					<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaEvento}>Criar Evento</button>
+				</div>
+
 			</Container>
 		</div>
 	);

@@ -1,6 +1,7 @@
 body {
 	font-family: sans-serif;
-	background-color: lightblue
+	background-color: lightblue;
+	text-align: center;
 }
 
 #dois {
@@ -21,4 +22,15 @@ h1 {
 	margin: 60px;
 }
 
+.form-control {
+	width: 60%;
+	text-align: center;
+	margin: 0 auto;
+}
 
+.conteudoo {
+	padding: 10px;
+	background-color:white;
+	width: 60%;
+	margin: 0 auto;
+}

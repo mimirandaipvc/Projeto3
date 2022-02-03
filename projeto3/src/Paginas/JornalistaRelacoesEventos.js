@@ -180,6 +180,7 @@ function JornalistaRelacoesEventos() {
 								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
 								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
 								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>

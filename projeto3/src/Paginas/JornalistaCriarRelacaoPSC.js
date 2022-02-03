@@ -73,36 +73,40 @@ function JornalistaCriarRelacaoPSC() {
 								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
 								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
 								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
 				</Navbar>
 
 				<br />
-				<h2>Adiciona Cargo</h2>
-				<br></br>
-				<Form.Label>Data Inicio: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="datainicio"
-					placeholder="Introduza a data de inicio" onChange={e => setDatainicio(e.target.value)} />
-				<br></br>
-				<Form.Label>Cargo: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="cargo"
-					placeholder="Introduza o cargo" onChange={e => setCargo(e.target.value)} />
-				<br></br>
-				<Form.Label>Salario Mensal: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="salario"
-					placeholder="Introduza o salario" onChange={e => setSalario(e.target.value)} />
-				<br></br>
-				<Form.Label>Empresa: </Form.Label>
-				<Form.Select aria-label="Default select example" onChange={e => setIDPessoaColetiva(e.target.value)}>
-					<option>Selecione a Empresa</option>
-					{PessoaColetiva.map(item => (
-						<option value={item.idpessoacoletiva} >{item.designacao}</option>
-					))}
-				</Form.Select>
-				<br></br>
-				<br></br>
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaRelacao}>Adicionar Relacao</button>
+				<div class="conteudoo">
+					<h2>Adiciona Cargo</h2>
+					<br></br>
+					<Form.Label>Data Inicio: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="datainicio"
+						placeholder="Introduza a data de inicio" onChange={e => setDatainicio(e.target.value)} />
+					<br></br>
+					<Form.Label>Cargo: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="cargo"
+						placeholder="Introduza o cargo" onChange={e => setCargo(e.target.value)} />
+					<br></br>
+					<Form.Label>Salario Mensal: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="salario"
+						placeholder="Introduza o salario" onChange={e => setSalario(e.target.value)} />
+					<br></br>
+					<Form.Label>Empresa: </Form.Label>
+					<Form.Select aria-label="Default select example" onChange={e => setIDPessoaColetiva(e.target.value)}>
+						<option>Selecione a Empresa</option>
+						{PessoaColetiva.map(item => (
+							<option value={item.idpessoacoletiva} >{item.designacao}</option>
+						))}
+					</Form.Select>
+					<br></br>
+					<br></br>
+					<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaRelacao}>Adicionar Relacao</button>
+				</div>
+
 			</Container>
 		</div>
 	);

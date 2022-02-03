@@ -68,6 +68,7 @@ function AdminConsultarUtilizadores() {
 								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
 								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
 								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
+								<Nav.Link href="/AdminAPessoal">Área Pessoal</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>

@@ -35,22 +35,21 @@ function AdminCriarCidadaoRegistado() {
 	return (
 		<div>
 			<Container fluid>
+				<div class="conteudoo">
+					<h2>Registar-se</h2>
+					<br></br>
+					<Form.Label>Username: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
+						placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
+					<br></br>
+					<Form.Label>Password: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
+						placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
 
-				<br />
-				<h2>Registar-se</h2>
-				<br></br>
-				<Form.Label>Username: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
-					placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
-				<br></br>
-				<Form.Label>Password: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-					placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
-
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaCidadao}>Registar-se</button>
-				<br></br><br></br>
-				<Button variant="dark" href={"http://localhost:3000/Login/"}>Voltar para Login</Button>
-
+					<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaCidadao}>Registar-se</button>
+					<br></br><br></br>
+					<Button variant="dark" href={"http://localhost:3000/Login/"}>Voltar para Login</Button>
+				</div>
 			</Container>
 		</div>
 	);

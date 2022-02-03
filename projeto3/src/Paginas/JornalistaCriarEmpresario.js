@@ -59,35 +59,39 @@ function JornalistaCriarEmpresario() {
 								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
 								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
 								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
 				</Navbar>
 
 				<br />
-				<h2>Criar Empresário</h2>
-				<br></br>
-				<Form.Label>Nome: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="nome"
-					placeholder="Introduza o nome" onChange={e => setNome(e.target.value)} />
-				<br></br>
-				<Form.Label>Sexo: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-					placeholder="Introduza o sexo" onChange={e => setSexo(e.target.value)} />
-				<br></br>
-				<Form.Label>Nacionalidade: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="nome"
-					placeholder="Introduza a nacionalidade" onChange={e => setNacionalidade(e.target.value)} />
-				<br></br>
-				<Form.Label>Data de Nascimento: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-					placeholder="Introduza a data de nascimento" onChange={e => setDataNascimento(e.target.value)} />
-				<br></br>
-				<Form.Label>Profissao: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="nome"
-					placeholder="Introduza a profissão" onChange={e => setProfissao(e.target.value)} />
-				<br></br>
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaEmpresario}>Criar Empresário</button>
+				<div class="conteudoo">
+					<h2>Criar Empresário</h2>
+					<br></br>
+					<Form.Label>Nome: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="nome"
+						placeholder="Introduza o nome" onChange={e => setNome(e.target.value)} />
+					<br></br>
+					<Form.Label>Sexo: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
+						placeholder="Introduza o sexo" onChange={e => setSexo(e.target.value)} />
+					<br></br>
+					<Form.Label>Nacionalidade: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="nome"
+						placeholder="Introduza a nacionalidade" onChange={e => setNacionalidade(e.target.value)} />
+					<br></br>
+					<Form.Label>Data de Nascimento: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
+						placeholder="Introduza a data de nascimento" onChange={e => setDataNascimento(e.target.value)} />
+					<br></br>
+					<Form.Label>Profissao: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="nome"
+						placeholder="Introduza a profissão" onChange={e => setProfissao(e.target.value)} />
+					<br></br>
+					<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaEmpresario}>Criar Empresário</button>
+				</div>
+
 			</Container>
 		</div>
 	);

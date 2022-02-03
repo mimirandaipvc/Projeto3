@@ -72,6 +72,7 @@ function CRCargosEmEmpresas() {
 								<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
 								<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
 								<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
+								<Nav.Link href="/CRAPessoal">Área Pessoal</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>

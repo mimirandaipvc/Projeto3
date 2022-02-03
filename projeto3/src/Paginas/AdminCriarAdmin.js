@@ -22,9 +22,9 @@ function AdminCriarAdmin() {
 	}, []);
 
 	function adicionaAdmin() {
-		if (Username.length == 0 || Password.length == 0){
+		if (Username.length == 0 || Password.length == 0) {
 			alert("Dados incorretos")
-		} else{
+		} else {
 			return api.post('/api/v1/Admin', {
 				username: Username,
 				password: Password
@@ -54,24 +54,27 @@ function AdminCriarAdmin() {
 								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
 								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
 								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
+								<Nav.Link href="/AdminAPessoal">Área Pessoal</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
 				</Navbar>
 
 				<br />
-				<h2>Criar Administrador</h2>
-				<br></br>
-				<Form.Label>Username: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
-					placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
-				<br></br>
-				<Form.Label>Password: </Form.Label>
-				<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-					placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
-				<br></br>
+				<div class="conteudoo">
+					<h2>Criar Administrador</h2>
+					<br></br>
+					<Form.Label>Username: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
+						placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
+					<br></br>
+					<Form.Label>Password: </Form.Label>
+					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
+						placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
+					<br></br>
 
-				<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaAdmin}>Criar Administrador</button>
+					<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaAdmin}>Criar Administrador</button>
+				</div>
 			</Container>
 		</div>
 	);
