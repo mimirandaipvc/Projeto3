@@ -58,50 +58,59 @@ function CRCargosEmEmpresas() {
 	}, [data1]);
 
 	return (
-		<div>
+		<div id="page-container">
+
 			<Container fluid>
 
-				<Navbar bg="dark" variant="dark" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="/CRHome">Home</Nav.Link>
-								<Nav.Link href="/CRConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/CRAPessoal">Área Pessoal</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
+				<div id="content-wrap">
 
-				<br /><br />
-				<h1>CARGOS EM EMPRESAS</h1>
+					<Navbar bg="dark" variant="dark" expand="lg">
+						<Container>
+							<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
+							<Navbar.Toggle aria-controls="basic-navbar-nav" />
+							<Navbar.Collapse id="basic-navbar-nav">
+								<Nav className="me-auto">
+									<Nav.Link href="/CRHome">Home</Nav.Link>
+									<Nav.Link href="/CRConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
+									<Nav.Link href="/CRAPessoal">Área Pessoal</Nav.Link>
+								</Nav>
+							</Navbar.Collapse>
+						</Container>
+					</Navbar>
 
-				{data1.map(item => (
-					<Card style={{ width: '23rem' }} key={item.idrelacaops}>
-						<Card.Body>
-							<Card.Title>Relação número <b>{item.idrelacoespessoassc}</b> </Card.Title>
-							<Card.Text>
-								{data2.map(item => (
-									<p>Empresa:{item.designacao}</p>
-								))}
-								<p>Data Inicio: {item.datainicio}</p>
-								<p>Cargo: {item.cargo}</p>
-								<p>Salario Mensal: {item.salario} €</p>
-								{data3.map(item => (
-									<p>Inserido por: {item.username}</p>
-								))}
-							</Card.Text>
-						</Card.Body>
-					</Card>
-				))}
-				<br></br>
-			</Container>
-		</div>
+					<br /><br />
+					<h1>CARGOS EM EMPRESAS</h1>
+
+					{data1.map(item => (
+						<Card style={{ width: '23rem' }} key={item.idrelacaops}>
+							<Card.Body>
+								<Card.Title>Relação número <b>{item.idrelacoespessoassc}</b> </Card.Title>
+								<Card.Text>
+									{data2.map(item => (
+										<p>Empresa:{item.designacao}</p>
+									))}
+									<p>Data Inicio: {item.datainicio}</p>
+									<p>Cargo: {item.cargo}</p>
+									<p>Salario Mensal: {item.salario} €</p>
+									{data3.map(item => (
+										<p>Inserido por: {item.username}</p>
+									))}
+								</Card.Text>
+							</Card.Body>
+						</Card>
+					))}
+					<br></br>
+					<footer id="footer">
+						<div class="container text-center">
+							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+						</div>
+					</footer>
+				</div>
+			</Container >
+		</div >
 	);
 
 }

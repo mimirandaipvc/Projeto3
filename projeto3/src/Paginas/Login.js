@@ -50,28 +50,39 @@ function Login() {
 
 
 	return (
-		<div>
-			<Container fluid>
-				<div class="conteudoo">
-					<br /><br />
-					<h2>Login</h2>
-					<br></br>
-					<Form.Label>Username: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
-						placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
-					<br></br>
-					<Form.Label>Password: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-						placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
+		<div id="page-container">
 
-					<button type="button" className="btn btn-info btn-block mt-4" onClick={login}>Login</button>
-					<br></br>
-					<br></br>
-					<Button variant="dark" href={"http://localhost:3000/CriarCidadaoRegistado/"}>Registar-se</Button>
-					<br></br>
-					<br></br>
-					<Button variant="dark" href={"http://localhost:3000/CHome/"}>Entrar como convidado</Button>
+			<Container fluid>
+
+				<div id="content-wrap">
+					<div class="conteudoo">
+						<br /><br />
+						<h2>Login</h2>
+						<br></br>
+						<Form.Label>Username: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
+							placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
+						<br></br>
+						<Form.Label>Password: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
+							placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
+
+						<button type="button" className="btn btn-info btn-block mt-4" onClick={login}>Login</button>
+						<br></br>
+						<br></br>
+						<Button variant="dark" href={"http://localhost:3000/CriarCidadaoRegistado/"}>Registar-se</Button>
+						<br></br>
+						<br></br>
+						<Button variant="dark" href={"http://localhost:3000/CHome/"}>Entrar como convidado</Button>
+					</div>
 				</div>
+
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
+
 			</Container>
 		</div>
 	);

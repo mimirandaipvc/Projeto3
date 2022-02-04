@@ -59,55 +59,63 @@ function JornalistaCriarRelacaoPSC() {
 	}, []);
 
 	return (
-		<div>
+		<div id="page-container">
 
 			<Container fluid>
 
-				<Navbar bg="dark" variant="dark" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
+				<div id="content-wrap">
 
-				<br /><br />
-				<div class="conteudoo">
-					<h2>Adiciona Cargo</h2>
-					<br></br>
-					<Form.Label>Data Inicio: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="datainicio"
-						placeholder="Introduza a data de inicio" onChange={e => setDatainicio(e.target.value)} />
-					<br></br>
-					<Form.Label>Cargo: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="cargo"
-						placeholder="Introduza o cargo" onChange={e => setCargo(e.target.value)} />
-					<br></br>
-					<Form.Label>Salario Mensal: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="salario"
-						placeholder="Introduza o salario" onChange={e => setSalario(e.target.value)} />
-					<br></br>
-					<Form.Label>Empresa: </Form.Label>
-					<Form.Select aria-label="Default select example" onChange={e => setIDPessoaColetiva(e.target.value)}>
-						<option>Selecione a Empresa</option>
-						{PessoaColetiva.map(item => (
-							<option value={item.idpessoacoletiva} >{item.designacao}</option>
-						))}
-					</Form.Select>
-					<br></br>
-					<br></br>
-					<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaRelacao}>Adicionar Relacao</button>
+					<Navbar bg="dark" variant="dark" expand="lg">
+						<Container>
+							<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
+							<Navbar.Toggle aria-controls="basic-navbar-nav" />
+							<Navbar.Collapse id="basic-navbar-nav">
+								<Nav className="me-auto">
+									<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+									<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
+								</Nav>
+							</Navbar.Collapse>
+						</Container>
+					</Navbar>
+
+					<br /><br />
+					<div class="conteudoo">
+						<h2>Adiciona Cargo</h2>
+						<br></br>
+						<Form.Label>Data Inicio: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="datainicio"
+							placeholder="Introduza a data de inicio" onChange={e => setDatainicio(e.target.value)} />
+						<br></br>
+						<Form.Label>Cargo: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="cargo"
+							placeholder="Introduza o cargo" onChange={e => setCargo(e.target.value)} />
+						<br></br>
+						<Form.Label>Salario Mensal: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="salario"
+							placeholder="Introduza o salario" onChange={e => setSalario(e.target.value)} />
+						<br></br>
+						<Form.Label>Empresa: </Form.Label>
+						<Form.Select aria-label="Default select example" onChange={e => setIDPessoaColetiva(e.target.value)}>
+							<option>Selecione a Empresa</option>
+							{PessoaColetiva.map(item => (
+								<option value={item.idpessoacoletiva} >{item.designacao}</option>
+							))}
+						</Form.Select>
+						<br></br>
+						<br></br>
+						<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaRelacao}>Adicionar Relacao</button>
+					</div>
 				</div>
-
+				
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
 			</Container>
 		</div>
 	);

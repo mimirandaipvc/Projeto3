@@ -32,51 +32,60 @@ function CConsultarEmpresas() {
 
 
 	return (
-		<div>
+		<div id="page-container">
+
 			<Container fluid>
 
-				<Navbar bg="dark" variant="dark" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="/CHome">Home</Nav.Link>
-								<Nav.Link href="/CConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/CConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/CConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/CConsultarEmpresas">Empresas</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
+				<div id="content-wrap">
 
-				<br /><br />
-				<h1>Empresas</h1>
+					<Navbar bg="dark" variant="dark" expand="lg">
+						<Container>
+							<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
+							<Navbar.Toggle aria-controls="basic-navbar-nav" />
+							<Navbar.Collapse id="basic-navbar-nav">
+								<Nav className="me-auto">
+									<Nav.Link href="/CHome">Home</Nav.Link>
+									<Nav.Link href="/CConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/CConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/CConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/CConsultarEmpresas">Empresas</Nav.Link>
+								</Nav>
+							</Navbar.Collapse>
+						</Container>
+					</Navbar>
 
-				<Table striped bordered hover>
-					<thead>
-						<tr>
-							<th>Designação</th>
-							<th>País</th>
-							<th>Fundação</th>
-							<th>Ramo de Atividade</th>
-						</tr>
-					</thead>
-					<tbody>
-						{data1.map(item => (
+					<br /><br />
+					<h1>Empresas</h1>
+
+					<Table striped bordered hover>
+						<thead>
 							<tr>
-								<td>{item.designacao}</td>
-								<td>{item.pais}</td>
-								<td>{item.anofundacao}</td>
-								<td>{item.ramoatividade}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/CRelacoesEmpresas/" + item.idpessoasingular}>Ver relações</Button></td>
+								<th>Designação</th>
+								<th>País</th>
+								<th>Fundação</th>
+								<th>Ramo de Atividade</th>
 							</tr>
-						))}
-					</tbody>
-				</Table>
-			</Container>
-		</div>
+						</thead>
+						<tbody>
+							{data1.map(item => (
+								<tr>
+									<td>{item.designacao}</td>
+									<td>{item.pais}</td>
+									<td>{item.anofundacao}</td>
+									<td>{item.ramoatividade}</td>
+									<td><Button variant="dark" href={"http://localhost:3000/CRelacoesEmpresas/" + item.idpessoasingular}>Ver relações</Button></td>
+								</tr>
+							))}
+						</tbody>
+					</Table>
+					<footer id="footer">
+						<div class="container text-center">
+							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+						</div>
+					</footer>
+				</div>
+			</Container >
+		</div >
 	);
 }
 

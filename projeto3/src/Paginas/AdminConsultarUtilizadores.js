@@ -151,18 +151,14 @@ function AdminConsultarUtilizadores() {
 					<br></br><br></br>
 					<Button variant="dark" href={"http://localhost:3000/AdminCriarJornalista/"}>Criar Jornalista</Button>
 
-					<footer id="footer">
-						<div class="container text-center">
-							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
-						</div>
-					</footer>
-					<footer id="footer">
-						<div class="container text-center">
-							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
-						</div>
-					</footer>
 				</div>
-		</div>
+
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
+				
 			</Container >
 		</div >
 	);

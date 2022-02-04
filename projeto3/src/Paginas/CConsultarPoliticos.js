@@ -32,55 +32,64 @@ function CConsultarPoliticos() {
 
 
 	return (
-		<div>
+		<div id="page-container">
+
 			<Container fluid>
 
-				<Navbar bg="dark" variant="dark" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="/CHome">Home</Nav.Link>
-								<Nav.Link href="/CConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/CConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/CConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/CConsultarEmpresas">Empresas</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
+				<div id="content-wrap">
 
-				<br /><br />
-				<h1>POLÍTICOS</h1>
+					<Navbar bg="dark" variant="dark" expand="lg">
+						<Container>
+							<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
+							<Navbar.Toggle aria-controls="basic-navbar-nav" />
+							<Navbar.Collapse id="basic-navbar-nav">
+								<Nav className="me-auto">
+									<Nav.Link href="/CHome">Home</Nav.Link>
+									<Nav.Link href="/CConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/CConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/CConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/CConsultarEmpresas">Empresas</Nav.Link>
+								</Nav>
+							</Navbar.Collapse>
+						</Container>
+					</Navbar>
 
-				<Table striped bordered hover>
-					<thead>
-						<tr>
-							<th>Nome</th>
-							<th>Sexo</th>
-							<th>Nacionalidade</th>
-							<th>Data de Nascimento</th>
-							<th>Profissão</th>
-							<th>Cargos em Empresas</th>
-						</tr>
-					</thead>
-					<tbody>
-						{data1.map(item => (
+					<br /><br />
+					<h1>POLÍTICOS</h1>
+
+					<Table striped bordered hover>
+						<thead>
 							<tr>
-								<td>{item.nome}</td>
-								<td>{item.sexo}</td>
-								<td>{item.nacionalidade}</td>
-								<td>{item.datanascimento}</td>
-								<td>{item.profissao}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/CCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
-								<td><Button variant="dark" href={"http://localhost:3000/CRelacoesPoliticos/" + item.idpessoasingular}>Ver relações</Button></td>
+								<th>Nome</th>
+								<th>Sexo</th>
+								<th>Nacionalidade</th>
+								<th>Data de Nascimento</th>
+								<th>Profissão</th>
+								<th>Cargos em Empresas</th>
 							</tr>
-						))}
-					</tbody>
-				</Table>
-			</Container>
-		</div>
+						</thead>
+						<tbody>
+							{data1.map(item => (
+								<tr>
+									<td>{item.nome}</td>
+									<td>{item.sexo}</td>
+									<td>{item.nacionalidade}</td>
+									<td>{item.datanascimento}</td>
+									<td>{item.profissao}</td>
+									<td><Button variant="dark" href={"http://localhost:3000/CCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
+									<td><Button variant="dark" href={"http://localhost:3000/CRelacoesPoliticos/" + item.idpessoasingular}>Ver relações</Button></td>
+								</tr>
+							))}
+						</tbody>
+					</Table>
+					<footer id="footer">
+						<div class="container text-center">
+							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+						</div>
+					</footer>
+				</div>
+			</Container >
+		</div >
 	);
 }
 

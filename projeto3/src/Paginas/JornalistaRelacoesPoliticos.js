@@ -149,58 +149,67 @@ function JornalistaRelacoesPoliticos() {
 	}, [data1]);
 
 	return (
-		<div>
+		<div id="page-container">
+
 			<Container fluid>
 
-				<Navbar bg="dark" variant="dark" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
+				<div id="content-wrap">
 
-				<br /><br />
-				<h1>RELAÇÕES</h1>
+					<Navbar bg="dark" variant="dark" expand="lg">
+						<Container>
+							<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
+							<Navbar.Toggle aria-controls="basic-navbar-nav" />
+							<Navbar.Collapse id="basic-navbar-nav">
+								<Nav className="me-auto">
+									<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+									<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
+								</Nav>
+							</Navbar.Collapse>
+						</Container>
+					</Navbar>
 
-				{data1.map(item => (
-					<Card style={{ width: '23rem' }} key={item.idrelacaops}>
-						<Card.Body>
-							<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
-							<Card.Text>
-								{data2.map(item => (
-									<p>Politico:{item.nome}</p>
-								))}
-								{data3.map(item => (
-									<p>Evento: {item.designacao}</p>
-								))}
-								<p>Motivo: {item.motivo}</p>
-								<p>Valores: {item.valores}€</p>
-								<p>Data inserção: {item.data}</p>
-								{data4.map(item => (
-									<p>Inserido por: {item.username}</p>
-								))}
-								<p><b>Credibilidade: {item.credibilidade}</b></p>
-							</Card.Text>
-							<Button variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
-							<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
-						</Card.Body>
-					</Card>
-				))}
+					<br /><br />
+					<h1>RELAÇÕES</h1>
 
-				<Button variant="dark" href={"http://localhost:3000/JornalistaCriarInfoPS/" + params.idpessoasingular}>Criar Relação</Button>
+					{data1.map(item => (
+						<Card style={{ width: '23rem' }} key={item.idrelacaops}>
+							<Card.Body>
+								<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
+								<Card.Text>
+									{data2.map(item => (
+										<p>Politico:{item.nome}</p>
+									))}
+									{data3.map(item => (
+										<p>Evento: {item.designacao}</p>
+									))}
+									<p>Motivo: {item.motivo}</p>
+									<p>Valores: {item.valores}€</p>
+									<p>Data inserção: {item.data}</p>
+									{data4.map(item => (
+										<p>Inserido por: {item.username}</p>
+									))}
+									<p><b>Credibilidade: {item.credibilidade}</b></p>
+								</Card.Text>
+								<Button variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
+								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
+							</Card.Body>
+						</Card>
+					))}
 
-			</Container>
-		</div>
+					<Button variant="dark" href={"http://localhost:3000/JornalistaCriarInfoPS/" + params.idpessoasingular}>Criar Relação</Button>
+
+					<footer id="footer">
+						<div class="container text-center">
+							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+						</div>
+					</footer>
+				</div>
+			</Container >
+		</div >
 	);
 
 }

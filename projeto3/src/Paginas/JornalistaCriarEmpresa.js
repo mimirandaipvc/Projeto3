@@ -43,48 +43,59 @@ function JornalistaCriarEmpresa() {
 	}
 
 	return (
-		<div>
+		<div id="page-container">
+
 			<Container fluid>
 
-				<Navbar bg="dark" variant="dark" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
+				<div id="content-wrap">
 
-				<br /><br />
-				<div class="conteudoo">
-					<h2>Criar Empresa</h2>
-					<br></br>
-					<Form.Label>Designação: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="designacao"
-						placeholder="Introduza a designação" onChange={e => setDesignacao(e.target.value)} />
-					<br></br>
-					<Form.Label>Pais: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="pais"
-						placeholder="Introduza o pais" onChange={e => setPais(e.target.value)} />
-					<br></br>
-					<Form.Label>Ano de Fundação: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="anofundacao"
-						placeholder="Introduza o ano de fundação" onChange={e => setAnoFundacao(e.target.value)} />
-					<br></br>
-					<Form.Label>Ramo de Atividade: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="ramoatividade"
-						placeholder="Introduza o ramo de atividade" onChange={e => setRamoAtividade(e.target.value)} />
-					<br></br>
-					<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaEmpresa}>Criar Empresa</button>
+					<Navbar bg="dark" variant="dark" expand="lg">
+						<Container>
+							<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
+							<Navbar.Toggle aria-controls="basic-navbar-nav" />
+							<Navbar.Collapse id="basic-navbar-nav">
+								<Nav className="me-auto">
+									<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+									<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
+								</Nav>
+							</Navbar.Collapse>
+						</Container>
+					</Navbar>
+
+					<br /><br />
+					<div class="conteudoo">
+						<h2>Criar Empresa</h2>
+						<br></br>
+						<Form.Label>Designação: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="designacao"
+							placeholder="Introduza a designação" onChange={e => setDesignacao(e.target.value)} />
+						<br></br>
+						<Form.Label>Pais: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="pais"
+							placeholder="Introduza o pais" onChange={e => setPais(e.target.value)} />
+						<br></br>
+						<Form.Label>Ano de Fundação: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="anofundacao"
+							placeholder="Introduza o ano de fundação" onChange={e => setAnoFundacao(e.target.value)} />
+						<br></br>
+						<Form.Label>Ramo de Atividade: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="ramoatividade"
+							placeholder="Introduza o ramo de atividade" onChange={e => setRamoAtividade(e.target.value)} />
+						<br></br>
+						<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaEmpresa}>Criar Empresa</button>
+					</div>
 				</div>
+
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
+
 			</Container>
 		</div>
 	);

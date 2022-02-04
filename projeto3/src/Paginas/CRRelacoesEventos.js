@@ -165,88 +165,99 @@ function CRRelacoesEventos() {
 
 
 	return (
-		<div>
+		<div id="page-container">
+
 			<Container fluid>
 
-				<Navbar bg="dark" variant="dark" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="/CRHome">Home</Nav.Link>
-								<Nav.Link href="/CRConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/CRAPessoal">Área Pessoal</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
+				<div id="content-wrap">
 
-				<br /><br />
-				<div>
-					<h1>RELAÇÕES COLETIVAS</h1>
+					<Navbar bg="dark" variant="dark" expand="lg">
+						<Container>
+							<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
+							<Navbar.Toggle aria-controls="basic-navbar-nav" />
+							<Navbar.Collapse id="basic-navbar-nav">
+								<Nav className="me-auto">
+									<Nav.Link href="/CRHome">Home</Nav.Link>
+									<Nav.Link href="/CRConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
+									<Nav.Link href="/CRAPessoal">Área Pessoal</Nav.Link>
+								</Nav>
+							</Navbar.Collapse>
+						</Container>
+					</Navbar>
 
-					{data1.map(item => (
-						<Card style={{ width: '23rem' }} key={item.idrelacaops}>
-							<Card.Body>
-								<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
-								<Card.Text>
-									{data4.map(item => (
-										<p>Empresa:{item.designacao}</p>
-									))}
-									{data2.map(item => (
-										<p>Evento: {item.designacao}</p>
-									))}
-									<p>Motivo: {item.motivo}</p>
-									<p>Valores: {item.valores}€</p>
-									<p>Data inserção: {item.data}</p>
-									{data6.map(item => (
-										<p>Inserido por: {item.username}</p>
-									))}
-									<p><b>Credibilidade: {item.credibilidade}</b></p>
-								</Card.Text>
-								<Button variant="success" onClick={() => maisC(item.idrelacaopc)}>Credível</Button>
-								<Button id="dois" variant="danger" onClick={() => menosC(item.idrelacaopc)}>Não Credível</Button>
-							</Card.Body>
-						</Card>
-					))}
+					<br /><br />
+					<div>
+						<h1>RELAÇÕES COLETIVAS</h1>
+
+						{data1.map(item => (
+							<Card style={{ width: '23rem' }} key={item.idrelacaops}>
+								<Card.Body>
+									<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
+									<Card.Text>
+										{data4.map(item => (
+											<p>Empresa:{item.designacao}</p>
+										))}
+										{data2.map(item => (
+											<p>Evento: {item.designacao}</p>
+										))}
+										<p>Motivo: {item.motivo}</p>
+										<p>Valores: {item.valores}€</p>
+										<p>Data inserção: {item.data}</p>
+										{data6.map(item => (
+											<p>Inserido por: {item.username}</p>
+										))}
+										<p><b>Credibilidade: {item.credibilidade}</b></p>
+									</Card.Text>
+									<Button variant="success" onClick={() => maisC(item.idrelacaopc)}>Credível</Button>
+									<Button id="dois" variant="danger" onClick={() => menosC(item.idrelacaopc)}>Não Credível</Button>
+								</Card.Body>
+							</Card>
+						))}
+					</div>
+
+					<br></br>
+
+					<div>
+						<h1>RELAÇÕES SINGULARES</h1>
+
+						{data5.map(item => (
+							<Card style={{ width: '23rem' }} key={item.idrelacaops}>
+								<Card.Body>
+									<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
+									<Card.Text>
+										{data3.map(item => (
+											<p>Político:{item.nome}</p>
+										))}
+										{data2.map(item => (
+											<p>Evento: {item.designacao}</p>
+										))}
+										<p>Motivo: {item.motivo}</p>
+										<p>Valores: {item.valores}€</p>
+										<p>Data inserção: {item.data}</p>
+										{data6.map(item => (
+											<p>Inserido por: {item.username}</p>
+										))}
+										<p><b>Credibilidade: {item.credibilidade}</b></p>
+									</Card.Text>
+									<Button variant="success" onClick={() => maisS(item.idrelacaops)}>Credível</Button>
+									<Button id="dois" variant="danger" onClick={() => menosS(item.idrelacaops)}>Não Credível</Button>
+								</Card.Body>
+							</Card>
+						))}
+					</div>
 				</div>
 
-				<br></br>
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
 
-				<div>
-					<h1>RELAÇÕES SINGULARES</h1>
-
-					{data5.map(item => (
-						<Card style={{ width: '23rem' }} key={item.idrelacaops}>
-							<Card.Body>
-								<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
-								<Card.Text>
-									{data3.map(item => (
-										<p>Político:{item.nome}</p>
-									))}
-									{data2.map(item => (
-										<p>Evento: {item.designacao}</p>
-									))}
-									<p>Motivo: {item.motivo}</p>
-									<p>Valores: {item.valores}€</p>
-									<p>Data inserção: {item.data}</p>
-									{data6.map(item => (
-										<p>Inserido por: {item.username}</p>
-									))}
-									<p><b>Credibilidade: {item.credibilidade}</b></p>
-								</Card.Text>
-								<Button variant="success" onClick={() => maisS(item.idrelacaops)}>Credível</Button>
-								<Button id="dois" variant="danger" onClick={() => menosS(item.idrelacaops)}>Não Credível</Button>
-							</Card.Body>
-						</Card>
-					))}
-				</div>
-			</Container>
-		</div>
+			</Container >
+		</div >
 	);
 
 }

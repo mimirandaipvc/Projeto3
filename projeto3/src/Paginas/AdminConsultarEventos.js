@@ -32,51 +32,60 @@ function AdminConsultarEventos() {
 
 
 	return (
-		<div>
+		<div id="page-container">
+
 			<Container fluid>
 
-				<Navbar bg="dark" variant="dark" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="/AdminHome">Home</Nav.Link>
-								<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
-								<Nav.Link href="/AdminAPessoal">Área Pessoal</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
+				<div id="content-wrap">
 
-				<br /><br />
-				<h1>EVENTOS</h1>
+					<Navbar bg="dark" variant="dark" expand="lg">
+						<Container>
+							<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
+							<Navbar.Toggle aria-controls="basic-navbar-nav" />
+							<Navbar.Collapse id="basic-navbar-nav">
+								<Nav className="me-auto">
+									<Nav.Link href="/AdminHome">Home</Nav.Link>
+									<Nav.Link href="/AdminConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/AdminConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/AdminConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/AdminConsultarEmpresas">Empresas</Nav.Link>
+									<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
+									<Nav.Link href="/AdminAPessoal">Área Pessoal</Nav.Link>
+								</Nav>
+							</Navbar.Collapse>
+						</Container>
+					</Navbar>
 
-				<Table striped bordered hover>
-					<thead>
-						<tr>
-							<th>Designacao</th>
-							<th>Descrição</th>
-							<th>Data</th>
-						</tr>
-					</thead>
-					<tbody>
-						{data1.map(item => (
+					<br /><br />
+					<h1>EVENTOS</h1>
+
+					<Table striped bordered hover>
+						<thead>
 							<tr>
-								<td>{item.designacao}</td>
-								<td>{item.descricao}</td>
-								<td>{item.data}</td>
-								<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEventos/" + item.idevento}>Ver relações</Button></td>
+								<th>Designacao</th>
+								<th>Descrição</th>
+								<th>Data</th>
 							</tr>
-						))}
-					</tbody>
-				</Table>
-			</Container>
-		</div>
+						</thead>
+						<tbody>
+							{data1.map(item => (
+								<tr>
+									<td>{item.designacao}</td>
+									<td>{item.descricao}</td>
+									<td>{item.data}</td>
+									<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEventos/" + item.idevento}>Ver relações</Button></td>
+								</tr>
+							))}
+						</tbody>
+					</Table>
+					<footer id="footer">
+						<div class="container text-center">
+							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+						</div>
+					</footer>
+				</div>
+			</Container >
+		</div >
 	);
 }
 

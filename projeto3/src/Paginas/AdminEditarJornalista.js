@@ -41,7 +41,7 @@ function AdminEditarJornalista() {
 	return (
 		<div>
 			<Container fluid >
-
+				<div id="content-wrap">
 				<Navbar bg="dark" variant="dark" expand="lg">
 					<Container>
 						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
@@ -75,7 +75,12 @@ function AdminEditarJornalista() {
 
 					<button type="button" className="btn btn-info btn-block mt-4" onClick={editaJornalista}>Editar Jornalista</button>
 				</div>
-
+			</div>
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
 			</Container>
 		</div>
 	);

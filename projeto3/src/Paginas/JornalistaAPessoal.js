@@ -41,42 +41,51 @@ function JornalistaAPessoal() {
 	}
 
 	return (
-		<div>
+		<div id="page-container">
+
 			<Container fluid>
 
-				<Navbar bg="dark" variant="dark" expand="lg">
-					<Container>
-						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
-						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Nav className="me-auto">
-								<Nav.Link href="/JornalistaHome">Home</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
-								<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
-								<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-				</Navbar>
+				<div id="content-wrap">
 
-				<br /><br />
-				<div class="conteudoo">
-					<h2>Editar Jornalista</h2>
-					<br></br>
-					<Form.Label>Username: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
-						placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
-					<br></br>
-					<Form.Label>Password: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-						placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
-					<br></br>
+					<Navbar bg="dark" variant="dark" expand="lg">
+						<Container>
+							<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
+							<Navbar.Toggle aria-controls="basic-navbar-nav" />
+							<Navbar.Collapse id="basic-navbar-nav">
+								<Nav className="me-auto">
+									<Nav.Link href="/JornalistaHome">Home</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+									<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
+								</Nav>
+							</Navbar.Collapse>
+						</Container>
+					</Navbar>
 
-					<button type="button" className="btn btn-info btn-block mt-4" onClick={editaJornalista}>Editar Perfil</button>
+					<br /><br />
+					<div class="conteudoo">
+						<h2>Editar Jornalista</h2>
+						<br></br>
+						<Form.Label>Username: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
+							placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
+						<br></br>
+						<Form.Label>Password: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
+							placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
+						<br></br>
+
+						<button type="button" className="btn btn-info btn-block mt-4" onClick={editaJornalista}>Editar Perfil</button>
+					</div>
 				</div>
-
+				
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
 			</Container>
 		</div>
 	);
