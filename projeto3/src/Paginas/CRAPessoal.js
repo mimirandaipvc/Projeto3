@@ -79,13 +79,12 @@ function CRAPessoal() {
 						<button type="button" className="btn btn-info btn-block mt-4" onClick={editaCidadaoRegistado}>Editar Perfil</button>
 					</div>
 				</div>
-
 				<footer id="footer">
 					<div class="container text-center">
 						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
 					</div>
 				</footer>
-				
+
 			</Container>
 		</div>
 	);

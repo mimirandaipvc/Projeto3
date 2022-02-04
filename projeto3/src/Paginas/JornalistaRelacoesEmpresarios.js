@@ -157,13 +157,13 @@ function JornalistaRelacoesEmpresarios() {
 
 					<Button variant="dark" href={"http://localhost:3000/JornalistaCriarInfoPS/" + params.idpessoasingular}>Criar Relação</Button>
 
+				</div>
 
 					<footer id="footer">
 						<div class="container text-center">
 							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
 						</div>
 					</footer>
-				</div>
 			</Container >
 		</div >
 	);

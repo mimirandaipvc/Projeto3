@@ -1,4 +1,6 @@
 const client = require("../data/database");
+const crypto = require('crypto')
+
 
 module.exports = app => {
 	const controller = {};
@@ -29,10 +31,12 @@ module.exports = app => {
 
 	controller.AdminEditarAdmin = (req, res) => {
 		//client.connect()
+		const passwordHash = crypto.createHash('sha512').update(req.body.password).digest('hex')
+
 		client.query(`UPDATE utilizador SET username = $1, password = $2  where idutilizador = $3`,
 			[
 				req.body.username,
-				req.body.password,
+				passwordHash,
 				req.params.idutilizador,
 			], (err, result) => {
 				if (!err) {
@@ -44,10 +48,12 @@ module.exports = app => {
 
 	controller.AdminEditarJornalista = (req, res) => {
 		//client.connect()
+		const passwordHash = crypto.createHash('sha512').update(req.body.password).digest('hex')
+
 		client.query(`UPDATE utilizador SET username = $1, password = $2  where idutilizador = $3`,
 			[
 				req.body.username,
-				req.body.password,
+				passwordHash,
 				req.params.idutilizador,
 			], (err, result) => {
 				if (!err) {
@@ -59,10 +65,11 @@ module.exports = app => {
 
 	controller.AdminEditarCidadaoRegistado = (req, res) => {
 		//client.connect()
+		const passwordHash = crypto.createHash('sha512').update(req.body.password).digest('hex')
 		client.query(`UPDATE utilizador SET username = $1, password = $2  where idutilizador = $3`,
 			[
 				req.body.username,
-				req.body.password,
+				passwordHash,
 				req.params.idutilizador,
 			], (err, result) => {
 				if (!err) {
@@ -123,11 +130,13 @@ module.exports = app => {
 		// let insertQuery = "insert into utilizador(username, password, idtipoutilizador)
 		//                values('${user.username}', '${user.password}', ${user.idtipoutilizador})"
 
+		const passwordHash = crypto.createHash('sha512').update(req.body.password).digest('hex')
+
 		client.query(`INSERT INTO "utilizador" ("username", "password", "idtipoutilizador")
                        values($1, $2, $3)`,
 			[
 				req.body.username,
-				req.body.password,
+				passwordHash,
 				'1'
 			],
 			(err, result) => {
@@ -144,11 +153,13 @@ module.exports = app => {
 		// let insertQuery = "insert into utilizador(username, password, idtipoutilizador)
 		//                values('${user.username}', '${user.password}', ${user.idtipoutilizador})"
 
+		const passwordHash = crypto.createHash('sha512').update(req.body.password).digest('hex')
+
 		client.query(`INSERT INTO "utilizador" ("username", "password", "idtipoutilizador")
                        values($1, $2, $3)`,
 			[
 				req.body.username,
-				req.body.password,
+				passwordHash,
 				'2'
 			],
 			(err, result) => {
@@ -165,11 +176,13 @@ module.exports = app => {
 		// let insertQuery = "insert into utilizador(username, password, idtipoutilizador)
 		//                values('${user.username}', '${user.password}', ${user.idtipoutilizador})"
 
+		const passwordHash = crypto.createHash('sha512').update(req.body.password).digest('hex')
+
 		client.query(`INSERT INTO "utilizador" ("username", "password", "idtipoutilizador")
                        values($1, $2, $3)`,
 			[
 				req.body.username,
-				req.body.password,
+				passwordHash,
 				'3'
 			],
 			(err, result) => {

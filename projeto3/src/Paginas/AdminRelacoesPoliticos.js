@@ -116,13 +116,12 @@ function AdminRelacoesPoliticos() {
 							</Card.Body>
 						</Card>
 					))}
-
+				</div>
 					<footer id="footer">
 						<div class="container text-center">
 							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
 						</div>
 					</footer>
-				</div>
 			</Container >
 		</div >
 	);

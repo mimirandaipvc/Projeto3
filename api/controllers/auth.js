@@ -2,6 +2,7 @@ const { authSecret } = require('../../.env')
 const jwt = require('jwt-simple')
 const bcrypt = require('bcrypt-nodejs')
 const client = require("../data/database");
+const crypto = require('crypto')
 
 
 module.exports = app => {
@@ -10,10 +11,12 @@ module.exports = app => {
 			return res.status(400).send('Informe usuário e senha!')
 		}
 
+		const passwordHash = crypto.createHash('sha512').update(req.body.password).digest('hex')
+
 		const user = await client.query(`SELECT username FROM utilizador where username = ($1) and password = ($2)`,
 			[
 				req.body.username,
-				req.body.password
+				passwordHash
 			]
 		)
 		const tabelas = user.rowCount;
@@ -21,10 +24,11 @@ module.exports = app => {
 			return res.status(400).send('Utilizador/Password incorreto!')
 
 		}
+
 		const utilizador = await client.query(`SELECT * FROM utilizador where username = ($1) and password = ($2)`,
 			[
 				req.body.username,
-				req.body.password
+				passwordHash
 			]
 		)
 		const novo = utilizador.rows;

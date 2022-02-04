@@ -84,12 +84,13 @@ function JornalistaConsultarEmpresarios() {
 						</tbody>
 					</Table>
 					<Button variant="dark" href={"http://localhost:3000/JornalistaCriarEmpresario/"}>Criar Empresário</Button>
+				</div>
+
 					<footer id="footer">
 						<div class="container text-center">
 							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
 						</div>
 					</footer>
-				</div>
 			</Container >
 		</div >
 	);
