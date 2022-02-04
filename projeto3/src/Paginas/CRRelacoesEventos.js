@@ -91,7 +91,8 @@ function CRRelacoesEventos() {
 				} else {
 					api.post('/api/v1/VotoRPS', {
 						idrelacaops: i,
-						idutilizador
+						idutilizador,
+						tipovoto: 'Credivel'
 					});
 					api.put('/api/v1/AumentarCredibilidadeRPS', {
 						idrelacaops: i,
@@ -109,7 +110,8 @@ function CRRelacoesEventos() {
 				} else {
 					api.post('/api/v1/VotoRPS', {
 						idrelacaops: i,
-						idutilizador
+						idutilizador,
+						tipovoto: 'Não Credivel'
 					});
 					api.put('/api/v1/DiminuirCredibilidadeRPS', {
 						idrelacaops: i,
@@ -127,7 +129,8 @@ function CRRelacoesEventos() {
 				} else {
 					api.post('/api/v1/VotoRPC', {
 						idrelacaopc: i,
-						idutilizador
+						idutilizador,
+						tipovoto: 'Credivel'
 					});
 					api.put('/api/v1/AumentarCredibilidadeRPC', {
 						idrelacaopc: i,
@@ -145,7 +148,8 @@ function CRRelacoesEventos() {
 				} else {
 					api.post('/api/v1/VotoRPC', {
 						idrelacaopc: i,
-						idutilizador
+						idutilizador,
+						tipovoto: 'Não Credivel'
 					});
 					api.put('/api/v1/DiminuirCredibilidadeRPC', {
 						idrelacaopc: i,
@@ -213,6 +217,8 @@ function CRRelacoesEventos() {
 									</Card.Text>
 									<Button variant="success" onClick={() => maisC(item.idrelacaopc)}>Credível</Button>
 									<Button id="dois" variant="danger" onClick={() => menosC(item.idrelacaopc)}>Não Credível</Button>
+									<br></br>
+									<small>O meu Voto: {item.tipoVoto}</small>
 								</Card.Body>
 							</Card>
 						))}
@@ -244,6 +250,8 @@ function CRRelacoesEventos() {
 									</Card.Text>
 									<Button variant="success" onClick={() => maisS(item.idrelacaops)}>Credível</Button>
 									<Button id="dois" variant="danger" onClick={() => menosS(item.idrelacaops)}>Não Credível</Button>
+									<br></br>
+									<small>O meu Voto: {item.tipoVoto}</small>
 								</Card.Body>
 							</Card>
 						))}

@@ -6,11 +6,12 @@ module.exports = app => {
 
 	controller.criarVotoRPC = (req, res) => {
 
-		client.query(`INSERT INTO "votorpc" ("idrelacaopc", "idutilizador")
-                       values($1, $2)`,
+		client.query(`INSERT INTO "votorpc" ("idrelacaopc", "idutilizador", "tipoVoto")
+                       values($1, $2, $3)`,
 			[
 				req.body.idrelacaopc,
-				req.body.idutilizador
+				req.body.idutilizador,
+				req.body.tipovoto
 			],
 			(err, result) => {
 				if (!err) {
@@ -23,11 +24,12 @@ module.exports = app => {
 
 	controller.criarVotoRPS = (req, res) => {
 
-		client.query(`INSERT INTO "votorps" ("idrelacaops", "idutilizador")
-                       values($1, $2)`,
+		client.query(`INSERT INTO "votorps" ("idrelacaops", "idutilizador", "tipoVoto")
+                       values($1, $2, $3)`,
 			[
 				req.body.idrelacaops,
 				req.body.idutilizador,
+				req.body.tipovoto
 			],
 			(err, result) => {
 				if (!err) {

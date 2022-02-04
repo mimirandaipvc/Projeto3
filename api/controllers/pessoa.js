@@ -53,7 +53,7 @@ module.exports = app => {
 	controller.criarPolitico = (req, res) => {
 
 		client.query(`INSERT INTO "pessoasingular" ("nome", "sexo", "nacionalidade", "datanascimento", "profissao", "idtipopessoasingular", "partido")
-                       values($1, $2, $3, $4, $5, $6)`,
+                       values($1, $2, $3, $4, $5, $6, $7)`,
 			[
 				req.body.nome,
 				req.body.sexo,
@@ -75,7 +75,7 @@ module.exports = app => {
 	controller.criarEmpresario = (req, res) => {
 
 		client.query(`INSERT INTO "pessoasingular" ("nome", "sexo", "nacionalidade", "datanascimento", "profissao", "idtipopessoasingular", "partido")
-                       values($1, $2, $3, $4, $5, $6)`,
+                       values($1, $2, $3, $4, $5, $6, $7)`,
 			[
 				req.body.nome,
 				req.body.sexo,

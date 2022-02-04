@@ -16,6 +16,8 @@ function JornalistaRelacoesPoliticos() {
 	const [data2, setData2] = useState([]);
 	const [data3, setData3] = useState([]);
 	const [data4, setData4] = useState([]);
+	const [data5, setData5] = useState([]);
+
 
 
 	useEffect(() => {
@@ -23,7 +25,6 @@ function JornalistaRelacoesPoliticos() {
 	}, []);
 
 	const idutilizador = localStorage.getItem("idutilizador");
-
 
 	function obterJornalista() {
 		for (const i = 0; i < data1.length; i++) {
@@ -71,7 +72,8 @@ function JornalistaRelacoesPoliticos() {
 				} else {
 					api.post('/api/v1/VotoRPS', {
 						idrelacaops: i,
-						idutilizador
+						idutilizador,
+						tipovoto: 1
 					});
 					api.put('/api/v1/AumentarCredibilidadeRPS', {
 						idrelacaops: i,
@@ -89,7 +91,8 @@ function JornalistaRelacoesPoliticos() {
 				} else {
 					api.post('/api/v1/VotoRPS', {
 						idrelacaops: i,
-						idutilizador
+						idutilizador,
+						tipovoto: 0
 					});
 					api.put('/api/v1/DiminuirCredibilidadeRPS', {
 						idrelacaops: i,
@@ -196,6 +199,8 @@ function JornalistaRelacoesPoliticos() {
 								</Card.Text>
 								<Button variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
 								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
+								<br></br>
+								<p class="voto">O meu Voto: {item.tipoVoto}</p>
 							</Card.Body>
 						</Card>
 					))}

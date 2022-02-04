@@ -69,7 +69,8 @@ function CRRelacoesEmpresas() {
 				} else {
 					api.post('/api/v1/VotoRPS', {
 						idrelacaops: i,
-						idutilizador
+						idutilizador,
+						tipovoto: 'Credivel'
 					});
 					api.put('/api/v1/AumentarCredibilidadeRPS', {
 						idrelacaops: i,
@@ -87,7 +88,8 @@ function CRRelacoesEmpresas() {
 				} else {
 					api.post('/api/v1/VotoRPS', {
 						idrelacaops: i,
-						idutilizador
+						idutilizador,
+						tipovoto: 'Não Credivel'
 					});
 					api.put('/api/v1/DiminuirCredibilidadeRPS', {
 						idrelacaops: i,
@@ -151,6 +153,8 @@ function CRRelacoesEmpresas() {
 								</Card.Text>
 								<Button variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
 								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
+								<br></br>
+								<small>O meu Voto: {item.tipoVoto}</small>
 							</Card.Body>
 						</Card>
 					))}
