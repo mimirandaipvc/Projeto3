@@ -66,7 +66,9 @@ function CRConsultarEmpresarios() {
 								<th>Nacionalidade</th>
 								<th>Data de Nascimento</th>
 								<th>Profissão</th>
+								<th>Preferência Político</th>
 								<th>Cargos em Empresas</th>
+								<th>Relações</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -77,6 +79,7 @@ function CRConsultarEmpresarios() {
 									<td>{item.nacionalidade}</td>
 									<td>{item.datanascimento}</td>
 									<td>{item.profissao}</td>
+									<td>{item.partido}</td>
 									<td><Button variant="dark" href={"http://localhost:3000/CRCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
 									<td><Button variant="dark" href={"http://localhost:3000/CRRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
 								</tr>

@@ -52,7 +52,7 @@ module.exports = app => {
 
 	controller.criarPolitico = (req, res) => {
 
-		client.query(`INSERT INTO "pessoasingular" ("nome", "sexo", "nacionalidade", "datanascimento", "profissao", "idtipopessoasingular")
+		client.query(`INSERT INTO "pessoasingular" ("nome", "sexo", "nacionalidade", "datanascimento", "profissao", "idtipopessoasingular", "partido")
                        values($1, $2, $3, $4, $5, $6)`,
 			[
 				req.body.nome,
@@ -60,7 +60,8 @@ module.exports = app => {
 				req.body.nacionalidade,
 				req.body.datanascimento,
 				req.body.profissao,
-				'1'
+				'1',
+				req.body.partido
 			],
 			(err, result) => {
 				if (!err) {
@@ -73,7 +74,7 @@ module.exports = app => {
 
 	controller.criarEmpresario = (req, res) => {
 
-		client.query(`INSERT INTO "pessoasingular" ("nome", "sexo", "nacionalidade", "datanascimento", "profissao", "idtipopessoasingular")
+		client.query(`INSERT INTO "pessoasingular" ("nome", "sexo", "nacionalidade", "datanascimento", "profissao", "idtipopessoasingular", "partido")
                        values($1, $2, $3, $4, $5, $6)`,
 			[
 				req.body.nome,
@@ -81,7 +82,8 @@ module.exports = app => {
 				req.body.nacionalidade,
 				req.body.datanascimento,
 				req.body.profissao,
-				'2'
+				'2',
+				req.body.partido
 			],
 			(err, result) => {
 				if (!err) {

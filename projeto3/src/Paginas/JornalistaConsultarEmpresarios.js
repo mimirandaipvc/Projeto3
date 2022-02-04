@@ -66,7 +66,9 @@ function JornalistaConsultarEmpresarios() {
 								<th>Nacionalidade</th>
 								<th>Data de Nascimento</th>
 								<th>Profissão</th>
+								<th>Preferência Político</th>
 								<th>Cargos em Empresas</th>
+								<th>Relações</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -77,6 +79,7 @@ function JornalistaConsultarEmpresarios() {
 									<td>{item.nacionalidade}</td>
 									<td>{item.datanascimento}</td>
 									<td>{item.profissao}</td>
+									<td>{item.partido}</td>
 									<td><Button variant="dark" href={"http://localhost:3000/JornalistaCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
 									<td><Button variant="dark" href={"http://localhost:3000/JornalistaRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
 								</tr>

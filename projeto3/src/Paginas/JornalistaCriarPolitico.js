@@ -17,6 +17,7 @@ function JornalistaCriarPolitico() {
 	const [Nacionalidade, setNacionalidade] = useState([]);
 	const [DataNascimento, setDataNascimento] = useState([]);
 	const [Profissao, setProfissao] = useState([]);
+	const [Partido, setPartido] = useState([]);
 	const navigate = useNavigate()
 
 
@@ -33,7 +34,8 @@ function JornalistaCriarPolitico() {
 				sexo: Sexo,
 				nacionalidade: Nacionalidade,
 				datanascimento: DataNascimento,
-				profissao: Profissao
+				profissao: Profissao,
+				partido: Partido
 			}).then(response => {
 				console.log(response.data);
 				alert("Político criado!")
@@ -92,10 +94,14 @@ function JornalistaCriarPolitico() {
 						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="nome"
 							placeholder="Introduza a profissão" onChange={e => setProfissao(e.target.value)} />
 						<br></br>
+						<Form.Label>Preferência Política: </Form.Label>
+						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="nome"
+							placeholder="Introduza a preferência política" onChange={e => setPartido(e.target.value)} />
+						<br></br>
 						<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaPolitico}>Criar Politico</button>
 					</div>
 				</div>
-				
+
 				<footer id="footer">
 					<div class="container text-center">
 						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
