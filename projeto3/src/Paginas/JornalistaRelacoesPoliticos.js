@@ -197,9 +197,9 @@ function JornalistaRelacoesPoliticos() {
 									))}
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
-								<Button variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
+								<Button id="um" variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
 								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
-								<br></br>
+								<br></br><br></br>
 								<p class="voto">O meu Voto: {item.tipoVoto}</p>
 							</Card.Body>
 						</Card>

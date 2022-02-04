@@ -4,6 +4,10 @@ body {
 	text-align: center;
 }
 
+#um {
+	float: left;
+}
+
 #dois {
 	float: right;
 }

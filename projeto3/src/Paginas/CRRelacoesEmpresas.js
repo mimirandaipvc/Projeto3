@@ -141,7 +141,7 @@ function CRRelacoesEmpresas() {
 									))}
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
-								<Button variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
+								<Button id="um" variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
 								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
 								<br></br>
 								<small>O meu Voto: {item.tipoVoto}</small>
