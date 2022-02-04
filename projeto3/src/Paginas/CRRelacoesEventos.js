@@ -168,7 +168,7 @@ function CRRelacoesEventos() {
 		<div>
 			<Container fluid>
 
-				<Navbar bg="light" expand="lg">
+				<Navbar bg="dark" variant="dark" expand="lg">
 					<Container>
 						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -185,7 +185,7 @@ function CRRelacoesEventos() {
 					</Container>
 				</Navbar>
 
-				<br />
+				<br /><br />
 				<div>
 					<h1>RELAÇÕES COLETIVAS</h1>
 

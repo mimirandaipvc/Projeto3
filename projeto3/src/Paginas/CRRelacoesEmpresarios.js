@@ -107,7 +107,7 @@ function CRRelacoesEmpresas() {
 		<div>
 			<Container fluid>
 
-				<Navbar bg="light" expand="lg">
+				<Navbar bg="dark" variant="dark" expand="lg">
 					<Container>
 						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -124,7 +124,7 @@ function CRRelacoesEmpresas() {
 					</Container>
 				</Navbar>
 
-				<br />
+				<br /><br />
 				<h1>RELAÇÕES</h1>
 
 				{data1.map(item => (

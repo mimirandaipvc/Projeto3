@@ -35,7 +35,7 @@ function CRConsultarEmpresarios() {
 		<div>
 			<Container fluid>
 
-				<Navbar bg="light" expand="lg">
+				<Navbar bg="dark" variant="dark" expand="lg">
 					<Container>
 						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -52,7 +52,7 @@ function CRConsultarEmpresarios() {
 					</Container>
 				</Navbar>
 
-				<br />
+				<br /><br />
 				<h1>POLÍTICOS</h1>
 
 				<Table striped bordered hover>

@@ -43,7 +43,7 @@ function AdminAPessoal() {
 		<div>
 			<Container fluid>
 
-				<Navbar bg="light" expand="lg">
+				<Navbar bg="dark" variant="dark" expand="lg">
 					<Container>
 						<Navbar.Brand href="#home">Rede Contactos Politicos</Navbar.Brand>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -61,7 +61,7 @@ function AdminAPessoal() {
 					</Container>
 				</Navbar>
 
-				<br />
+				<br /><br />
 				<div class="conteudoo">
 					<h2>Editar Administrador</h2>
 					<br></br>
