@@ -1,4 +1,4 @@
-import { Form, Button, Table, Carousel, Card, CardGroup } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link, useParams, useNavigate  } from 'react-router-dom';
 import React, { useState, useEffect, Component } from 'react';
 import api from './api'
@@ -29,7 +29,11 @@ function JornalistaHome() {
 	}
 
 	return (
-		<div>
+		<div id="page-container">
+
+			<Container fluid>
+
+				<div id="content-wrap">
 			<h1>Bem-vindo Jornalista! <button id="logout" type="button" className="btn btn-danger btn-block mt-4" onClick={logout}>Logout</button></h1>
 
 			<Carousel>
@@ -95,7 +99,14 @@ function JornalistaHome() {
 				</Carousel.Item>
 			</Carousel>
 
-		</div>
+				</div>
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
+			</Container >
+		</div >
 
 
 	);

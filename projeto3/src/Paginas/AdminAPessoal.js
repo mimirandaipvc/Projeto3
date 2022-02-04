@@ -86,7 +86,7 @@ function AdminAPessoal() {
 						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
 					</div>
 				</footer>
-				
+
 			</Container>
 		</div>
 	);
