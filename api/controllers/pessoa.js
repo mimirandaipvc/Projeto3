@@ -148,7 +148,7 @@ module.exports = app => {
 
 	controller.obterEvento = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM evento where idevento= $1`,
+		client.query(`SELECT * FROM evento where idevento = $1`,
 			[
 				req.params.idevento,
 			], (err, result) => {

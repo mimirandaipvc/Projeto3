@@ -30,7 +30,10 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPSEvento = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM relacaops where idevento = $1`,
+		client.query(`SELECT * FROM relacaops
+INNER JOIN utilizador ON utilizador.idutilizador = relacaops.idutilizador
+INNER JOIN pessoasingular ON pessoasingular.idpessoasingular = relacaops.idpessoasingular
+WHERE idevento = $1`,
 			[
 				req.params.idevento,
 			], (err, result) => {
@@ -43,7 +46,10 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPSingular = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM relacaops where idpessoasingular = $1`,
+		client.query(`SELECT * FROM relacaops
+INNER JOIN utilizador ON utilizador.idutilizador = relacaops.idutilizador
+INNER JOIN evento ON evento.idevento = relacaops.idevento
+WHERE idpessoasingular = $1`,
 			[
 				req.params.idpessoasingular,
 			], (err, result) => {
@@ -66,7 +72,10 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPCEvento = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM relacaopc where idevento = $1`,
+		client.query(`SELECT * FROM relacaopc
+INNER JOIN utilizador ON utilizador.idutilizador = relacaopc.idutilizador
+INNER JOIN pessoacoletiva ON pessoacoletiva.idpessoacoletiva = relacaopc.idpessoacoletiva
+WHERE idevento = $1`,
 			[
 				req.params.idevento,
 			], (err, result) => {
@@ -79,7 +88,10 @@ module.exports = app => {
 
 	controller.obterListaRelacaoPColetiva = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM relacaopc where idpessoacoletiva = $1`,
+		client.query(`SELECT * FROM relacaopc
+INNER JOIN utilizador ON utilizador.idutilizador = relacaopc.idutilizador
+INNER JOIN evento ON evento.idevento = relacaopc.idevento
+WHERE idpessoacoletiva = $1;`,
 			[
 				req.params.idpessoacoletiva,
 			], (err, result) => {
