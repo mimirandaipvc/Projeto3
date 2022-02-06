@@ -69,8 +69,9 @@ function AdminEditarJornalista() {
 						placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
 					<br></br>
 					<Form.Label>Password: </Form.Label>
-					<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-						placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} />
+					<input type="password" class="form-control" placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} ></input>
+					{/* <Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
+						placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} /> */}
 					<br></br>
 
 					<button type="button" className="btn btn-info btn-block mt-4" onClick={editaJornalista}>Editar Jornalista</button>
