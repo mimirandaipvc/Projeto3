@@ -55,11 +55,13 @@ function CRConsultarVotos() {
 							<Navbar.Toggle aria-controls="basic-navbar-nav" />
 							<Navbar.Collapse id="basic-navbar-nav">
 								<Nav className="me-auto">
-									<Nav.Link href="/JornalistaHome">Home</Nav.Link>
-									<Nav.Link href="/JornalistaConsultarPoliticos">Políticos</Nav.Link>
-									<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
-									<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
-									<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+									<Nav.Link href="/CRHome">Home</Nav.Link>
+									<Nav.Link href="/CRConsultarPoliticos">Políticos</Nav.Link>
+									<Nav.Link href="/CRConsultarEventos">Eventos</Nav.Link>
+									<Nav.Link href="/CRConsultarEmpresarios">Empresários</Nav.Link>
+									<Nav.Link href="/CRConsultarEmpresas">Empresas</Nav.Link>
+									<Nav.Link href="/CRConsultarVotos">Histórico de Votos</Nav.Link>
+									<Nav.Link href="/CRAPessoal">Área Pessoal</Nav.Link>
 								</Nav>
 							</Navbar.Collapse>
 						</Container>

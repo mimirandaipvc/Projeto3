@@ -76,6 +76,7 @@ function JornalistaCriarRelacaoPSC() {
 									<Nav.Link href="/JornalistaConsultarEventos">Eventos</Nav.Link>
 									<Nav.Link href="/JornalistaConsultarEmpresarios">Empresários</Nav.Link>
 									<Nav.Link href="/JornalistaConsultarEmpresas">Empresas</Nav.Link>
+									<Nav.Link href="/JornalistaConsultarVotos">Histórico de Votos</Nav.Link>
 									<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
 								</Nav>
 							</Navbar.Collapse>
@@ -110,7 +111,7 @@ function JornalistaCriarRelacaoPSC() {
 						<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaRelacao}>Adicionar Relacao</button>
 					</div>
 				</div>
-				
+
 				<footer id="footer">
 					<div class="container text-center">
 						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
