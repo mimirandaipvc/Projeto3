@@ -31,7 +31,7 @@ function JornalistaRelacoesEmpresarios() {
 				setData1(response.data);
 			});
 	}
-	
+
 	function obterEmpresario() {
 		return api.get('/api/v1/Empresario/' + params.idpessoasingular)
 			.then(function (response) {
@@ -128,7 +128,6 @@ function JornalistaRelacoesEmpresarios() {
 								<Button id="um" variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
 								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
 								<br></br>
-								<small>O meu Voto: {item.tipoVoto}</small>
 							</Card.Body>
 						</Card>
 					))}

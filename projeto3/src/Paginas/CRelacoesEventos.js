@@ -14,55 +14,14 @@ function CRelacoesEventos() {
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
-	const [data3, setData3] = useState([]);
-	const [data4, setData4] = useState([]);
 	const [data5, setData5] = useState([]);
-	const [data6, setData6] = useState([]);
 
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function obterJornalista() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
-				.then(function (response) {
-					setData6(response.data);
-					console.log(response.data);
-				});
-		}
-	}
 
-	function obterPolitico() {
-		for (const i = 0; i < data5.length; i++) {
-			return api.get('/api/v1/Politico/' + data5[i].idpessoasingular)
-				.then(function (response) {
-					setData3(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
-	function obterEmpresa() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/PessoaColetiva/' + data1[i].idpessoacoletiva)
-				.then(function (response) {
-					setData4(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
-	function obterEvento() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Evento/' + params.idevento)
-				.then(function (response) {
-					setData2(response.data);
-					console.log(response.data);
-				});
-		}
-	}
 
 	function obterDadosPCE() {
 		return api.get('/api/v1/RelacaoPCE/' + params.idevento)
@@ -80,38 +39,21 @@ function CRelacoesEventos() {
 			});
 	}
 
-	function maisS(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaops: i,
-			idutilizador: localStorage.getItem("idutilizador"),
-		});
-		api.put('/api/v1/AumentarCredibilidadeRPS', {
-			idrelacaops: i,
-		});
-		console.log('mais');
-		// window.location.reload();
-
+	function obterEvento() {
+		for (const i = 0; i < data1.length; i++) {
+			return api.get('/api/v1/Evento/' + params.idevento)
+				.then(function (response) {
+					setData2(response.data);
+					console.log(response.data);
+				});
+		}
 	}
 
-	function menosS(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaops: i,
-			idutilizador: localStorage.getItem("idutilizador"),
-		});
-		api.put('/api/v1/DiminuirCredibilidadeRPS', {
-			idrelacaops: i,
-		});
-		console.log('menos');
-		// window.location.reload();
-	}
 
 	useEffect(() => {
 		obterDadosPCE();
 		obterDadosPSE();
-		obterPolitico();
-		obterEmpresa();
 		obterEvento();
-		obterJornalista();
 	}, [data1]);
 
 
@@ -147,18 +89,14 @@ function CRelacoesEventos() {
 								<Card.Body>
 									<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
 									<Card.Text>
-										{data4.map(item => (
-											<p>Empresa:{item.designacao}</p>
-										))}
+										<p>Empresa:{item.designacao}</p>
 										{data2.map(item => (
 											<p>Evento: {item.designacao}</p>
 										))}
 										<p>Motivo: {item.motivo}</p>
 										<p>Valores: {item.valores}€</p>
 										<p>Data inserção: {item.data}</p>
-										{data6.map(item => (
-											<p>Inserido por: {item.username}</p>
-										))}
+										<p>Inserido por: {item.username}</p>
 										<p><b>Credibilidade: {item.credibilidade}</b></p>
 									</Card.Text>
 								</Card.Body>
@@ -176,18 +114,14 @@ function CRelacoesEventos() {
 								<Card.Body>
 									<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
 									<Card.Text>
-										{data3.map(item => (
-											<p>Político:{item.nome}</p>
-										))}
+										<p>Político/Empresário:{item.nome}</p>
 										{data2.map(item => (
 											<p>Evento: {item.designacao}</p>
 										))}
 										<p>Motivo: {item.motivo}</p>
 										<p>Valores: {item.valores}€</p>
 										<p>Data inserção: {item.data}</p>
-										{data6.map(item => (
-											<p>Inserido por: {item.username}</p>
-										))}
+										<p>Inserido por: {item.username}</p>
 										<p><b>Credibilidade: {item.credibilidade}</b></p>
 									</Card.Text>
 								</Card.Body>

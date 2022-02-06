@@ -20,12 +20,12 @@ module.exports = app => {
 		.post(controller.AdminCriarJornalista)
 
 	app.route('/api/v1/Jornalista/:idutilizador')
-		// .all(app.controllers.passport.authenticate())
+		.all(app.controllers.passport.authenticate())
 		.get(controller.obterJornalista)
 		.put(controller.AdminEditarJornalista)
 
 	app.route('/api/v1/CidadaoRegistado')
-		.all(app.controllers.passport.authenticate())
+		// .all(app.controllers.passport.authenticate())
 		.get(controller.obterListaCidadaoRegistado)
 		.post(controller.AdminCriarCidadaoRegistado)
 
@@ -33,4 +33,5 @@ module.exports = app => {
 		.all(app.controllers.passport.authenticate())
 		.get(controller.obterCidadaoRegistado)
 		.put(controller.AdminEditarCidadaoRegistado)
+
 }

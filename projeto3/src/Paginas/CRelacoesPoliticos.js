@@ -14,22 +14,18 @@ function CRelacoesPoliticos() {
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
-	const [data3, setData3] = useState([]);
-	const [data4, setData4] = useState([]);
 
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function obterJornalista() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
-				.then(function (response) {
-					setData4(response.data);
-					console.log(response.data);
-				});
-		}
+	function obterDados() {
+		return api.get('/api/v1/RelacaoPSP/' + params.idpessoasingular)
+			.then(function (response) {
+				setData1(response.data);
+				console.log(response.data);
+			});
 	}
 
 	function obterPolitico() {
@@ -40,55 +36,12 @@ function CRelacoesPoliticos() {
 			});
 	}
 
-	function obterEvento() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Evento/' + data1[i].idevento)
-				.then(function (response) {
-					setData3(response.data);
-					console.log(response.data);
-				});
-		}
-	}
 
-	function obterDados() {
-		return api.get('/api/v1/RelacaoPSP/' + params.idpessoasingular)
-			.then(function (response) {
-				setData1(response.data);
-				console.log(response.data);
-			});
-	}
 
-	function mais(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaops: i,
-			idutilizador: localStorage.getItem("idutilizador"),
-		});
-		api.put('/api/v1/AumentarCredibilidadeRPS', {
-			idrelacaops: i,
-		});
-		console.log('mais');
-		// window.location.reload();
-
-	}
-
-	function menos(i) {
-		api.post('/api/v1/VotoRPS', {
-			idrelacaops: i,
-			idutilizador: localStorage.getItem("idutilizador"),
-		});
-		api.put('/api/v1/DiminuirCredibilidadeRPS', {
-			idrelacaops: i,
-		});
-		console.log('menos');
-		// window.location.reload();
-
-	}
 
 	useEffect(() => {
 		obterDados();
 		obterPolitico();
-		obterEvento();
-		obterJornalista();
 	}, [data1]);
 
 	return (
@@ -125,15 +78,11 @@ function CRelacoesPoliticos() {
 									{data2.map(item => (
 										<p>Politico:{item.nome}</p>
 									))}
-									{data3.map(item => (
-										<p>Evento: {item.designacao}</p>
-									))}
+									<p>Evento: {item.designacao}</p>
 									<p>Motivo: {item.motivo}</p>
 									<p>Valores: {item.valores}€</p>
 									<p>Data inserção: {item.data}</p>
-									{data4.map(item => (
-										<p>Inserido por: {item.username}</p>
-									))}
+									<p>Inserido por: {item.username}</p>
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
 							</Card.Body>

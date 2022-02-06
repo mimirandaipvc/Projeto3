@@ -14,8 +14,6 @@ function CRRelacoesPoliticos() {
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
-	const [data3, setData3] = useState([]);
-	const [data4, setData4] = useState([]);
 
 
 	useEffect(() => {
@@ -24,15 +22,7 @@ function CRRelacoesPoliticos() {
 
 	const idutilizador = localStorage.getItem("idutilizador");
 
-	function obterJornalista() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
-				.then(function (response) {
-					setData4(response.data);
-					console.log(response.data);
-				});
-		}
-	}
+
 
 	function obterPolitico() {
 		return api.get('/api/v1/Politico/' + params.idpessoasingular)
@@ -40,16 +30,6 @@ function CRRelacoesPoliticos() {
 				setData2(response.data);
 				console.log(response.data);
 			});
-	}
-
-	function obterEvento() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Evento/' + data1[i].idevento)
-				.then(function (response) {
-					setData3(response.data);
-					console.log(response.data);
-				});
-		}
 	}
 
 	function obterDados() {
@@ -101,8 +81,6 @@ function CRRelacoesPoliticos() {
 	useEffect(() => {
 		obterDados();
 		obterPolitico();
-		obterEvento();
-		obterJornalista();
 	}, [data1]);
 
 	return (
@@ -140,21 +118,16 @@ function CRRelacoesPoliticos() {
 									{data2.map(item => (
 										<p>Politico:{item.nome}</p>
 									))}
-									{data3.map(item => (
-										<p>Evento: {item.designacao}</p>
-									))}
+									<p>Evento: {item.designacao}</p>
 									<p>Motivo: {item.motivo}</p>
 									<p>Valores: {item.valores}€</p>
 									<p>Data inserção: {item.data}</p>
-									{data4.map(item => (
-										<p>Inserido por: {item.username}</p>
-									))}
+									<p>Inserido por: {item.username}</p>
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
 								<Button id="um" variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
 								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
 								<br></br>
-								<small>O meu Voto: {item.tipoVoto}</small>
 							</Card.Body>
 						</Card>
 					))}

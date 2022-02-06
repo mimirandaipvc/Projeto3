@@ -22,34 +22,6 @@ function AdminRelacoesEmpresas() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function obterJornalista() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
-				.then(function (response) {
-					setData4(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
-
-	function obterEmpresa() {
-		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
-			.then(function (response) {
-				setData2(response.data);
-				console.log(response.data);
-			});
-	}
-
-	function obterEvento() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Evento/' + data1[i].idevento)
-				.then(function (response) {
-					setData3(response.data);
-					console.log(response.data);
-				});
-		}
-	}
 
 	function obterDados() {
 		return api.get('/api/v1/RelacaoPCP/' + params.idpessoacoletiva)
@@ -59,11 +31,18 @@ function AdminRelacoesEmpresas() {
 			});
 	}
 
+	function obterEmpresa() {
+		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
+			.then(function (response) {
+				setData2(response.data);
+				console.log(response.data);
+			});
+	}
+
+
 	useEffect(() => {
 		obterDados();
 		obterEmpresa();
-		obterEvento();
-		obterJornalista();
 	}, [data1]);
 
 	return (
@@ -102,15 +81,11 @@ function AdminRelacoesEmpresas() {
 									{data2.map(item => (
 										<p>Empresa:{item.designacao}</p>
 									))}
-									{data3.map(item => (
-										<p>Evento: {item.designacao}</p>
-									))}
+									<p>Evento: {item.designacao}</p>
 									<p>Motivo: {item.motivo}</p>
 									<p>Valores: {item.valores}€</p>
 									<p>Data inserção: {item.data}</p>
-									{data4.map(item => (
-										<p>Inserido por: {item.username}</p>
-									))}
+									<p>Inserido por: {item.username}</p>
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
 							</Card.Body>

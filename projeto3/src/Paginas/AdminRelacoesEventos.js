@@ -23,46 +23,6 @@ function AdminRelacoesEventos() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function obterJornalista() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
-				.then(function (response) {
-					setData6(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
-	function obterPolitico() {
-		for (const i = 0; i < data5.length; i++) {
-			return api.get('/api/v1/Politico/' + data5[i].idpessoasingular)
-				.then(function (response) {
-					setData3(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
-	function obterEmpresa() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/PessoaColetiva/' + data1[i].idpessoacoletiva)
-				.then(function (response) {
-					setData4(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
-	function obterEvento() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Evento/' + params.idevento)
-				.then(function (response) {
-					setData2(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
 	function obterDadosPCE() {
 		return api.get('/api/v1/RelacaoPCE/' + params.idevento)
 			.then(function (response) {
@@ -79,14 +39,21 @@ function AdminRelacoesEventos() {
 			});
 	}
 
+	function obterEvento() {
+		for (const i = 0; i < data1.length; i++) {
+			return api.get('/api/v1/Evento/' + params.idevento)
+				.then(function (response) {
+					setData2(response.data);
+					console.log(response.data);
+				});
+		}
+	}
+
 
 	useEffect(() => {
 		obterDadosPCE();
 		obterDadosPSE();
-		obterPolitico();
-		obterEmpresa();
 		obterEvento();
-		obterJornalista();
 	}, [data1]);
 
 
@@ -124,18 +91,14 @@ function AdminRelacoesEventos() {
 								<Card.Body>
 									<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
 									<Card.Text>
-										{data4.map(item => (
-											<p>Empresa:{item.designacao}</p>
-										))}
+										<p>Empresa:{item.designacao}</p>
 										{data2.map(item => (
 											<p>Evento: {item.designacao}</p>
 										))}
 										<p>Motivo: {item.motivo}</p>
 										<p>Valores: {item.valores}€</p>
 										<p>Data inserção: {item.data}</p>
-										{data6.map(item => (
-											<p>Inserido por: {item.username}</p>
-										))}
+										<p>Inserido por: {item.username}</p>
 										<p><b>Credibilidade: {item.credibilidade}</b></p>
 									</Card.Text>
 								</Card.Body>

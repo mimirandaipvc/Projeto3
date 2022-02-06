@@ -14,9 +14,6 @@ function CRRelacoesEmpresas() {
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
-	const [data3, setData3] = useState([]);
-	const [data4, setData4] = useState([]);
-
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
@@ -24,41 +21,21 @@ function CRRelacoesEmpresas() {
 
 	const idutilizador = localStorage.getItem("idutilizador");
 
-	function obterJornalista() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
-				.then(function (response) {
-					setData4(response.data);
-					console.log(response.data);
-				});
-		}
+
+	function obterDados() {
+		return api.get('/api/v1/RelacaoPSP/' + params.idpessoasingular)
+			.then(function (response) {
+				setData1(response.data);
+			});
 	}
 
-	function obterEmpresa() {
-		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
+	function obterEmpresario() {
+		return api.get('/api/v1/Empresario/' + params.idpessoasingular)
 			.then(function (response) {
 				setData2(response.data);
 				console.log(response.data);
 			});
-	}
-
-	function obterEvento() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Evento/' + data1[i].idevento)
-				.then(function (response) {
-					setData3(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
-	function obterDados() {
-		return api.get('/api/v1/RelacaoPCP/' + params.idpessoacoletiva)
-			.then(function (response) {
-				setData1(response.data);
-				console.log(response.data);
-			});
-	}
+	}}
 
 	function mais(i) {
 		return api.get('/api/v1/VerificaVotoRPS/' + idutilizador + '/' + i)
@@ -100,9 +77,7 @@ function CRRelacoesEmpresas() {
 
 	useEffect(() => {
 		obterDados();
-		obterEmpresa();
-		obterEvento();
-		obterJornalista();
+		obterEmpresario();
 	}, [data1]);
 
 	return (
@@ -138,23 +113,18 @@ function CRRelacoesEmpresas() {
 								<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
 								<Card.Text>
 									{data2.map(item => (
-										<p>Empresa:{item.designacao}</p>
+										<p>Empresário:{item.designacao}</p>
 									))}
-									{data3.map(item => (
-										<p>Evento: {item.designacao}</p>
-									))}
+									<p>Evento: {item.designacao}</p>
 									<p>Motivo: {item.motivo}</p>
 									<p>Valores: {item.valores}€</p>
 									<p>Data inserção: {item.data}</p>
-									{data4.map(item => (
-										<p>Inserido por: {item.username}</p>
-									))}
+									<p>Inserido por: {item.username}</p>
 									<p><b>Credibilidade: {item.credibilidade}</b></p>
 								</Card.Text>
 								<Button id="um" variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
 								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
 								<br></br>
-								<small>O meu Voto: {item.tipoVoto}</small>
 							</Card.Body>
 						</Card>
 					))}
