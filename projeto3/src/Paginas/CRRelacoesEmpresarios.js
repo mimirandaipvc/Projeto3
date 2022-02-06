@@ -35,7 +35,7 @@ function CRRelacoesEmpresas() {
 				setData2(response.data);
 				console.log(response.data);
 			});
-	}}
+	}
 
 	function mais(i) {
 		return api.get('/api/v1/VerificaVotoRPS/' + idutilizador + '/' + i)

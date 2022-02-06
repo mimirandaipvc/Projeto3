@@ -88,6 +88,18 @@ function JornalistaHome() {
 				<Carousel.Item>
 					<img
 						className="d-block w-100"
+						src={imagem4}
+						alt="First slide"
+					/>
+					<Carousel.Caption>
+						<h3>Histórico de Votos</h3>
+						<p>Visualizar os votos em todas as relações</p>
+						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaConsultarVotos/`}>Clique aqui</Link>
+					</Carousel.Caption>
+				</Carousel.Item>
+				<Carousel.Item>
+					<img
+						className="d-block w-100"
 						src={imagem6}
 						alt="Third slide"
 					/>

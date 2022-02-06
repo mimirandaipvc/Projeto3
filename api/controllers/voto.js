@@ -132,5 +132,33 @@ module.exports = app => {
 		//client.end;
 	}
 
+	controller.obterListaVotosRPS = (req, res) => {
+		client.query(`SELECT * FROM votorps WHERE idutilizador = $1`,
+			[
+				req.params.idutilizador
+			],
+			(err, result) => {
+				if (!err) {
+					res.send(result.rows)
+				}
+				else { console.log(err.message) }
+			})
+		//client.end;
+	}
+
+	controller.obterListaVotosRPC = (req, res) => {
+		client.query(`SELECT * FROM votorpc WHERE idutilizador = $1`,
+			[
+				req.params.idutilizador
+			],
+			(err, result) => {
+				if (!err) {
+					res.send(result.rows)
+				}
+				else { console.log(err.message) }
+			})
+		//client.end;
+	}
+
 	return controller;
 }

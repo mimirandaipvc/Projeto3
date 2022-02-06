@@ -37,6 +37,8 @@ import JornalistaCriarEmpresario from './Paginas/JornalistaCriarEmpresario'
 import JornalistaCriarEmpresa from './Paginas/JornalistaCriarEmpresa'
 import JornalistaCriarEvento from './Paginas/JornalistaCriarEvento'
 import JornalistaAPessoal from './Paginas/JornalistaAPessoal'
+import JornalistaConsultarVotos from './Paginas/JornalistaConsultarVotos'
+
 
 
 import CRHome from './Paginas/CRHome'
@@ -50,6 +52,8 @@ import CRCargosEmEmpresas from './Paginas/CRCargosEmEmpresas'
 import CRConsultarEventos from './Paginas/CRConsultarEventos'
 import CRConsultarEmpresas from './Paginas/CRConsultarEmpresas'
 import CRAPessoal from './Paginas/CRAPessoal'
+import CRConsultarVotos from './Paginas/CRConsultarVotos'
+
 
 
 import CHome from './Paginas/CHome'
@@ -177,6 +181,9 @@ function App() {
 				<Routes>
 					<Route path="/JornalistaAPessoal" element={<JornalistaAPessoal />} />
 				</Routes>
+				<Routes>
+					<Route path="/JornalistaConsultarVotos" element={<JornalistaConsultarVotos />} />
+				</Routes>
 
 				<Routes>
 					<Route path="/CRHome" element={<CRHome />} />
@@ -210,6 +217,9 @@ function App() {
 				</Routes>
 				<Routes>
 					<Route path="/CRAPessoal" element={<CRAPessoal />} />
+				</Routes>
+				<Routes>
+					<Route path="/CRConsultarVotos" element={<CRConsultarVotos />} />
 				</Routes>
 
 				<Routes>
