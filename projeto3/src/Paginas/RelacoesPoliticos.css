@@ -2,6 +2,7 @@ body {
 	font-family: sans-serif;
 	background-color: lightblue;
 	text-align: center;
+	overflow-wrap: none;
 }
 
 #um {
@@ -67,5 +68,3 @@ Table {
 small {
 	color: white
 }
-
-

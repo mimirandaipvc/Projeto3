@@ -70,7 +70,7 @@ function JornalistaConsultarVotos() {
 					<br /><br />
 					<h1>VOTOS - Relações Pessoas Singulares</h1>
 
-					<Table striped bordered hover>
+					<Table striped bordered hover responsive="lg">
 						<thead>
 							<tr>
 								<th>ID Voto</th>
@@ -94,7 +94,7 @@ function JornalistaConsultarVotos() {
 					<br /><br />
 					<h1>VOTOS - Empresas</h1>
 
-					<Table striped bordered hover>
+					<Table striped bordered hover responsive="lg">
 						<thead>
 							<tr>
 								<th>ID Voto</th>
@@ -115,11 +115,11 @@ function JornalistaConsultarVotos() {
 						</tbody>
 					</Table>
 				</div>
-					<footer id="footer">
-						<div class="container text-center">
-							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
-						</div>
-					</footer>
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
 			</Container >
 		</div >
 	);

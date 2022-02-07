@@ -57,7 +57,7 @@ function CConsultarEventos() {
 					<br /><br />
 					<h1>EVENTO</h1>
 
-					<Table striped bordered hover>
+					<Table striped bordered hover responsive="lg">
 						<thead>
 							<tr>
 								<th>Designacao</th>

@@ -81,7 +81,7 @@ function AdminConsultarUtilizadores() {
 					<br /><br />
 					<h1>Administradores</h1>
 
-					<Table striped bordered hover>
+					<Table striped bordered hover responsive="lg">
 						<thead>
 							<tr>
 								<th>ID</th>
@@ -104,7 +104,7 @@ function AdminConsultarUtilizadores() {
 					<br /><br />
 					<h1>Jornalistas</h1>
 
-					<Table striped bordered hover>
+					<Table striped bordered hover responsive="lg">
 						<thead>
 							<tr>
 								<th>ID</th>
@@ -127,7 +127,7 @@ function AdminConsultarUtilizadores() {
 					<br /><br />
 					<h1>Cidadãos Registados</h1>
 
-					<Table striped bordered hover>
+					<Table striped bordered hover responsive="lg">
 						<thead>
 							<tr>
 								<th>ID</th>
@@ -158,7 +158,7 @@ function AdminConsultarUtilizadores() {
 						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
 					</div>
 				</footer>
-			
+
 			</Container >
 		</div >
 	);

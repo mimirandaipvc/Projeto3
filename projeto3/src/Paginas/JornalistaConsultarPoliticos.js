@@ -59,7 +59,7 @@ function JornalistaConsultarPoliticos() {
 					<br /><br />
 					<h1>POLÍTICOS</h1>
 
-					<Table striped bordered hover>
+					<Table striped bordered hover responsive="lg">
 						<thead>
 							<tr>
 								<th>Nome</th>
