@@ -8,7 +8,6 @@ import imagem1 from "../Imagens/1.jpg";
 import imagem2 from "../Imagens/2.jpg";
 import imagem3 from "../Imagens/3.jpg";
 import imagem4 from "../Imagens/4.jpg";
-import imagem5 from "../Imagens/5.jpg";
 import imagem6 from "../Imagens/6.jpg";
 
 function CHome() {
