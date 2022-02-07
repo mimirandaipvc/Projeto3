@@ -1,4 +1,4 @@
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import api from './api'
@@ -23,58 +23,66 @@ function CHome() {
 
 				<div id="content-wrap">
 
-			<h1>Bem-vindo Cidadão!<Button style={{ float: 'right' }} variant="dark" href="http://localhost:3000/Login/">Efetuar Login</Button></h1>
+					<Row>
+						<Col xs={2}></Col>
+						<Col xs={8}><h1>Bem-vindo Cidadão!</h1></Col>
+						<Col xs={2}><Button style={{ float: 'right' }} variant="dark" href="http://localhost:3000/Login/">Efetuar Login</Button></Col>
+					</Row>
 
-			<Carousel>
-				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src={imagem1}
-						alt="First slide"
-					/>
-					<Carousel.Caption>
-						<h3>Consultar Politicos</h3>
-						<p>Visualizar políticos e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarPoliticos/`}>Clique aqui</Link>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src={imagem3}
-						alt="First slide"
-					/>
-					<Carousel.Caption>
-						<h3>Consultar Eventos</h3>
-						<p>Visualizar Eventos e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEventos/`}>Clique aqui</Link>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src={imagem2}
-						alt="First slide"
-					/>
-					<Carousel.Caption>
-						<h3>Consultar Empresários</h3>
-						<p>Visualizar Empresários e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEmpresarios/`}>Clique aqui</Link>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item>
-					<img
-						className="d-block w-100"
-						src={imagem4}
-						alt="First slide"
-					/>
-					<Carousel.Caption>
-						<h3>Consultar Empresas</h3>
-						<p>Visualizar Empresas e respetivas relações</p>
-						<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEmpresas/`}>Clique aqui</Link>
-					</Carousel.Caption>
-				</Carousel.Item>
-			</Carousel>
+					<Row>
+						<Col xs={12}>
+							<Carousel>
+								<Carousel.Item>
+									<img
+										className="d-block w-100"
+										src={imagem1}
+										alt="First slide"
+									/>
+									<Carousel.Caption>
+										<h3>Consultar Politicos</h3>
+										<p>Visualizar políticos e respetivas relações</p>
+										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarPoliticos/`}>Clique aqui</Link>
+									</Carousel.Caption>
+								</Carousel.Item>
+								<Carousel.Item>
+									<img
+										className="d-block w-100"
+										src={imagem3}
+										alt="First slide"
+									/>
+									<Carousel.Caption>
+										<h3>Consultar Eventos</h3>
+										<p>Visualizar Eventos e respetivas relações</p>
+										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEventos/`}>Clique aqui</Link>
+									</Carousel.Caption>
+								</Carousel.Item>
+								<Carousel.Item>
+									<img
+										className="d-block w-100"
+										src={imagem2}
+										alt="First slide"
+									/>
+									<Carousel.Caption>
+										<h3>Consultar Empresários</h3>
+										<p>Visualizar Empresários e respetivas relações</p>
+										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEmpresarios/`}>Clique aqui</Link>
+									</Carousel.Caption>
+								</Carousel.Item>
+								<Carousel.Item>
+									<img
+										className="d-block w-100"
+										src={imagem4}
+										alt="First slide"
+									/>
+									<Carousel.Caption>
+										<h3>Consultar Empresas</h3>
+										<p>Visualizar Empresas e respetivas relações</p>
+										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEmpresas/`}>Clique aqui</Link>
+									</Carousel.Caption>
+								</Carousel.Item>
+							</Carousel>
+						</Col>
+					</Row>
 
 				</div>
 				<footer id="footer">

@@ -83,35 +83,45 @@ function JornalistaCargosEmEmpresas() {
 					</Navbar>
 
 					<br /><br />
-					<h1>CARGOS EM EMPRESAS</h1>
+					<Row>
+						<Col xs={12}><h1>CARGOS EM EMPRESAS</h1></Col>
+					</Row>
 
-					{data1.map(item => (
-						<Card style={{ width: '23rem' }} key={item.idrelacaops}>
-							<Card.Body>
-								<Card.Title>Relação número <b>{item.idrelacoespessoassc}</b> </Card.Title>
-								<Card.Text>
-									{data2.map(item => (
-										<p>Empresa:{item.designacao}</p>
-									))}
-									<p>Data Inicio: {item.datainicio}</p>
-									<p>Cargo: {item.cargo}</p>
-									<p>Salario Mensal: {item.salario} €</p>
-									{data3.map(item => (
-										<p>Inserido por: {item.username}</p>
-									))}
-								</Card.Text>
-							</Card.Body>
-						</Card>
-					))}
+					<Row>
+						<Col xs={12}>
+							{data1.map(item => (
+								<Card style={{ width: '23rem' }} key={item.idrelacaops}>
+									<Card.Body>
+										<Card.Title>Relação número <b>{item.idrelacoespessoassc}</b> </Card.Title>
+										<Card.Text>
+											{data2.map(item => (
+												<p>Empresa:{item.designacao}</p>
+											))}
+											<p>Data Inicio: {item.datainicio}</p>
+											<p>Cargo: {item.cargo}</p>
+											<p>Salario Mensal: {item.salario} €</p>
+											{data3.map(item => (
+												<p>Inserido por: {item.username}</p>
+											))}
+										</Card.Text>
+									</Card.Body>
+								</Card>
+							))}
+
+						</Col>
+					</Row>
+
 					<br></br>
+					<Row>
+						<Col xs={12}><Button variant="dark" href={"http://localhost:3000/JornalistaCriarRelacaoPSC/" + params.idpessoasingular}>Criar Novo Cargo</Button></Col>
+					</Row>
 
-					<Button variant="dark" href={"http://localhost:3000/JornalistaCriarRelacaoPSC/" + params.idpessoasingular}>Criar Novo Cargo</Button>
 				</div>
-					<footer id="footer">
-						<div class="container text-center">
-							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
-						</div>
-					</footer>
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
 			</Container >
 		</div >
 	);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
@@ -99,36 +99,42 @@ function CRRelacoesEmpresas() {
 					</Navbar>
 
 					<br /><br />
-					<h1>RELAÇÕES</h1>
+					<Row>
+						<Col xs={12}><h1>RELAÇÕES</h1></Col>
+					</Row>
 
-					{data1.map(item => (
-						<Card style={{ width: '23rem' }} key={item.idrelacaopc}>
-							<Card.Body>
-								<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
-								<Card.Text>
-									{data2.map(item => (
-										<p>Empresa:{item.designacao}</p>
-									))}
-									<p>Evento: {item.designacao}</p>
-									<p>Motivo: {item.motivo}</p>
-									<p>Valores: {item.valores}€</p>
-									<p>Data inserção: {item.data}</p>
-									<p>Inserido por: {item.username}</p>
-									<p><b>Credibilidade: {item.credibilidade}</b></p>
-								</Card.Text>
-								<Button id="um" variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
-								<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
-								<br></br>
-							</Card.Body>
-						</Card>
-					))}
-					<br></br>
+					<Row>
+						<Col xs={12}>
+							{data1.map(item => (
+								<Card style={{ width: '23rem' }} key={item.idrelacaopc}>
+									<Card.Body>
+										<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
+										<Card.Text>
+											{data2.map(item => (
+												<p>Empresa:{item.designacao}</p>
+											))}
+											<p>Evento: {item.designacao}</p>
+											<p>Motivo: {item.motivo}</p>
+											<p>Valores: {item.valores}€</p>
+											<p>Data inserção: {item.data}</p>
+											<p>Inserido por: {item.username}</p>
+											<p><b>Credibilidade: {item.credibilidade}</b></p>
+										</Card.Text>
+										<Button id="um" variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
+										<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
+										<br></br>
+									</Card.Body>
+								</Card>
+							))}
+						</Col>
+					</Row>
+
 				</div>
-					<footer id="footer">
-						<div class="container text-center">
-							<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
-						</div>
-					</footer>
+				<footer id="footer">
+					<div class="container text-center">
+						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>
+					</div>
+				</footer>
 			</Container >
 		</div >
 	);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
@@ -68,27 +68,32 @@ function JornalistaCriarEmpresa() {
 					</Navbar>
 
 					<br /><br />
-					<div class="conteudoo">
-						<h2>Criar Empresa</h2>
-						<br></br>
-						<Form.Label>Designação: </Form.Label>
-						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="designacao"
-							placeholder="Introduza a designação" onChange={e => setDesignacao(e.target.value)} />
-						<br></br>
-						<Form.Label>Pais: </Form.Label>
-						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="pais"
-							placeholder="Introduza o pais" onChange={e => setPais(e.target.value)} />
-						<br></br>
-						<Form.Label>Ano de Fundação: </Form.Label>
-						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="anofundacao"
-							placeholder="Introduza o ano de fundação" onChange={e => setAnoFundacao(e.target.value)} />
-						<br></br>
-						<Form.Label>Ramo de Atividade: </Form.Label>
-						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="ramoatividade"
-							placeholder="Introduza o ramo de atividade" onChange={e => setRamoAtividade(e.target.value)} />
-						<br></br>
-						<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaEmpresa}>Criar Empresa</button>
-					</div>
+					<Row>
+						<Col xs={12}>
+							<div class="conteudoo">
+								<h2>Criar Empresa</h2>
+								<br></br>
+								<Form.Label>Designação: </Form.Label>
+								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="designacao"
+									placeholder="Introduza a designação" onChange={e => setDesignacao(e.target.value)} />
+								<br></br>
+								<Form.Label>Pais: </Form.Label>
+								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="pais"
+									placeholder="Introduza o pais" onChange={e => setPais(e.target.value)} />
+								<br></br>
+								<Form.Label>Ano de Fundação: </Form.Label>
+								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="anofundacao"
+									placeholder="Introduza o ano de fundação" onChange={e => setAnoFundacao(e.target.value)} />
+								<br></br>
+								<Form.Label>Ramo de Atividade: </Form.Label>
+								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="ramoatividade"
+									placeholder="Introduza o ramo de atividade" onChange={e => setRamoAtividade(e.target.value)} />
+								<br></br>
+								<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaEmpresa}>Criar Empresa</button>
+							</div>
+						</Col>
+					</Row>
+
 				</div>
 
 				<footer id="footer">

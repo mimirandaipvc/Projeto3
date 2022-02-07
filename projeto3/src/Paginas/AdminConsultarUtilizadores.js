@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
@@ -79,77 +79,99 @@ function AdminConsultarUtilizadores() {
 
 
 					<br /><br />
-					<h1>Administradores</h1>
+					<Row>
+						<Col xs={12}><h1>Administradores</h1></Col>
+					</Row>
 
-					<Table striped bordered hover responsive="lg">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Username</th>
-								<th>Data de Registo</th>
-							</tr>
-						</thead>
-						<tbody>
-							{data1.map(item => (
-								<tr>
-									<td>{item.idutilizador}</td>
-									<td>{item.username}</td>
-									<td>{item.dataregisto}</td>
-									<td><Button variant="dark" href={"http://localhost:3000/AdminEditarAdmin/" + item.idutilizador}>Editar</Button></td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
+					<Row>
+						<Col xs={12}>
+							<Table striped bordered hover responsive="lg">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Username</th>
+										<th>Data de Registo</th>
+									</tr>
+								</thead>
+								<tbody>
+									{data1.map(item => (
+										<tr>
+											<td>{item.idutilizador}</td>
+											<td>{item.username}</td>
+											<td>{item.dataregisto}</td>
+											<td><Button variant="dark" href={"http://localhost:3000/AdminEditarAdmin/" + item.idutilizador}>Editar</Button></td>
+										</tr>
+									))}
+								</tbody>
+							</Table>
+						</Col>
+					</Row>
 
-					<br /><br />
-					<h1>Jornalistas</h1>
-
-					<Table striped bordered hover responsive="lg">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Username</th>
-								<th>Data de Registo</th>
-							</tr>
-						</thead>
-						<tbody>
-							{data2.map(item => (
-								<tr>
-									<td>{item.idutilizador}</td>
-									<td>{item.username}</td>
-									<td>{item.dataregisto}</td>
-									<td><Button variant="dark" href={"http://localhost:3000/AdminEditarJornalista/" + item.idutilizador}>Editar</Button></td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
 
 					<br /><br />
-					<h1>Cidadãos Registados</h1>
+					<Row>
+						<Col xs={12}><h1>Jornalistas</h1></Col>
+					</Row>
 
-					<Table striped bordered hover responsive="lg">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Username</th>
-								<th>Data de Registo</th>
-							</tr>
-						</thead>
-						<tbody>
-							{data3.map(item => (
-								<tr>
-									<td>{item.idutilizador}</td>
-									<td>{item.username}</td>
-									<td>{item.dataregisto}</td>
-									<td><Button variant="dark" href={"http://localhost:3000/AdminEditarCidadaoRegistado/" + item.idutilizador}>Editar</Button></td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
+					<Row>
+						<Col xs={12}>
+							<Table striped bordered hover responsive="lg">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Username</th>
+										<th>Data de Registo</th>
+									</tr>
+								</thead>
+								<tbody>
+									{data2.map(item => (
+										<tr>
+											<td>{item.idutilizador}</td>
+											<td>{item.username}</td>
+											<td>{item.dataregisto}</td>
+											<td><Button variant="dark" href={"http://localhost:3000/AdminEditarJornalista/" + item.idutilizador}>Editar</Button></td>
+										</tr>
+									))}
+								</tbody>
+							</Table>
+						</Col>
+					</Row>
+
+
+					<br /><br />
+					<Row>
+						<Col xs={12}><h1>Cidadãos Registados</h1></Col>
+					</Row>
+
+					<Row>
+						<Col xs={12}>
+							<Table striped bordered hover responsive="lg">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Username</th>
+										<th>Data de Registo</th>
+									</tr>
+								</thead>
+								<tbody>
+									{data3.map(item => (
+										<tr>
+											<td>{item.idutilizador}</td>
+											<td>{item.username}</td>
+											<td>{item.dataregisto}</td>
+											<td><Button variant="dark" href={"http://localhost:3000/AdminEditarCidadaoRegistado/" + item.idutilizador}>Editar</Button></td>
+										</tr>
+									))}
+								</tbody>
+							</Table>
+						</Col>
+					</Row>
+
 					<br></br>
-					<Button variant="dark" href={"http://localhost:3000/AdminCriarAdmin/"}>Criar Administrador</Button>
-					<br></br><br></br>
-					<Button variant="dark" href={"http://localhost:3000/AdminCriarJornalista/"}>Criar Jornalista</Button>
+					<Row>
+						<Col xs={6}><Button variant="dark" href={"http://localhost:3000/AdminCriarAdmin/"}>Criar Administrador</Button></Col>
+						<Col xs={6}><Button variant="dark" href={"http://localhost:3000/AdminCriarJornalista/"}>Criar Jornalista</Button></Col>
+					</Row>
 
 				</div>
 

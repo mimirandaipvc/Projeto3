@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
@@ -57,37 +57,48 @@ function JornalistaConsultarEmpresarios() {
 					</Navbar>
 
 					<br /><br />
-					<h1>EMPRESÁRIOS</h1>
+					<Row>
+						<Col xs={12}><h1>EMPRESÁRIOS</h1></Col>
+					</Row>
 
-					<Table striped bordered hover responsive="lg">
-						<thead>
-							<tr>
-								<th>Nome</th>
-								<th>Sexo</th>
-								<th>Nacionalidade</th>
-								<th>Data de Nascimento</th>
-								<th>Profissão</th>
-								<th>Preferência Político</th>
-								<th>Cargos em Empresas</th>
-								<th>Relações</th>
-							</tr>
-						</thead>
-						<tbody>
-							{data1.map(item => (
-								<tr>
-									<td>{item.nome}</td>
-									<td>{item.sexo}</td>
-									<td>{item.nacionalidade}</td>
-									<td>{item.datanascimento}</td>
-									<td>{item.profissao}</td>
-									<td>{item.partido}</td>
-									<td><Button variant="dark" href={"http://localhost:3000/JornalistaCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
-									<td><Button variant="dark" href={"http://localhost:3000/JornalistaRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
-					<Button variant="dark" href={"http://localhost:3000/JornalistaCriarEmpresario/"}>Criar Empresário</Button>
+					<Row>
+						<Col xs={12}>
+							<Table striped bordered hover responsive="lg">
+								<thead>
+									<tr>
+										<th>Nome</th>
+										<th>Sexo</th>
+										<th>Nacionalidade</th>
+										<th>Data de Nascimento</th>
+										<th>Profissão</th>
+										<th>Preferência Político</th>
+										<th>Cargos em Empresas</th>
+										<th>Relações</th>
+									</tr>
+								</thead>
+								<tbody>
+									{data1.map(item => (
+										<tr>
+											<td>{item.nome}</td>
+											<td>{item.sexo}</td>
+											<td>{item.nacionalidade}</td>
+											<td>{item.datanascimento}</td>
+											<td>{item.profissao}</td>
+											<td>{item.partido}</td>
+											<td><Button variant="dark" href={"http://localhost:3000/JornalistaCargosEmEmpresas/" + item.idpessoasingular}>Ver Cargos</Button></td>
+											<td><Button variant="dark" href={"http://localhost:3000/JornalistaRelacoesEmpresarios/" + item.idpessoasingular}>Ver relações</Button></td>
+										</tr>
+									))}
+								</tbody>
+							</Table>
+						</Col>
+					</Row>
+
+					<Row>
+						<Col xs={12}><Button variant="dark" href={"http://localhost:3000/JornalistaCriarEmpresario/"}>Criar Empresário</Button></Col>
+					</Row>
+
+
 				</div>
 
 				<footer id="footer">

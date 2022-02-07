@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
@@ -68,53 +68,66 @@ function JornalistaConsultarVotos() {
 					</Navbar>
 
 					<br /><br />
-					<h1>VOTOS - Relações Pessoas Singulares</h1>
-
-					<Table striped bordered hover responsive="lg">
-						<thead>
-							<tr>
-								<th>ID Voto</th>
-								<th>Data</th>
-								<th>ID Relação PS</th>
-								<th>tipoVoto</th>
-							</tr>
-						</thead>
-						<tbody>
-							{data1.map(item => (
-								<tr>
-									<td>{item.idvotorps}</td>
-									<td>{item.data}</td>
-									<td>{item.idrelacaops}</td>
-									<td>{item.tipoVoto}</td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
+					<Row>
+						<Col xs={12}><h1>VOTOS - Relações Pessoas Singulares</h1></Col>
+					</Row>
+					<Row>
+						<Col xs={12}>
+							<Table striped bordered hover responsive="lg">
+								<thead>
+									<tr>
+										<th>ID Voto</th>
+										<th>Data</th>
+										<th>ID Relação PS</th>
+										<th>tipoVoto</th>
+									</tr>
+								</thead>
+								<tbody>
+									{data1.map(item => (
+										<tr>
+											<td>{item.idvotorps}</td>
+											<td>{item.data}</td>
+											<td>{item.idrelacaops}</td>
+											<td>{item.tipoVoto}</td>
+										</tr>
+									))}
+								</tbody>
+							</Table>
+						</Col>
+					</Row>
 
 					<br /><br />
-					<h1>VOTOS - Empresas</h1>
+					<Row>
+						<Col xs={12}><h1>VOTOS - Empresas</h1></Col>
+					</Row>
 
-					<Table striped bordered hover responsive="lg">
-						<thead>
-							<tr>
-								<th>ID Voto</th>
-								<th>Data</th>
-								<th>ID Relação PS</th>
-								<th>tipoVoto</th>
-							</tr>
-						</thead>
-						<tbody>
-							{data2.map(item => (
-								<tr>
-									<td>{item.idvotorpc}</td>
-									<td>{item.data}</td>
-									<td>{item.idrelacaops}</td>
-									<td>{item.tipoVoto}</td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
+					<Row>
+						<Col xs={12}>
+							<Table striped bordered hover responsive="lg">
+								<thead>
+									<tr>
+										<th>ID Voto</th>
+										<th>Data</th>
+										<th>ID Relação PS</th>
+										<th>tipoVoto</th>
+									</tr>
+								</thead>
+								<tbody>
+									{data2.map(item => (
+										<tr>
+											<td>{item.idvotorpc}</td>
+											<td>{item.data}</td>
+											<td>{item.idrelacaops}</td>
+											<td>{item.tipoVoto}</td>
+										</tr>
+									))}
+								</tbody>
+							</Table>
+						</Col>
+					</Row>
+
 				</div>
+				
 				<footer id="footer">
 					<div class="container text-center">
 						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>

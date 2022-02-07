@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
@@ -57,29 +57,36 @@ function AdminConsultarEmpresas() {
 					</Navbar>
 
 					<br /><br />
-					<h1>EMPRESAS</h1>
+					<Row>
+						<Col xs={12}><h1>EMPRESAS</h1></Col>
+					</Row>
 
-					<Table striped bordered hover responsive="lg">
-						<thead>
-							<tr>
-								<th>Designação</th>
-								<th>País</th>
-								<th>Fundação</th>
-								<th>Ramo de Atividade</th>
-							</tr>
-						</thead>
-						<tbody>
-							{data1.map(item => (
-								<tr>
-									<td>{item.designacao}</td>
-									<td>{item.pais}</td>
-									<td>{item.anofundacao}</td>
-									<td>{item.ramoatividade}</td>
-									<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEmpresas/" + item.idpessoacoletiva}>Ver relações</Button></td>
-								</tr>
-							))}
-						</tbody>
-					</Table>
+					<Row>
+						<Col xs={12}>
+							<Table striped bordered hover responsive="lg">
+								<thead>
+									<tr>
+										<th>Designação</th>
+										<th>País</th>
+										<th>Fundação</th>
+										<th>Ramo de Atividade</th>
+									</tr>
+								</thead>
+								<tbody>
+									{data1.map(item => (
+										<tr>
+											<td>{item.designacao}</td>
+											<td>{item.pais}</td>
+											<td>{item.anofundacao}</td>
+											<td>{item.ramoatividade}</td>
+											<td><Button variant="dark" href={"http://localhost:3000/AdminRelacoesEmpresas/" + item.idpessoacoletiva}>Ver relações</Button></td>
+										</tr>
+									))}
+								</tbody>
+							</Table>
+						</Col>
+					</Row>
+
 				</div>
 				<footer id="footer">
 					<div class="container text-center">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
-import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
@@ -63,21 +63,24 @@ function AdminEditarCidadaoRegistado() {
 					</Navbar>
 
 					<br /><br />
-					<div class="conteudoo">
-						<h2>Editar Cidadão Registado</h2>
-						<br></br>
-						<Form.Label>Username: </Form.Label>
-						<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
-							placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
-						<br></br>
-						<Form.Label>Password: </Form.Label>
-						<input type="password" class="form-control" placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} ></input>
-						{/* <Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-							placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} /> */}
-						<br></br>
+					<Row>
+						<Col xs={12}>
+							<div class="conteudoo">
+								<h2>Editar Cidadão Registado</h2>
+								<br></br>
+								<Form.Label>Username: </Form.Label>
+								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"
+									placeholder="Introduza o username" onChange={e => setUsername(e.target.value)} />
+								<br></br>
+								<Form.Label>Password: </Form.Label>
+								<input type="password" class="form-control" placeholder="Introduza a password" onChange={e => setPassword(e.target.value)} ></input>
+								<br></br>
 
-						<button type="button" className="btn btn-info btn-block mt-4" onClick={editaCidadaoRegistado}>Editar Cidadão Registado</button>
-					</div>
+								<button type="button" className="btn btn-info btn-block mt-4" onClick={editaCidadaoRegistado}>Editar Cidadão Registado</button>
+							</div>
+						</Col>
+					</Row>
+
 				</div>
 
 				<footer id="footer">

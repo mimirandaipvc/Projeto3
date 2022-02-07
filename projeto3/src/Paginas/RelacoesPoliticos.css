@@ -2,7 +2,6 @@ body {
 	font-family: sans-serif;
 	background-color: lightblue;
 	text-align: center;
-	overflow-wrap: none;
 }
 
 #um {
@@ -23,9 +22,7 @@ h1 {
 }
 
 .card {
-	margin: 0 auto;
-	float: center;
-	margin: 60px;
+	margin: 45px;
 }
 
 .form-control {
