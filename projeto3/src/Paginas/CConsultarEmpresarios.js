@@ -56,7 +56,7 @@ function CConsultarEmpresarios() {
 
 					<br /><br />
 					<Row>
-						<Col xs={12}><h1>POLÍTICOS</h1></Col>
+						<Col xs={12}><h1>EMPRESÁRIOS</h1></Col>
 					</Row>
 
 					<Row>

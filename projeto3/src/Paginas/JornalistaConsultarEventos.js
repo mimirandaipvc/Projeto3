@@ -58,7 +58,7 @@ function JornalistaConsultarEventos() {
 
 					<br /><br />
 					<Row>
-						<Col xs={12}><h1>RELAÇÕES</h1></Col>
+						<Col xs={12}><h1>EVENTOS</h1></Col>
 					</Row>
 
 					<Row>

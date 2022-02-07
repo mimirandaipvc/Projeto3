@@ -9,6 +9,7 @@ import imagem2 from "../Imagens/2.jpg";
 import imagem3 from "../Imagens/3.jpg";
 import imagem4 from "../Imagens/4.jpg";
 import imagem6 from "../Imagens/6.jpg";
+import imagem7 from "../Imagens/7.jpg";
 
 function CRHome() {
 
@@ -91,7 +92,7 @@ function CRHome() {
 								<Carousel.Item>
 									<img
 										className="d-block w-100"
-										src={imagem4}
+										src={imagem7}
 										alt="First slide"
 									/>
 									<Carousel.Caption>
