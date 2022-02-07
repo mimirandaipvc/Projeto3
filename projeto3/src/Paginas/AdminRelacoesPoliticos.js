@@ -78,15 +78,16 @@ function AdminRelacoesPoliticos() {
 								<Card style={{ width: '23rem' }} key={item.idrelacaops}>
 									<Card.Body>
 										<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
+										<hr></hr>
 										<Card.Text>
 											{data2.map(item => (
-												<p>Politico:{item.nome}</p>
+												<p><b>Politico:</b>{item.nome}</p>
 											))}
-											<p>Evento: {item.designacao}</p>
-											<p>Motivo: {item.motivo}</p>
-											<p>Valores: {item.valores}€</p>
-											<p>Data inserção: {item.data}</p>
-											<p>Inserido por: {item.username}</p>
+											<p><b>Evento:</b> {item.designacao}</p>
+											<p><b>Motivo:</b> {item.motivo}</p>
+											<p><b>Valores:</b> {item.valores}€</p>
+											<p><b>Data inserção:</b> {item.data}</p>
+											<p><b>Inserido por:</b> {item.username}</p>
 											<p><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
 									</Card.Body>
