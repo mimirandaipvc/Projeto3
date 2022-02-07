@@ -37,7 +37,7 @@ function JornalistaCriarEmpresa() {
 				alert("Empresa criada!")
 				navigate("/JornalistaConsultarEmpresas")
 			}).catch(error => {
-				console.log(error);
+				alert('Dados incorretos!')
 			})
 		}
 	}

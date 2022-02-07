@@ -33,7 +33,7 @@ function AdminCriarAdmin() {
 				alert("Admin criado!")
 				navigate("/AdminConsultarUtilizadores")
 			}).catch(error => {
-				console.log(error);
+				alert('Dados incorretos!')
 			})
 		}
 	}

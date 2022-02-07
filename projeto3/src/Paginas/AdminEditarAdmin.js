@@ -33,7 +33,7 @@ function AdminEditarAdmin() {
 				alert("Admin editado!")
 				navigate("/AdminConsultarUtilizadores")
 			}).catch(error => {
-				console.log(error);
+				alert('Dados incorretos!')
 			})
 		}
 	}

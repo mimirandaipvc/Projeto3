@@ -33,7 +33,7 @@ function AdminEditarJornalista() {
 				alert("Jornalista editado!")
 				navigate("/AdminConsultarUtilizadores")
 			}).catch(error => {
-				console.log(error);
+				alert('Dados incorretos!')
 			})
 		}
 	}

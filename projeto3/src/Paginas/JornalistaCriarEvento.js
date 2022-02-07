@@ -35,7 +35,7 @@ function JornalistaCriarEvento() {
 				alert("Evento criado!")
 				navigate("/JornalistaConsultarEventos")
 			}).catch(error => {
-				console.log(error);
+				alert('Dados incorretos!')
 			})
 		}
 	}

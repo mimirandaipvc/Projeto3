@@ -32,7 +32,7 @@ function AdminEditarCidadaoRegistado() {
 				alert("Cidadão Registado editado!")
 				navigate("/AdminConsultarUtilizadores")
 			}).catch(error => {
-				console.log(error);
+				alert('Dados incorretos!')
 			})
 		}
 	}

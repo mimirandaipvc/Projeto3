@@ -41,7 +41,7 @@ function JornalistaCriarInfoPC() {
 				alert("Informação Criada!")
 				navigate("/JornalistaHome")
 			}).catch(error => {
-				console.log(error);
+				alert('Dados incorretos!')
 			})
 		}
 	}

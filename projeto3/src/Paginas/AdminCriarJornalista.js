@@ -33,7 +33,7 @@ function AdminCriarJornalista() {
 				alert("Jornalista criado!")
 				navigate("/AdminConsultarUtilizadores")
 			}).catch(error => {
-				console.log(error);
+				alert('Dados incorretos!')
 			})
 		}
 	}

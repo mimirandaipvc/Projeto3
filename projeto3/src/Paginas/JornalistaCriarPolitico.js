@@ -41,7 +41,7 @@ function JornalistaCriarPolitico() {
 				alert("Político criado!")
 				navigate("/JornalistaConsultarPoliticos")
 			}).catch(error => {
-				console.log(error);
+				alert('Dados incorretos!')
 			})
 		}
 	}

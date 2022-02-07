@@ -28,7 +28,7 @@ function AdminCriarCidadaoRegistado() {
 			alert("Cidadao adicionado!");
 			navigate('/Login')
 		}).catch(error => {
-			console.log(error);
+			alert('Dados incorretos!')
 		})
 	}
 
