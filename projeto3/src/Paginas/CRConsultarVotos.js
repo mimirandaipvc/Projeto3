@@ -81,7 +81,7 @@ function CRConsultarVotos() {
 
 					<br /><br />
 					<Row>
-						<Col xs={12}><h1>VOTOS - Relações Pessoas Singulares</h1></Col>
+						<Col xs={12}><h1>Votos em Relações de Políticos/Empresários</h1></Col>
 					</Row>
 
 					<Row>
@@ -91,7 +91,7 @@ function CRConsultarVotos() {
 									<tr>
 										<th>ID Voto</th>
 										<th>Data</th>
-										<th>ID Relação PS</th>
+										<th>ID Relação</th>
 										<th>tipoVoto</th>
 									</tr>
 								</thead>
@@ -112,7 +112,7 @@ function CRConsultarVotos() {
 					<br /><br />
 
 					<Row>
-						<Col xs={12}><h1>VOTOS - Empresas</h1></Col>
+						<Col xs={12}><h1>Votos em Relações de Empresas</h1></Col>
 					</Row>
 
 					<Row>
@@ -122,8 +122,8 @@ function CRConsultarVotos() {
 									<tr>
 										<th>ID Voto</th>
 										<th>Data</th>
-										<th>ID Relação PS</th>
-										<th>tipoVoto</th>
+										<th>ID Relação</th>
+										<th>Voto</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -131,7 +131,7 @@ function CRConsultarVotos() {
 										<tr>
 											<td>{item.idvotorpc}</td>
 											<td>{item.data}</td>
-											<td>{item.idrelacaops}</td>
+											<td>{item.idrelacaopc}</td>
 											<td>{item.tipoVoto}</td>
 										</tr>
 									))}
