@@ -31,7 +31,7 @@ function JornalistaCriarEmpresa() {
 	}
 
 	function adicionaEmpresa() {
-		if (Designacao.length == 0 || Pais.length == 0 || AnoFundacao.length == 0 || RamoAtividade.length == 0) {
+		if (Designacao.length == 0 || Pais.length == 0 || AnoFundacao.length == 0 || RamoAtividade.length == 0 || isNaN(AnoFundacao[0]) == true) {
 			alert("Dados incorretos")
 		} else {
 			return api.post('/api/v1/PessoaColetiva', {
