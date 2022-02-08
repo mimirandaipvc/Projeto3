@@ -79,7 +79,8 @@ function AdminRelacoesPoliticos() {
 							</Navbar.Collapse>
 						</Container>
 					</Navbar>
-
+					
+					<br /><br />
 					<Row>
 						<Col xs={12}><h1>RELAÇÕES</h1></Col>
 					</Row>

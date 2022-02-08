@@ -57,9 +57,10 @@ function Login() {
 			<Container fluid>
 
 				<div id="content-wrap">
-					<div class="conteudoo">
-						<Row>
-							<Col xs={12}>
+
+					<Row>
+						<Col xs={12}>
+							<div class="conteudoo">
 								<h2>Login</h2>
 								<br></br>
 								<Form.Label>Username: </Form.Label>
@@ -75,10 +76,11 @@ function Login() {
 								<br></br>
 								<br></br>
 								<Button variant="dark" href={"http://localhost:3000/CHome/"}>Entrar como convidado</Button>
-							</Col>
-						</Row>
+							</div>
+						</Col>
+					</Row>
 
-					</div>
+
 				</div>
 
 				<footer id="footer">
@@ -87,8 +89,8 @@ function Login() {
 					</div>
 				</footer>
 
-			</Container>
-		</div>
+			</Container >
+		</div >
 	);
 }
 

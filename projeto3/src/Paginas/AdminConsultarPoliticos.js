@@ -68,7 +68,7 @@ function AdminConsultarPoliticos() {
 						</Container>
 					</Navbar>
 
-					<br></br>
+					<br /><br />
 					<Row>
 						<Col xs={12}><h1>POLÍTICOS</h1></Col>
 					</Row>
