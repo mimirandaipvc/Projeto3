@@ -231,7 +231,7 @@ function JornalistaRelacoesEventos() {
 										<hr></hr>
 										<Button id="um" variant="success" onClick={() => maisS(item.idrelacaops)}>Credível</Button>
 										<Button id="dois" variant="danger" onClick={() => menosS(item.idrelacaops)}>Não Credível</Button>
-										<br></br>
+										<br></br><br></br>
 									</Card.Body>
 								</Card>
 							))}
