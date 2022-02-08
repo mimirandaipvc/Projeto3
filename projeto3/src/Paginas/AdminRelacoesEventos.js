@@ -102,7 +102,7 @@ function AdminRelacoesEventos() {
 										<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
 										<hr></hr>
 										<Card.Text>
-											<p><u>Empresa</u>:{item.designacao}</p>
+											<p><u>Empresa</u>: {item.designacao}</p>
 											{data2.map(item => (
 												<p><u>Evento</u>: {item.designacao}</p>
 											))}

@@ -23,14 +23,6 @@ function CRelacoesEventos() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function logout() {
-		localStorage.removeItem("iud");
-		localStorage.removeItem("token");
-		localStorage.removeItem("idtipoutilizador");
-		navigate("/Login");
-	}
-
-
 
 	function obterDadosPCE() {
 		return api.get('/api/v1/RelacaoPCE/' + params.idevento)
@@ -84,7 +76,7 @@ function CRelacoesEventos() {
 									<Nav.Link href="/CConsultarEmpresas">Empresas</Nav.Link>
 								</Nav>
 								<Navbar.Text className="justify-content-end">
-									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+									<Button style={{ float: 'right', color: 'black' }} variant="light" href="http://localhost:3000/Login/">Efetuar Login</Button>
 								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>
@@ -103,7 +95,7 @@ function CRelacoesEventos() {
 										<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
 										<hr></hr>
 										<Card.Text>
-											<p><u>Empresa</u>:{item.designacao}</p>
+											<p><u>Empresa</u>: {item.designacao}</p>
 											{data2.map(item => (
 												<p><u>Evento</u>: {item.designacao}</p>
 											))}
@@ -133,7 +125,7 @@ function CRelacoesEventos() {
 										<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
 										<hr></hr>
 										<Card.Text>
-											<p><u>Político/Empresário</u>:{item.nome}</p>
+											<p><u>Político/Empresário</u>: {item.nome}</p>
 											{data2.map(item => (
 												<p><u>Evento</u>: {item.designacao}</p>
 											))}

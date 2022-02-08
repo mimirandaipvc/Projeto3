@@ -19,12 +19,6 @@ function CConsultarEmpresarios() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function logout() {
-		localStorage.removeItem("iud");
-		localStorage.removeItem("token");
-		localStorage.removeItem("idtipoutilizador");
-		navigate("/Login");
-	}
 
 	function obterListaEmpresarios() {
 		return api.get('/api/v1/Empresario')
@@ -60,7 +54,7 @@ function CConsultarEmpresarios() {
 									<Nav.Link href="/CConsultarEmpresas">Empresas</Nav.Link>
 								</Nav>
 								<Navbar.Text className="justify-content-end">
-									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+									<Button style={{ float: 'right', color: 'black' }} variant="light" href="http://localhost:3000/Login/">Efetuar Login</Button>
 								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>

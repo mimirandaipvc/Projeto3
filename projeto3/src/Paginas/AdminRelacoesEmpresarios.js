@@ -93,7 +93,7 @@ function AdminRelacoesEmpresarios() {
 										<hr></hr>
 										<Card.Text>
 											{data2.map(item => (
-												<p><u>Empresário</u>:{item.nome}</p>
+												<p><u>Empresário</u>: {item.nome}</p>
 											))}
 											<p><u>Evento</u>: {item.designacao}</p>
 											<p><u>Motivo</u>: {item.motivo}</p>

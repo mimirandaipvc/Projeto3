@@ -134,7 +134,7 @@ function CRRelacoesPoliticos() {
 										<hr></hr>
 										<Card.Text>
 											{data2.map(item => (
-												<p><u>Politico</u>:{item.nome}</p>
+												<p><u>Politico</u>: {item.nome}</p>
 											))}
 											<p><u>Evento</u>: {item.designacao}</p>
 											<p><u>Motivo</u>: {item.motivo}</p>

@@ -22,12 +22,6 @@ function CRelacoesEmpresas() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function logout() {
-		localStorage.removeItem("iud");
-		localStorage.removeItem("token");
-		localStorage.removeItem("idtipoutilizador");
-		navigate("/Login");
-	}
 
 
 	function obterDados() {
@@ -71,7 +65,7 @@ function CRelacoesEmpresas() {
 									<Nav.Link href="/CConsultarEmpresas">Empresas</Nav.Link>
 								</Nav>
 								<Navbar.Text className="justify-content-end">
-									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+									<Button style={{ float: 'right', color: 'black' }} variant="light" href="http://localhost:3000/Login/">Efetuar Login</Button>
 								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>
@@ -91,7 +85,7 @@ function CRelacoesEmpresas() {
 										<hr></hr>
 										<Card.Text>
 											{data2.map(item => (
-												<p><u>Empresário</u>:{item.designacao}</p>
+												<p><u>Empresário</u>: {item.designacao}</p>
 											))}
 											<p><u>Evento</u>: {item.designacao}</p>
 											<p><u>Motivo</u>: {item.motivo}</p>

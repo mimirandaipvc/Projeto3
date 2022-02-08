@@ -134,7 +134,7 @@ function JornalistaRelacoesEmpresas() {
 										<hr></hr>
 										<Card.Text>
 											{data2.map(item => (
-												<p><u>Empresa</u>:{item.designacao}</p>
+												<p><u>Empresa</u>: {item.designacao}</p>
 											))}
 											<p><u>Evento</u>: {item.designacao}</p>
 											<p><u>Motivo</u>: {item.motivo}</p>

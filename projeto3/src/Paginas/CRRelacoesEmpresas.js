@@ -123,7 +123,7 @@ function CRRelacoesEmpresas() {
 										<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
 										<Card.Text>
 											{data2.map(item => (
-												<p><u>Empresa</u>:{item.designacao}</p>
+												<p><u>Empresa</u>: {item.designacao}</p>
 											))}
 											<p><u>Evento</u>: {item.designacao}</p>
 											<p><u>Motivo</u>: {item.motivo}</p>
