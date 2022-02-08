@@ -63,7 +63,7 @@ function CRelacoesEventos() {
 		obterDadosPCE();
 		obterDadosPSE();
 		obterEvento();
-	}, [data1]);
+	}, []);
 
 
 	return (

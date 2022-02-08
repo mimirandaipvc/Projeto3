@@ -40,7 +40,7 @@ function CRCargosEmEmpresas() {
 
 	useEffect(() => {
 		obterDados();
-	}, [data1]);
+	}, []);
 
 	return (
 		<div id="page-container">

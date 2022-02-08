@@ -40,7 +40,7 @@ function CCargosEmEmpresas() {
 
 	useEffect(() => {
 		obterDados();
-	}, [data1]);
+	}, []);
 
 	return (
 		<div id="page-container">

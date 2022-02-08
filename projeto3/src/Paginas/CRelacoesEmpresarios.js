@@ -49,7 +49,7 @@ function CRelacoesEmpresas() {
 	useEffect(() => {
 		obterDados();
 		obterEmpresario();
-	}, [data1]);
+	}, []);
 
 	return (
 		<div id="page-container">

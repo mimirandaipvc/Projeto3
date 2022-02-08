@@ -64,7 +64,7 @@ function JornalistaCargosEmEmpresas() {
 		obterDados();
 		obterEmpresa();
 		obterJornalista();
-	}, [data1]);
+	}, []);
 
 	return (
 		<div id="page-container">

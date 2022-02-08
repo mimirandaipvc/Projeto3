@@ -51,7 +51,7 @@ function CRelacoesPoliticos() {
 	useEffect(() => {
 		obterDados();
 		obterPolitico();
-	}, [data1]);
+	}, []);
 
 	return (
 		<div id="page-container">
