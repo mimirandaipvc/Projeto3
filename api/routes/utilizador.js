@@ -25,7 +25,7 @@ module.exports = app => {
 		.put(controller.AdminEditarJornalista)
 
 	app.route('/api/v1/CidadaoRegistado')
-		// .all(app.controllers.passport.authenticate())
+		.get(app.controllers.passport.authenticate())
 		.get(controller.obterListaCidadaoRegistado)
 		.post(controller.AdminCriarCidadaoRegistado)
 

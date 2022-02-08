@@ -2,12 +2,12 @@ module.exports = app => {
 	const controller = app.controllers.relacoes;
 
 	app.route('/api/v1/RelacaoPS')
-		// .all(app.controllers.passport.authenticate())
+		.post(app.controllers.passport.authenticate())
 		.get(controller.obterListaRelacaoPS)
 		.post(controller.criarRelacaoPS)
 
 	app.route('/api/v1/RelacaoPSR/:idrelacaops')
-		// .all(app.controllers.passport.authenticate())
+		//.all(app.controllers.passport.authenticate())
 		.get(controller.obterRelacaoPS)
 
 	app.route('/api/v1/RelacaoPSE/:idevento')
@@ -19,7 +19,7 @@ module.exports = app => {
 		.get(controller.obterListaRelacaoPSingular)
 
 	app.route('/api/v1/RelacaoPC')
-		// .all(app.controllers.passport.authenticate())
+		.post(app.controllers.passport.authenticate())
 		.get(controller.obterListaRelacaoPC)
 		.post(controller.criarRelacaoPC)
 
@@ -36,7 +36,7 @@ module.exports = app => {
 		.get(controller.obterListaRelacaoPColetiva)
 
 	app.route('/api/v1/RelacaoPessoasSC')
-		// .all(app.controllers.passport.authenticate())
+		.post(app.controllers.passport.authenticate())
 		.get(controller.obterListaRelacaoPessoasSC)
 		.post(controller.criarRelacaoPessoasSC)
 
