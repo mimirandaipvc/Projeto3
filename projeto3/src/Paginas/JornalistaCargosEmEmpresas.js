@@ -13,8 +13,6 @@ function JornalistaCargosEmEmpresas() {
 
 	const params = useParams();
 	const [data1, setData1] = useState([]);
-	const [data2, setData2] = useState([]);
-	const [data3, setData3] = useState([]);
 	const navigate = useNavigate();
 
 
@@ -30,25 +28,6 @@ function JornalistaCargosEmEmpresas() {
 		navigate("/Login");
 	}
 
-	function obterJornalista() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
-				.then(function (response) {
-					setData3(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
-	function obterEmpresa() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/PessoaColetiva/' + data1[i].idpessoacoletiva)
-				.then(function (response) {
-					setData2(response.data);
-					console.log(response.data);
-				});
-		}
-	}
 
 	function obterDados() {
 		return api.get('/api/v1/RelacaoPessoasSCPS/' + params.idpessoasingular)
@@ -58,12 +37,8 @@ function JornalistaCargosEmEmpresas() {
 			});
 	}
 
-
-
 	useEffect(() => {
 		obterDados();
-		obterEmpresa();
-		obterJornalista();
 	}, []);
 
 	return (

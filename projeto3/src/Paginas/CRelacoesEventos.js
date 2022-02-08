@@ -49,13 +49,11 @@ function CRelacoesEventos() {
 	}
 
 	function obterEvento() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Evento/' + params.idevento)
-				.then(function (response) {
-					setData2(response.data);
-					console.log(response.data);
-				});
-		}
+		return api.get('/api/v1/Evento/' + params.idevento)
+			.then(function (response) {
+				setData2(response.data);
+				console.log(response.data);
+			});
 	}
 
 

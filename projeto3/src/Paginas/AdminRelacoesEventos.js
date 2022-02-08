@@ -14,10 +14,7 @@ function AdminRelacoesEventos() {
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
-	const [data3, setData3] = useState([]);
-	const [data4, setData4] = useState([]);
 	const [data5, setData5] = useState([]);
-	const [data6, setData6] = useState([]);
 	const navigate = useNavigate();
 
 
@@ -49,13 +46,11 @@ function AdminRelacoesEventos() {
 	}
 
 	function obterEvento() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Evento/' + params.idevento)
-				.then(function (response) {
-					setData2(response.data);
-					console.log(response.data);
-				});
-		}
+		return api.get('/api/v1/Evento/' + params.idevento)
+			.then(function (response) {
+				setData2(response.data);
+				console.log(response.data);
+			});
 	}
 
 
@@ -137,16 +132,14 @@ function AdminRelacoesEventos() {
 										<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
 										<hr></hr>
 										<Card.Text>
-											{data3.map(item => (
-												<p><u>Político/Empresário</u>: {item.nome}</p>
+											<p><u>Político/Empresário</u>: {item.nome}</p>
+											{data2.map(item => (
+												<p><u>Evento</u>: {item.designacao}</p>
 											))}
-											<p><u>Evento</u>: {item.designacao}</p>
 											<p><u>Motivo</u>: {item.motivo}</p>
 											<p><u>Valores</u>: {item.valores}€</p>
 											<p><u>Data inserção</u>: {item.dataInsercao}</p>
-											{data6.map(item => (
-												<p><u>Inserido por</u>: {item.username}</p>
-											))}
+											<p><u>Inserido por</u>: {item.username}</p>
 											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
 									</Card.Body>
