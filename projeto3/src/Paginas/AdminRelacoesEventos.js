@@ -113,7 +113,7 @@ function AdminRelacoesEventos() {
 											))}
 											<p><u>Motivo</u>: {item.motivo}</p>
 											<p><u>Valores</u>: {item.valores}€</p>
-											<p><u>Data inserção</u>: {item.data}</p>
+											<p><u>Data inserção</u>: {item.dataInsercao}</p>
 											<p><u>Inserido por</u>: {item.username}</p>
 											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
@@ -143,7 +143,7 @@ function AdminRelacoesEventos() {
 											<p><u>Evento</u>: {item.designacao}</p>
 											<p><u>Motivo</u>: {item.motivo}</p>
 											<p><u>Valores</u>: {item.valores}€</p>
-											<p><u>Data inserção</u>: {item.data}</p>
+											<p><u>Data inserção</u>: {item.dataInsercao}</p>
 											{data6.map(item => (
 												<p><u>Inserido por</u>: {item.username}</p>
 											))}
