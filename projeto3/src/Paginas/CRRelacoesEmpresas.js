@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './AdminHome.css'
+
 
 function CRRelacoesEmpresas() {
 
@@ -111,18 +111,19 @@ function CRRelacoesEmpresas() {
 										<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
 										<Card.Text>
 											{data2.map(item => (
-												<p>Empresa:{item.designacao}</p>
+												<p><u>Empresa</u>:{item.designacao}</p>
 											))}
-											<p>Evento: {item.designacao}</p>
-											<p>Motivo: {item.motivo}</p>
-											<p>Valores: {item.valores}€</p>
-											<p>Data inserção: {item.data}</p>
-											<p>Inserido por: {item.username}</p>
-											<p><b>Credibilidade: {item.credibilidade}</b></p>
+											<p><u>Evento</u>: {item.designacao}</p>
+											<p><u>Motivo</u>: {item.motivo}</p>
+											<p><u>Valores</u>: {item.valores}€</p>
+											<p><u>Data inserção</u>: {item.data}</p>
+											<p><u>Inserido por</u>: {item.username}</p>
+											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
+										<hr></hr>
 										<Button id="um" variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
 										<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
-										<br></br>
+										<br></br><br></br>
 									</Card.Body>
 								</Card>
 							))}

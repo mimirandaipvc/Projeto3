@@ -13,7 +13,12 @@ body {
 }
 
 p {
+	text-align: left;
+}
+
+p .credibilidade {
 	text-align: center;
+	font-size:larger;
 }
 
 h1 {

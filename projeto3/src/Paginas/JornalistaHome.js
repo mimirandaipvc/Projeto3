@@ -51,7 +51,7 @@ function JornalistaHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Politicos</h3>
-										<p>Visualizar políticos e respetivas relações</p>
+										<p class="home">Visualizar políticos e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaConsultarPoliticos/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -63,7 +63,7 @@ function JornalistaHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Eventos</h3>
-										<p>Visualizar Eventos e respetivas relações</p>
+										<p class="home">Visualizar Eventos e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaConsultarEventos/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -75,7 +75,7 @@ function JornalistaHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Empresários</h3>
-										<p>Visualizar Empresários e respetivas relações</p>
+										<p class="home">Visualizar Empresários e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaConsultarEmpresarios/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -87,7 +87,7 @@ function JornalistaHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Empresas</h3>
-										<p>Visualizar Empresas e respetivas relações</p>
+										<p class="home">Visualizar Empresas e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaConsultarEmpresas/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -99,7 +99,7 @@ function JornalistaHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Histórico de Votos</h3>
-										<p>Visualizar os votos em todas as relações</p>
+										<p class="home">Visualizar os votos em todas as relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaConsultarVotos/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -111,7 +111,7 @@ function JornalistaHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Minha área pessoal</h3>
-										<p>Alterar dados pessoais.</p>
+										<p class="home">Alterar dados pessoais.</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/JornalistaAPessoal/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>

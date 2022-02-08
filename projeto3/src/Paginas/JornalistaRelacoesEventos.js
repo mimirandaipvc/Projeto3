@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './AdminHome.css'
+
 
 function JornalistaRelacoesEventos() {
 
@@ -170,21 +170,22 @@ function JornalistaRelacoesEventos() {
 								<Card style={{ width: '23rem' }} key={item.idrelacaops}>
 									<Card.Body>
 										<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
+										<hr></hr>
 										<Card.Text>
-											<p>Empresa:{item.designacao}</p>
+											<p><u>Empresa</u>:{item.designacao}</p>
 											{data2.map(item => (
-												<p>Evento: {item.designacao}</p>
+												<p><u>Evento</u>: {item.designacao}</p>
 											))}
-											<p>Motivo: {item.motivo}</p>
-											<p>Valores: {item.valores}€</p>
-											<p>Data inserção: {item.data}</p>
-											<p>Inserido por: {item.username}</p>
-											<p><b>Credibilidade: {item.credibilidade}</b></p>
+											<p><u>Motivo</u>: {item.motivo}</p>
+											<p><u>Valores</u>: {item.valores}€</p>
+											<p><u>Data inserção</u>: {item.data}</p>
+											<p><u>Inserido por</u>: {item.username}</p>
+											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
+										<hr></hr>
 										<Button variant="success" onClick={() => maisC(item.idrelacaopc)}>Credível</Button>
 										<Button id="dois" variant="danger" onClick={() => menosC(item.idrelacaopc)}>Não Credível</Button>
-										<br></br>
-										<small>O meu Voto: {item.tipoVoto}</small>
+										<br></br><br></br>
 									</Card.Body>
 								</Card>
 							))}
@@ -203,17 +204,19 @@ function JornalistaRelacoesEventos() {
 								<Card style={{ width: '23rem' }} key={item.idrelacaops}>
 									<Card.Body>
 										<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
+										<hr></hr>
 										<Card.Text>
-											<p>Político:{item.nome}</p>
+											<p><u>Político/Empresário</u>:{item.nome}</p>
 											{data2.map(item => (
-												<p>Evento: {item.designacao}</p>
+												<p><u>Evento</u>: {item.designacao}</p>
 											))}
-											<p>Motivo: {item.motivo}</p>
-											<p>Valores: {item.valores}€</p>
-											<p>Data inserção: {item.data}</p>
-											<p>Inserido por: {item.username}</p>
-											<p><b>Credibilidade: {item.credibilidade}</b></p>
+											<p><u>Motivo</u>: {item.motivo}</p>
+											<p><u>Valores</u>: {item.valores}€</p>
+											<p><u>Data inserção</u>: {item.data}</p>
+											<p><u>Inserido por</u>: {item.username}</p>
+											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
+										<hr></hr>
 										<Button id="um" variant="success" onClick={() => maisS(item.idrelacaops)}>Credível</Button>
 										<Button id="dois" variant="danger" onClick={() => menosS(item.idrelacaops)}>Não Credível</Button>
 										<br></br>

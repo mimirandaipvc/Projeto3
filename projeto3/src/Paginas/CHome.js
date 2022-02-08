@@ -40,7 +40,7 @@ function CHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Politicos</h3>
-										<p>Visualizar políticos e respetivas relações</p>
+										<p class="home">Visualizar políticos e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarPoliticos/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -52,7 +52,7 @@ function CHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Eventos</h3>
-										<p>Visualizar Eventos e respetivas relações</p>
+										<p class="home">Visualizar Eventos e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEventos/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -64,7 +64,7 @@ function CHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Empresários</h3>
-										<p>Visualizar Empresários e respetivas relações</p>
+										<p class="home">Visualizar Empresários e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEmpresarios/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -76,7 +76,7 @@ function CHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Empresas</h3>
-										<p>Visualizar Empresas e respetivas relações</p>
+										<p class="home">Visualizar Empresas e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/CConsultarEmpresas/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>

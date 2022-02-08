@@ -127,7 +127,10 @@ WHERE idpessoacoletiva = $1;`,
 
 	controller.obterListaRelacaoPessoasSCPSingular = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM relacoespessoassc where idpessoasingular = $1`,
+		client.query(`SELECT * FROM relacoespessoassc
+INNER JOIN utilizador ON utilizador.idutilizador = relacoespessoassc.idutilizador
+INNER JOIN pessoacoletiva ON pessoacoletiva.idpessoacoletiva = relacoespessoassc.idpessoacoletiva
+WHERE idpessoasingular = $1`,
 			[
 				req.params.idpessoasingular,
 			], (err, result) => {

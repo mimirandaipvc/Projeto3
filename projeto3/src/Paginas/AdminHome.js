@@ -51,7 +51,7 @@ function AdminHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Políticos</h3>
-										<p>Visualizar políticos e respetivas relações</p>
+										<p class="home">Visualizar políticos e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminConsultarPoliticos/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -63,7 +63,7 @@ function AdminHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Eventos</h3>
-										<p>Visualizar Eventos e respetivas relações</p>
+										<p class="home">Visualizar Eventos e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminConsultarEventos/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -75,7 +75,7 @@ function AdminHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Empresários</h3>
-										<p>Visualizar Empresários e respetivas relações</p>
+										<p class="home">Visualizar Empresários e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminConsultarEmpresarios/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -87,7 +87,7 @@ function AdminHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Consultar Empresas</h3>
-										<p>Visualizar Empresas e respetivas relações</p>
+										<p class="home">Visualizar Empresas e respetivas relações</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminConsultarEmpresas/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -100,7 +100,7 @@ function AdminHome() {
 
 									<Carousel.Caption>
 										<h3>Gestão de Utilizadores</h3>
-										<p>Consultar e Registar outros administradores e jornalistas. Consultar cidadãos registados. </p>
+										<p class="home">Consultar e Registar outros administradores e jornalistas. Consultar cidadãos registados. </p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminConsultarUtilizadores/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>
@@ -112,7 +112,7 @@ function AdminHome() {
 									/>
 									<Carousel.Caption>
 										<h3>Minha área pessoal</h3>
-										<p>Alterar dados pessoais.</p>
+										<p class="home">Alterar dados pessoais.</p>
 										<Link class="text-info" style={{ textDecoration: 'none' }} to={`/AdminAPessoal/`}>Clique aqui</Link>
 									</Carousel.Caption>
 								</Carousel.Item>

@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './AdminHome.css'
+
 
 function AdminRelacoesPoliticos() {
 
@@ -81,14 +81,14 @@ function AdminRelacoesPoliticos() {
 										<hr></hr>
 										<Card.Text>
 											{data2.map(item => (
-												<p><b>Politico:</b>{item.nome}</p>
+												<p><u>Politico</u>: {item.nome}</p>
 											))}
-											<p><b>Evento:</b> {item.designacao}</p>
-											<p><b>Motivo:</b> {item.motivo}</p>
-											<p><b>Valores:</b> {item.valores}€</p>
-											<p><b>Data inserção:</b> {item.data}</p>
-											<p><b>Inserido por:</b> {item.username}</p>
-											<p><b>Credibilidade: {item.credibilidade}</b></p>
+											<p><u>Evento</u>: {item.designacao}</p>
+											<p><u>Motivo</u>: {item.motivo}</p>
+											<p><u>Valores</u>: {item.valores}€</p>
+											<p><u>Data inserção</u>: {item.data}</p>
+											<p><u>Inserido por</u>: {item.username}</p>
+											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
 									</Card.Body>
 								</Card>

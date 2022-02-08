@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './AdminHome.css'
+
 
 function JornalistaCargosEmEmpresas() {
 
@@ -93,21 +93,17 @@ function JornalistaCargosEmEmpresas() {
 								<Card style={{ width: '23rem' }} key={item.idrelacaops}>
 									<Card.Body>
 										<Card.Title>Relação número <b>{item.idrelacoespessoassc}</b> </Card.Title>
+										<hr></hr>
 										<Card.Text>
-											{data2.map(item => (
-												<p>Empresa:{item.designacao}</p>
-											))}
-											<p>Data Inicio: {item.datainicio}</p>
-											<p>Cargo: {item.cargo}</p>
-											<p>Salario Mensal: {item.salario} €</p>
-											{data3.map(item => (
-												<p>Inserido por: {item.username}</p>
-											))}
+											<p><u>Empresa</u>:{item.designacao}</p>
+											<p><u>Data Inicio</u>: {item.datainicio}</p>
+											<p><u>Cargo</u>: {item.cargo}</p>
+											<p><u>Salario Mensal</u>: {item.salario} €</p>
+											<p><u>Inserido por</u>: {item.username}</p>
 										</Card.Text>
 									</Card.Body>
 								</Card>
 							))}
-
 						</Col>
 					</Row>
 

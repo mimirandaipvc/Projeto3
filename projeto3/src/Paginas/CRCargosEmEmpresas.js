@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
 
-import './AdminHome.css'
+
 
 function CRCargosEmEmpresas() {
 
@@ -21,26 +21,6 @@ function CRCargosEmEmpresas() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
-	function obterJornalista() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/Jornalista/' + data1[i].idutilizador)
-				.then(function (response) {
-					setData3(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
-	function obterEmpresa() {
-		for (const i = 0; i < data1.length; i++) {
-			return api.get('/api/v1/PessoaColetiva/' + data1[i].idpessoacoletiva)
-				.then(function (response) {
-					setData2(response.data);
-					console.log(response.data);
-				});
-		}
-	}
-
 	function obterDados() {
 		return api.get('/api/v1/RelacaoPessoasSCPS/' + params.idpessoasingular)
 			.then(function (response) {
@@ -49,12 +29,8 @@ function CRCargosEmEmpresas() {
 			});
 	}
 
-
-
 	useEffect(() => {
 		obterDados();
-		obterEmpresa();
-		obterJornalista();
 	}, [data1]);
 
 	return (
@@ -93,16 +69,13 @@ function CRCargosEmEmpresas() {
 								<Card style={{ width: '23rem' }} key={item.idrelacaops}>
 									<Card.Body>
 										<Card.Title>Relação número <b>{item.idrelacoespessoassc}</b> </Card.Title>
+										<hr></hr>
 										<Card.Text>
-											{data2.map(item => (
-												<p>Empresa:{item.designacao}</p>
-											))}
-											<p>Data Inicio: {item.datainicio}</p>
-											<p>Cargo: {item.cargo}</p>
-											<p>Salario Mensal: {item.salario} €</p>
-											{data3.map(item => (
-												<p>Inserido por: {item.username}</p>
-											))}
+											<p><u>Empresa</u>:{item.designacao}</p>
+											<p><u>Data Inicio</u>: {item.datainicio}</p>
+											<p><u>Cargo</u>: {item.cargo}</p>
+											<p><u>Salario Mensal</u>: {item.salario} €</p>
+											<p><u>Inserido por</u>: {item.username}</p>
 										</Card.Text>
 									</Card.Body>
 								</Card>
