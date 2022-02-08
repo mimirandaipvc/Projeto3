@@ -26,6 +26,7 @@ function CRHome() {
 		navigate("/Login");
 	}
 
+
 	return (
 		<div id="page-container">
 
@@ -35,7 +36,7 @@ function CRHome() {
 					<Row>
 						<Col xs={2}></Col>
 						<Col xs={8}><h1>Bem-vindo Cidadão Registado! </h1></Col>
-						<Col xs={2}><button id="logout" type="button" className="btn btn-danger btn-block mt-4" onClick={logout}>Logout</button></Col>
+						<Col xs={2}><button id="logout" type="button" className="btn btn-danger" onClick={logout}>Logout</button></Col>
 					</Row>
 
 					<Row>

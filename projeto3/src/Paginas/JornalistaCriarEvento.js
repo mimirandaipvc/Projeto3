@@ -22,6 +22,13 @@ function JornalistaCriarEvento() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
+	function logout() {
+		localStorage.removeItem("iud");
+		localStorage.removeItem("token");
+		localStorage.removeItem("idtipoutilizador");
+		navigate("/Login");
+	}
+
 	function adicionaEvento() {
 		if (Designacao.length == 0 || Descrição.length == 0 || Data.length == 0) {
 			alert("Dados incorretos")
@@ -61,9 +68,13 @@ function JornalistaCriarEvento() {
 									<Nav.Link href="/JornalistaConsultarVotos">Histórico de Votos</Nav.Link>
 									<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
 								</Nav>
+								<Navbar.Text className="justify-content-end">
+									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>
 					</Navbar>
+
 
 					<br /><br />
 					<Row>

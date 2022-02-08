@@ -25,6 +25,13 @@ function JornalistaCriarInfoPC() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
+	function logout() {
+		localStorage.removeItem("iud");
+		localStorage.removeItem("token");
+		localStorage.removeItem("idtipoutilizador");
+		navigate("/Login");
+	}
+
 	function adicionaRelacaoPC() {
 		if (Motivo.length == 0 || Valores.length == 0 || Data.length == 0 || IDEvento.length == 0) {
 			alert("Dados incorretos")
@@ -79,9 +86,13 @@ function JornalistaCriarInfoPC() {
 									<Nav.Link href="/JornalistaConsultarVotos">Histórico de Votos</Nav.Link>
 									<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
 								</Nav>
+								<Navbar.Text className="justify-content-end">
+									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>
 					</Navbar>
+
 
 					<br /><br />
 					<Row>

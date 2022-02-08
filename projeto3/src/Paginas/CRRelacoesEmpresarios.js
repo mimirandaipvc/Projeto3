@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
@@ -14,10 +14,19 @@ function CRRelacoesEmpresas() {
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
+	const navigate = useNavigate();
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
+
+	function logout() {
+		localStorage.removeItem("iud");
+		localStorage.removeItem("token");
+		localStorage.removeItem("idtipoutilizador");
+		navigate("/Login");
+	}
 
 	const idutilizador = localStorage.getItem("idutilizador");
 
@@ -101,6 +110,9 @@ function CRRelacoesEmpresas() {
 									<Nav.Link href="/CRConsultarVotos">Histórico de Votos</Nav.Link>
 									<Nav.Link href="/CRAPessoal">Área Pessoal</Nav.Link>
 								</Nav>
+								<Navbar.Text className="justify-content-end">
+									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>
 					</Navbar>

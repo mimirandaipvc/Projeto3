@@ -22,6 +22,13 @@ function AdminAPessoal() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
+	function logout() {
+		localStorage.removeItem("iud");
+		localStorage.removeItem("token");
+		localStorage.removeItem("idtipoutilizador");
+		navigate("/Login");
+	}
+
 	function editaAdmin() {
 		if (Username.length == 0 || Password.length == 0) {
 			alert("Dados incorretos")
@@ -60,6 +67,9 @@ function AdminAPessoal() {
 									<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
 									<Nav.Link href="/AdminAPessoal">Área Pessoal</Nav.Link>
 								</Nav>
+								<Navbar.Text className="justify-content-end">
+									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>
 					</Navbar>

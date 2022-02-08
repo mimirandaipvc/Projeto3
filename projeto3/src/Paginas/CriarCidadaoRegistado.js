@@ -19,6 +19,13 @@ function AdminCriarCidadaoRegistado() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
+	function logout() {
+		localStorage.removeItem("iud");
+		localStorage.removeItem("token");
+		localStorage.removeItem("idtipoutilizador");
+		navigate("/Login");
+	}
+
 	function adicionaCidadao() {
 		return api.post('/api/v1/CidadaoRegistado', {
 			username: Username,

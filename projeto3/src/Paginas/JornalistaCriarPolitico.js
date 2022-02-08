@@ -25,6 +25,13 @@ function JornalistaCriarPolitico() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
+	function logout() {
+		localStorage.removeItem("iud");
+		localStorage.removeItem("token");
+		localStorage.removeItem("idtipoutilizador");
+		navigate("/Login");
+	}
+
 	function adicionaPolitico() {
 		if (Nome.length == 0 || Sexo.length == 0 || Nacionalidade.length == 0 || DataNascimento.length == 0 || Profissao.length == 0) {
 			alert("Dados incorretos")
@@ -67,9 +74,13 @@ function JornalistaCriarPolitico() {
 									<Nav.Link href="/JornalistaConsultarVotos">Histórico de Votos</Nav.Link>
 									<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
 								</Nav>
+								<Navbar.Text className="justify-content-end">
+									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>
 					</Navbar>
+
 
 					<br /><br />
 					<Row>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
@@ -18,10 +18,19 @@ function AdminRelacoesEventos() {
 	const [data4, setData4] = useState([]);
 	const [data5, setData5] = useState([]);
 	const [data6, setData6] = useState([]);
+	const navigate = useNavigate();
+
 
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
+
+	function logout() {
+		localStorage.removeItem("iud");
+		localStorage.removeItem("token");
+		localStorage.removeItem("idtipoutilizador");
+		navigate("/Login");
+	}
 
 	function obterDadosPCE() {
 		return api.get('/api/v1/RelacaoPCE/' + params.idevento)
@@ -78,6 +87,9 @@ function AdminRelacoesEventos() {
 									<Nav.Link href="/AdminConsultarUtilizadores">Gestão Utilizadores</Nav.Link>
 									<Nav.Link href="/AdminAPessoal">Área Pessoal</Nav.Link>
 								</Nav>
+								<Navbar.Text className="justify-content-end">
+									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>
 					</Navbar>

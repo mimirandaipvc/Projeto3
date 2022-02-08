@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from "axios";
 import api from './api'
 import { Form, Button, Table, Carousel, Card, CardGroup, Navbar, Nav, Container, NavDropdown, Row, Col } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './RelacoesPoliticos.css'
 
@@ -13,6 +13,8 @@ function JornalistaConsultarVotos() {
 	const params = useParams();
 	const [data1, setData1] = useState([]);
 	const [data2, setData2] = useState([]);
+	const navigate = useNavigate();
+
 
 
 	const idutilizador = localStorage.getItem("idutilizador")
@@ -20,6 +22,13 @@ function JornalistaConsultarVotos() {
 	useEffect(() => {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
+
+	function logout() {
+		localStorage.removeItem("iud");
+		localStorage.removeItem("token");
+		localStorage.removeItem("idtipoutilizador");
+		navigate("/Login");
+	}
 
 	function obterListaVotosRPS() {
 		return api.get('/api/v1/VotoRPS/' + idutilizador)
@@ -63,9 +72,13 @@ function JornalistaConsultarVotos() {
 									<Nav.Link href="/JornalistaConsultarVotos">Histórico de Votos</Nav.Link>
 									<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
 								</Nav>
+								<Navbar.Text className="justify-content-end">
+									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>
 					</Navbar>
+
 
 					<br /><br />
 					<Row>
@@ -127,7 +140,7 @@ function JornalistaConsultarVotos() {
 					</Row>
 
 				</div>
-				
+
 				<footer id="footer">
 					<div class="container text-center">
 						<small>© 2022 Copyright: Miguel Miranda e Pedro Castro | Engenharia Informática | ESTG-IPVC </small>

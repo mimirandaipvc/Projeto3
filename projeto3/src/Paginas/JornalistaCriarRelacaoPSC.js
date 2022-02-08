@@ -25,6 +25,13 @@ function JornalistaCriarRelacaoPSC() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
+	function logout() {
+		localStorage.removeItem("iud");
+		localStorage.removeItem("token");
+		localStorage.removeItem("idtipoutilizador");
+		navigate("/Login");
+	}
+
 	function adicionaRelacao() {
 		if (Datainicio.length == 0 || Cargo.length == 0 || Salario.length == 0 || IDPessoaColetiva.length == 0) {
 			alert("Dados incorretos")
@@ -79,9 +86,13 @@ function JornalistaCriarRelacaoPSC() {
 									<Nav.Link href="/JornalistaConsultarVotos">Histórico de Votos</Nav.Link>
 									<Nav.Link href="/JornalistaAPessoal">Área Pessoal</Nav.Link>
 								</Nav>
+								<Navbar.Text className="justify-content-end">
+									<button id="" type="button" className="btn btn-danger" onClick={logout}>Logout</button>
+								</Navbar.Text>
 							</Navbar.Collapse>
 						</Container>
 					</Navbar>
+
 
 					<br /><br />
 					<Row>
