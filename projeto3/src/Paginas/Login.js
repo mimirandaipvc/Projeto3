@@ -19,35 +19,40 @@ function Login() {
 
 
 	function login() {
-		return api.post('/api/v1/signin', {
-			username: Username,
-			password: Password
-		})
-			.then(response => {
-				console.log(response.data);
-				var token = response.data.token;
-				var decoded = jwt_decode(token);
-				document.cookie = "token=" + token + "; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;";
-				localStorage.setItem("token", token);
-				localStorage.setItem("iud", response.data.uid);
-				localStorage.setItem("idutilizador", response.data.id);
-				console.log(localStorage.getItem("idutilizador"));
-				if (decoded.idtipoutilizador === 1) {
-					localStorage.setItem("idtipoutilizador", 1)
-					alert("Bem-vindo Administrador!")
-					navigate('/AdminHome')
-				} else if (decoded.idtipoutilizador === 2) {
-					localStorage.setItem("idtipoutilizador", 2)
-					alert("Bem-vindo Jornalista!")
-					navigate("/JornalistaHome");
-				} else {
-					localStorage.setItem("idtipoutilizador", 3)
-					alert("Bem-vindo Cidadão Registado!")
-					navigate("/CRHome");
-				}
-			}).catch(error => {
-				alert("Dados Incorretos")
+		if (Username.length == 0 || Password.length == 0) {
+			alert("Introduza todos os dados")
+		} else {
+			return api.post('/api/v1/signin', {
+				username: Username,
+				password: Password
 			})
+				.then(response => {
+					console.log(response.data);
+					var token = response.data.token;
+					var decoded = jwt_decode(token);
+					document.cookie = "token=" + token + "; expires=Thu, 01 Jan 2022 00:00:00 UTC; path=/;";
+					localStorage.setItem("token", token);
+					localStorage.setItem("iud", response.data.uid);
+					localStorage.setItem("idutilizador", response.data.id);
+					console.log(localStorage.getItem("idutilizador"));
+					if (decoded.idtipoutilizador === 1) {
+						localStorage.setItem("idtipoutilizador", 1)
+						alert("Bem-vindo Administrador!")
+						navigate('/AdminHome')
+					} else if (decoded.idtipoutilizador === 2) {
+						localStorage.setItem("idtipoutilizador", 2)
+						alert("Bem-vindo Jornalista!")
+						navigate("/JornalistaHome");
+					} else {
+						localStorage.setItem("idtipoutilizador", 3)
+						alert("Bem-vindo Cidadão Registado!")
+						navigate("/CRHome");
+					}
+				}).catch(error => {
+					alert("Dados Incorretos")
+				})
+		}
+
 	}
 
 

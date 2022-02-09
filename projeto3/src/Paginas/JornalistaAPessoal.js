@@ -81,7 +81,7 @@ function JornalistaAPessoal() {
 					<Row>
 						<Col xs={12}>
 							<div class="conteudoo">
-								<h2>Editar Jornalista</h2>
+								<h2>Editar Perfil</h2>
 								<br></br>
 								<Form.Label>Username: </Form.Label>
 								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="username"

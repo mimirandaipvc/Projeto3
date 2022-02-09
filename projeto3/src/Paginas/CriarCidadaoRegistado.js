@@ -28,16 +28,21 @@ function AdminCriarCidadaoRegistado() {
 	}
 
 	function adicionaCidadao() {
-		return api.post('/api/v1/CidadaoRegistado', {
-			username: Username,
-			password: Password
-		}).then(response => {
-			console.log(response.data);
-			alert("Cidadao adicionado!");
-			navigate('/Login')
-		}).catch(error => {
-			alert('Dados incorretos!')
-		})
+		if (Username.length == 0 || Password.length == 0) {
+			alert("Introduza todos os dados")
+		} else {
+			return api.post('/api/v1/CidadaoRegistado', {
+				username: Username,
+				password: Password
+			}).then(response => {
+				console.log(response.data);
+				alert("Cidadao adicionado!");
+				navigate('/Login')
+			}).catch(error => {
+				alert('Dados incorretos!')
+			})
+		}
+
 	}
 
 	return (
