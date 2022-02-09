@@ -79,7 +79,6 @@ function JornalistaConsultarEventos() {
 						<Col xs={12}><Table striped bordered hover responsive="lg">
 							<thead>
 								<tr>
-									<th>ID</th>
 									<th>Designacao</th>
 									<th>Descrição</th>
 									<th>Data</th>
@@ -88,7 +87,6 @@ function JornalistaConsultarEventos() {
 							<tbody>
 								{data1.map(item => (
 									<tr>
-										<td>{item.idevento}</td>
 										<td>{item.designacao}</td>
 										<td>{item.descricao}</td>
 										<td>{item.data}</td>
