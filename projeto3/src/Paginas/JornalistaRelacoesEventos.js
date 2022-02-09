@@ -196,7 +196,7 @@ function JornalistaRelacoesEventos() {
 											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
 										<hr></hr>
-										<Button variant="success" onClick={() => maisC(item.idrelacaopc)}>Credível</Button>
+										<Button id="um" variant="success" onClick={() => maisC(item.idrelacaopc)}>Credível</Button>
 										<Button id="dois" variant="danger" onClick={() => menosC(item.idrelacaopc)}>Não Credível</Button>
 										<br></br><br></br>
 									</Card.Body>
