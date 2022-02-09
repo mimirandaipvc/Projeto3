@@ -74,6 +74,7 @@ function CConsultarEmpresas() {
 										<th>País</th>
 										<th>Fundação</th>
 										<th>Ramo de Atividade</th>
+										<th>Relações</th>
 									</tr>
 								</thead>
 								<tbody>

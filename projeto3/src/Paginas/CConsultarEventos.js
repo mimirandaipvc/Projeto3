@@ -73,6 +73,7 @@ function CConsultarEventos() {
 										<th>Designacao</th>
 										<th>Descrição</th>
 										<th>Data</th>
+										<th>Relações</th>
 									</tr>
 								</thead>
 								<tbody>
