@@ -92,7 +92,7 @@ function CRConsultarEmpresas() {
 											<td>{item.pais}</td>
 											<td>{item.anofundacao}</td>
 											<td>{item.ramoatividade}</td>
-											<td><Button variant="dark" href={"http://localhost:3000/CRRelacoesEmpresas/" + item.idpessoasingular}>Ver relações</Button></td>
+											<td><Button variant="dark" href={"http://localhost:3000/CRRelacoesEmpresas/" + item.idpessoacoletiva}>Ver relações</Button></td>
 										</tr>
 									))}
 								</tbody>

@@ -22,6 +22,9 @@ function CRRelacoesEmpresas() {
 		api.defaults.headers.common["Authorization"] = 'Bearer ' + localStorage.getItem("token")
 	}, []);
 
+	const idutilizador = localStorage.getItem("idutilizador");
+
+
 	function logout() {
 		localStorage.removeItem("iud");
 		localStorage.removeItem("token");
@@ -29,9 +32,6 @@ function CRRelacoesEmpresas() {
 		alert("Até breve!")
 		navigate("/Login");
 	}
-
-	const idutilizador = localStorage.getItem("idutilizador");
-
 
 	function obterEmpresa() {
 		return api.get('/api/v1/PessoaColetiva/' + params.idpessoacoletiva)
@@ -51,31 +51,41 @@ function CRRelacoesEmpresas() {
 	}
 
 	function mais(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
-			idutilizador: localStorage.getItem("idutilizador"),
-			tipovoto: 'Credivel'
-		});
-		api.put('/api/v1/AumentarCredibilidadeRPC', {
-			idrelacaopc: i,
-		});
-		console.log('mais');
-		// window.location.reload();
-
+		return api.get('/api/v1/VerificaVotoRPC/' + idutilizador + '/' + i)
+			.then(function (response) {
+				console.log(response.data)
+				if (response.data.length != 0) {
+					alert('Já votou!')
+				} else {
+					api.post('/api/v1/VotoRPC', {
+						idrelacaopc: i,
+						idutilizador,
+						tipovoto: 'Credivel'
+					});
+					api.put('/api/v1/AumentarCredibilidadeRPC', {
+						idrelacaopc: i,
+					});
+				}
+			});
 	}
 
 	function menos(i) {
-		api.post('/api/v1/VotoRPC', {
-			idrelacaopc: i,
-			idutilizador: localStorage.getItem("idutilizador"),
-			tipovoto: 'Não Credivel'
-		});
-		api.put('/api/v1/DiminuirCredibilidadeRPC', {
-			idrelacaopc: i,
-		});
-		console.log('menos');
-		// window.location.reload();
-
+		return api.get('/api/v1/VerificaVotoRPC/' + idutilizador + '/' + i)
+			.then(function (response) {
+				console.log(response.data)
+				if (response.data.length != 0) {
+					alert('Já votou!')
+				} else {
+					api.post('/api/v1/VotoRPC', {
+						idrelacaopc: i,
+						idutilizador,
+						tipovoto: 'Não Credivel'
+					});
+					api.put('/api/v1/DiminuirCredibilidadeRPC', {
+						idrelacaopc: i,
+					});
+				}
+			});
 	}
 
 	useEffect(() => {
@@ -122,6 +132,7 @@ function CRRelacoesEmpresas() {
 								<Card style={{ width: '23rem' }} key={item.idrelacaopc}>
 									<Card.Body>
 										<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
+										<hr></hr>
 										<Card.Text>
 											{data2.map(item => (
 												<p><b>Empresa</b>: {item.designacao}</p>

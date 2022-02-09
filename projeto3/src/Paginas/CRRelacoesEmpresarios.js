@@ -126,13 +126,13 @@ function CRRelacoesEmpresas() {
 					<Row>
 						<Col xs={12}>
 							{data1.map(item => (
-								<Card style={{ width: '23rem' }} key={item.idrelacaopc}>
+								<Card style={{ width: '23rem' }} key={item.idrelacaops}>
 									<Card.Body>
-										<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
+										<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
 										<hr></hr>
 										<Card.Text>
 											{data2.map(item => (
-												<p><b>Empresário</b>: {item.designacao}</p>
+												<p><b>Empresário</b>: {item.nome}</p>
 											))}
 											<p><b>Evento</b>: {item.designacao}</p>
 											<p><b>Motivo</b>: {item.motivo}</p>
@@ -141,10 +141,10 @@ function CRRelacoesEmpresas() {
 											<p><b>Inserido por</b>: {item.username}</p>
 											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
+										<hr></hr>
+										<Button id="um" variant="success" onClick={() => mais(item.idrelacaops)}>Credível</Button>
+										<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaops)}>Não Credível</Button>
 										<br></br><br></br>
-										<Button id="um" variant="success" onClick={() => mais(item.idrelacaopc)}>Credível</Button>
-										<Button id="dois" variant="danger" onClick={() => menos(item.idrelacaopc)}>Não Credível</Button>
-										<br></br>
 									</Card.Body>
 								</Card>
 							))}

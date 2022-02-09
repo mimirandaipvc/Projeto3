@@ -25,7 +25,7 @@ function CRelacoesEmpresas() {
 
 
 	function obterDados() {
-		return api.get('/api/v1/RelacaoPCP/' + params.idpessoacoletiva)
+		return api.get('/api/v1/RelacaoPSP/' + params.idpessoasingular)
 			.then(function (response) {
 				setData1(response.data);
 				console.log(response.data);
@@ -81,11 +81,11 @@ function CRelacoesEmpresas() {
 							{data1.map(item => (
 								<Card style={{ width: '23rem' }} key={item.idrelacaopc}>
 									<Card.Body>
-										<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
+										<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
 										<hr></hr>
 										<Card.Text>
 											{data2.map(item => (
-												<p><b>Empresário</b>: {item.designacao}</p>
+												<p><b>Empresário</b>: {item.nome}</p>
 											))}
 											<p><b>Evento</b>: {item.designacao}</p>
 											<p><b>Motivo</b>: {item.motivo}</p>

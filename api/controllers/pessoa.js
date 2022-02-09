@@ -39,7 +39,7 @@ module.exports = app => {
 
 	controller.obterEmpresario = (req, res) => {
 		//client.connect()
-		client.query(`SELECT * FROM pessoasingular where idtipopessoasingular = 2 and idpessoasingular = = $1`,
+		client.query(`SELECT * FROM pessoasingular where idtipopessoasingular = 2 and idpessoasingular = $1`,
 			[
 				req.params.idpessoasingular,
 			], (err, result) => {
