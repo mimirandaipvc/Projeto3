@@ -23,6 +23,7 @@ function AdminConsultarEventos() {
 		localStorage.removeItem("iud");
 		localStorage.removeItem("token");
 		localStorage.removeItem("idtipoutilizador");
+		alert("Até breve!")
 		navigate("/Login");
 	}
 
