@@ -192,7 +192,6 @@ WHERE idpessoasingular = $1`,
 			[
 				req.body.motivo,
 				req.body.valores,
-				req.body.data,
 				req.body.idpessoacoletiva,
 				req.body.idevento,
 				req.body.idutilizador
