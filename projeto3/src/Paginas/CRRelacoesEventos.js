@@ -186,7 +186,7 @@ function CRRelacoesEventos() {
 											))}
 											<p><b>Motivo</b>: {item.motivo}</p>
 											<p><b>Valores</b>: {item.valores}€</p>
-											<p><b>Data inserção</b>: {item.dataInsercao}</p>
+											<p><b>Data inserção</b>: {new Date(item.dataInsercao).toLocaleDateString()}</p>
 											<p><b>Inserido por</b>: {item.username}</p>
 											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
@@ -221,7 +221,7 @@ function CRRelacoesEventos() {
 											))}
 											<p><b>Motivo</b>: {item.motivo}</p>
 											<p><b>Valores</b>: {item.valores}€</p>
-											<p><b>Data inserção</b>: {item.dataInsercao}</p>
+											<p><b>Data inserção</b>: {new Date(item.dataInsercao).toLocaleDateString()}</p>
 											<p><b>Inserido por</b>: {item.username}</p>
 											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>

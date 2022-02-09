@@ -99,7 +99,7 @@ function CRConsultarVotos() {
 									{data1.map(item => (
 										<tr>
 											<td>{item.idvotorps}</td>
-											<td>{item.data}</td>
+											<td>{new Date(item.data).toLocaleDateString()}</td>
 											<td>{item.idrelacaops}</td>
 											<td>{item.tipoVoto}</td>
 										</tr>
@@ -130,7 +130,7 @@ function CRConsultarVotos() {
 									{data2.map(item => (
 										<tr>
 											<td>{item.idvotorpc}</td>
-											<td>{item.data}</td>
+											<td>{new Date(item.data).toLocaleDateString()}</td>
 											<td>{item.idrelacaopc}</td>
 											<td>{item.tipoVoto}</td>
 										</tr>
