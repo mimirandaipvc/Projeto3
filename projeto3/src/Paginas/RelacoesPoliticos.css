@@ -18,7 +18,7 @@ p {
 
 p .credibilidade {
 	text-align: center;
-	font-size:larger;
+	font-size: larger;
 }
 
 h1 {
@@ -28,6 +28,12 @@ h1 {
 
 .card {
 	margin: 45px;
+}
+
+.form-select {
+	width: 60%;
+	text-align: center;
+	margin: 0 auto;
 }
 
 .form-control {

@@ -17,6 +17,7 @@
     "config": "^3.3.6",
     "consign": "^0.1.6",
     "cors": "^2.8.5",
+    "date-fns": "^2.28.0",
     "express": "^4.17.2",
     "jwt-decode": "^3.1.2",
     "jwt-simple": "^0.5.6",

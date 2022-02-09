@@ -184,14 +184,14 @@ function JornalistaRelacoesEventos() {
 										<Card.Title>Relação número <b>{item.idrelacaopc}</b> </Card.Title>
 										<hr></hr>
 										<Card.Text>
-											<p><u>Empresa</u>: {item.designacao}</p>
+											<p><b>Empresa</b>: {item.designacao}</p>
 											{data2.map(item => (
-												<p><u>Evento</u>: {item.designacao}</p>
+												<p><b>Evento</b>: {item.designacao}</p>
 											))}
-											<p><u>Motivo</u>: {item.motivo}</p>
-											<p><u>Valores</u>: {item.valores}€</p>
-											<p><u>Data inserção</u>: {item.dataInsercao}</p>
-											<p><u>Inserido por</u>: {item.username}</p>
+											<p><b>Motivo</b>: {item.motivo}</p>
+											<p><b>Valores</b>: {item.valores}€</p>
+											<p><b>Data inserção</b>: {item.dataInsercao}</p>
+											<p><b>Inserido por</b>: {item.username}</p>
 											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
 										<hr></hr>
@@ -218,14 +218,14 @@ function JornalistaRelacoesEventos() {
 										<Card.Title>Relação número <b>{item.idrelacaops}</b> </Card.Title>
 										<hr></hr>
 										<Card.Text>
-											<p><u>Político/Empresário</u>: {item.nome}</p>
+											<p><b>Político/Empresário</b>: {item.nome}</p>
 											{data2.map(item => (
-												<p><u>Evento</u>: {item.designacao}</p>
+												<p><b>Evento</b>: {item.designacao}</p>
 											))}
-											<p><u>Motivo</u>: {item.motivo}</p>
-											<p><u>Valores</u>: {item.valores}€</p>
-											<p><u>Data inserção</u>: {item.dataInsercao}</p>
-											<p><u>Inserido por</u>: {item.username}</p>
+											<p><b>Motivo</b>: {item.motivo}</p>
+											<p><b>Valores</b>: {item.valores}€</p>
+											<p><b>Data inserção</b>: {item.dataInsercao}</p>
+											<p><b>Inserido por</b>: {item.username}</p>
 											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
 										<hr></hr>

@@ -91,8 +91,7 @@ function JornalistaCriarEvento() {
 									placeholder="Introduza a descrição" onChange={e => setDescricao(e.target.value)} />
 								<br></br>
 								<Form.Label>Data: </Form.Label>
-								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="data"
-									placeholder="Introduza a data" onChange={e => setData(e.target.value)} />
+								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} type="date" name='datanascimento' onChange={e => setData(e.target.value)} />
 								<br></br>
 								<button type="button" className="btn btn-info btn-block mt-4" onClick={adicionaEvento}>Criar Evento</button>
 							</div>

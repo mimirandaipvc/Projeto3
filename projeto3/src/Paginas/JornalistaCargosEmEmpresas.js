@@ -83,11 +83,11 @@ function JornalistaCargosEmEmpresas() {
 										<Card.Title>Relação número <b>{item.idrelacoespessoassc}</b> </Card.Title>
 										<hr></hr>
 										<Card.Text>
-											<p><u>Empresa</u>:{item.designacao}</p>
-											<p><u>Data Inicio</u>: {item.datainicio}</p>
-											<p><u>Cargo</u>: {item.cargo}</p>
-											<p><u>Salario Mensal</u>: {item.salario} €</p>
-											<p><u>Inserido por</u>: {item.username}</p>
+											<p><b>Empresa</b>:{item.designacao}</p>
+											<p><b>Data Inicio</b>: {item.datainicio}</p>
+											<p><b>Cargo</b>: {item.cargo}</p>
+											<p><b>Salário Mensal</b>: {item.salario} €</p>
+											<p><b>Inserido por</b>: {item.username}</p>
 										</Card.Text>
 									</Card.Body>
 								</Card>

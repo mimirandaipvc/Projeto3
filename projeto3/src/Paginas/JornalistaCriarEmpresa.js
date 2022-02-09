@@ -93,7 +93,7 @@ function JornalistaCriarEmpresa() {
 									placeholder="Introduza o pais" onChange={e => setPais(e.target.value)} />
 								<br></br>
 								<Form.Label>Ano de Fundação: </Form.Label>
-								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="anofundacao"
+								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="anofundacao" type="number"
 									placeholder="Introduza o ano de fundação" onChange={e => setAnoFundacao(e.target.value)} />
 								<br></br>
 								<Form.Label>Ramo de Atividade: </Form.Label>

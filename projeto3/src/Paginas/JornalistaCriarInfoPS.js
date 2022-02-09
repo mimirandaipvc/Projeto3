@@ -101,15 +101,14 @@ function JornalistaCriarInfoPS() {
 								<h2>Adicionar Relação</h2>
 								<br></br>
 								<Form.Label>Data: </Form.Label>
-								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="data"
-									placeholder="Introduza a data" onChange={e => setData(e.target.value)} />
+								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} type="date" name='datanascimento' onChange={e => setData(e.target.value)} />
 								<br></br>
 								<Form.Label>Motivo: </Form.Label>
 								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="motivo"
 									placeholder="Introduza o motivo" onChange={e => setMotivo(e.target.value)} />
 								<br></br>
 								<Form.Label>Valores: </Form.Label>
-								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="valores"
+								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="valores" type="number"
 									placeholder="Introduza os valores" onChange={e => setValores(e.target.value)} />
 								<br></br>
 								<Form.Label>Evento: </Form.Label>

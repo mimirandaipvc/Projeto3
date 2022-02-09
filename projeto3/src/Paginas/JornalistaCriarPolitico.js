@@ -19,6 +19,7 @@ function JornalistaCriarPolitico() {
 	const [Profissao, setProfissao] = useState([]);
 	const [Partido, setPartido] = useState([]);
 	const navigate = useNavigate()
+	const [startDate, setStartDate] = useState(new Date());
 
 
 	useEffect(() => {
@@ -93,18 +94,20 @@ function JornalistaCriarPolitico() {
 									placeholder="Introduza o nome" onChange={e => setNome(e.target.value)} />
 								<br></br>
 								<Form.Label>Sexo: </Form.Label>
-								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-									placeholder="Introduza o sexo" onChange={e => setSexo(e.target.value)} />
+								<Form.Select style={{ fontSize: 17, padding: '2px 5px' }} aria-label="Default select example" onChange={e => setSexo(e.target.value)}>
+									<option>Selecione o sexo</option>
+									<option value="Masculino" >Masculino</option>
+									<option value="Feminino" >Feminino</option>
+								</Form.Select>
 								<br></br>
 								<Form.Label>Nacionalidade: </Form.Label>
 								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="nome"
 									placeholder="Introduza a nacionalidade" onChange={e => setNacionalidade(e.target.value)} />
 								<br></br>
 								<Form.Label>Data de Nascimento: </Form.Label>
-								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="password"
-									placeholder="Introduza a data de nascimento" onChange={e => setDataNascimento(e.target.value)} />
+								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} type="date" name='datanascimento' onChange={e => setDataNascimento(e.target.value)} />
 								<br></br>
-								<Form.Label>Profissao: </Form.Label>
+								<Form.Label>Profissão: </Form.Label>
 								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="nome"
 									placeholder="Introduza a profissão" onChange={e => setProfissao(e.target.value)} />
 								<br></br>

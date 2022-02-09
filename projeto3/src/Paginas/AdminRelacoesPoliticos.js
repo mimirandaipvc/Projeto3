@@ -79,7 +79,7 @@ function AdminRelacoesPoliticos() {
 							</Navbar.Collapse>
 						</Container>
 					</Navbar>
-					
+
 					<br /><br />
 					<Row>
 						<Col xs={12}><h1>RELAÇÕES</h1></Col>
@@ -94,13 +94,13 @@ function AdminRelacoesPoliticos() {
 										<hr></hr>
 										<Card.Text>
 											{data2.map(item => (
-												<p><u>Politico</u>: {item.nome}</p>
+												<p><b>Politico</b>: {item.nome}</p>
 											))}
-											<p><u>Evento</u>: {item.designacao}</p>
-											<p><u>Motivo</u>: {item.motivo}</p>
-											<p><u>Valores</u>: {item.valores}€</p>
-											<p><u>Data inserção</u>: {item.dataInsercao}</p>
-											<p><u>Inserido por</u>: {item.username}</p>
+											<p><b>Evento</b>: {item.designacao}</p>
+											<p><b>Motivo</b>: {item.motivo}</p>
+											<p><b>Valores</b>: {item.valores}€</p>
+											<p><b>Data inserção</b>: {item.dataInsercao}</p>
+											<p><b>Inserido por</b>: {item.username}</p>
 											<p class="credibilidade"><b>Credibilidade: {item.credibilidade}</b></p>
 										</Card.Text>
 									</Card.Body>
