@@ -111,7 +111,7 @@ function AdminConsultarUtilizadores() {
 										<tr>
 											<td>{item.idutilizador}</td>
 											<td>{item.username}</td>
-											<td>{item.dataregisto}</td>
+											<td>{new Date(item.dataregisto).toLocaleDateString()}</td>
 											<td><Button variant="dark" href={"http://localhost:3000/AdminEditarAdmin/" + item.idutilizador}>Editar</Button></td>
 										</tr>
 									))}
@@ -141,7 +141,7 @@ function AdminConsultarUtilizadores() {
 										<tr>
 											<td>{item.idutilizador}</td>
 											<td>{item.username}</td>
-											<td>{item.dataregisto}</td>
+											<td>{new Date(item.dataregisto).toLocaleDateString()}</td>
 											<td><Button variant="dark" href={"http://localhost:3000/AdminEditarJornalista/" + item.idutilizador}>Editar</Button></td>
 										</tr>
 									))}
@@ -171,7 +171,7 @@ function AdminConsultarUtilizadores() {
 										<tr>
 											<td>{item.idutilizador}</td>
 											<td>{item.username}</td>
-											<td>{item.dataregisto}</td>
+											<td>{new Date(item.dataregisto).toLocaleDateString()}</td>
 											<td><Button variant="dark" href={"http://localhost:3000/AdminEditarCidadaoRegistado/" + item.idutilizador}>Editar</Button></td>
 										</tr>
 									))}

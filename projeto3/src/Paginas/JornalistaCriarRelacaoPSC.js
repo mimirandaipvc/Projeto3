@@ -47,7 +47,7 @@ function JornalistaCriarRelacaoPSC() {
 			}).then(response => {
 				console.log(response.data);
 				alert("Cargo Adicionado!")
-				navigate("/JornalistaHome")
+				navigate("/JornalistaConsultarEmpresarios")
 			}).catch(error => {
 				alert('Dados incorretos!')
 			})

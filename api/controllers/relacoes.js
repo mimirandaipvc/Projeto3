@@ -187,8 +187,8 @@ WHERE idpessoasingular = $1`,
 	}
 
 	controller.criarRelacaoPC = (req, res) => {
-		client.query(`INSERT INTO "relacaopc" ("motivo", "valores", "data", "idpessoacoletiva", "idevento", "idutilizador")
-                       values($1, $2, $3, $4, $5, $6)`,
+		client.query(`INSERT INTO "relacaopc" ("motivo", "valores", "idpessoacoletiva", "idevento", "idutilizador")
+                       values($1, $2, $3, $4, $5)`,
 			[
 				req.body.motivo,
 				req.body.valores,
