@@ -84,7 +84,7 @@ function CRHome() {
 										className="d-block w-100"
 										src={imagem4}
 										alt="First slide"
-									/>CRAPessoal
+									/>
 									<Carousel.Caption>
 										<h3>Consultar Empresas</h3>
 										<p class="home">Visualizar Empresas e respetivas relações</p>

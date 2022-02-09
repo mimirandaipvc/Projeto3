@@ -84,7 +84,7 @@ function CRConsultarEmpresarios() {
 										<th>Nacionalidade</th>
 										<th>Data de Nascimento</th>
 										<th>Profissão</th>
-										<th>Preferência Político</th>
+										<th>Preferência Política</th>
 										<th>Cargos em Empresas</th>
 										<th>Relações</th>
 									</tr>
