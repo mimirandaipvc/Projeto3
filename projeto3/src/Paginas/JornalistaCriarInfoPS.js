@@ -35,13 +35,12 @@ function JornalistaCriarInfoPS() {
 	}
 
 	function adicionaRelacaoPS() {
-		if (Motivo.length == 0 || Valores.length == 0 || Data.length == 0 || IDEvento.length == 0) {
+		if (Motivo.length == 0 || Valores.length == 0 || IDEvento.length == 0) {
 			alert("Dados incorretos")
 		} else {
 			return api.post('/api/v1/RelacaoPS', {
 				motivo: Motivo,
 				valores: Valores,
-				data: Data,
 				idpessoasingular: params.idpessoasingular,
 				idevento: IDEvento,
 				idutilizador
@@ -100,9 +99,6 @@ function JornalistaCriarInfoPS() {
 						<Col xs={12}>
 							<div class="conteudoo">
 								<h2>Adicionar Relação</h2>
-								<br></br>
-								<Form.Label>Data: </Form.Label>
-								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} type="date" name='datanascimento' onChange={e => setData(e.target.value)} />
 								<br></br>
 								<Form.Label>Motivo: </Form.Label>
 								<Form.Control style={{ fontSize: 17, padding: '2px 5px' }} name="motivo"
